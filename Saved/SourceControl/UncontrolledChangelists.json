@@ -140,17 +140,18 @@
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/MetaHumans/Kristofer/Animations/Standing_Idle.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/MetaHumans/Kristofer/Animations/Standing_Melee_Attack_Downward.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Animations/Standing_Melee_Attack_Downward.uasset",
-				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Input/IA_Equip.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Input/IA_Interact.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Items/Chair/BP_Chair.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Characters/Mannequins/Meshes/SKM_Manny.uasset",
-				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/ABP_Drummer_MainStates.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/BP_Drummer_MainStates.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/ABP_Drummer_IK.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Animations/Sitting_Laughing.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Mixamo/YBot/Animations/Sitting_Laughing.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Animations/Standing_Run_Forward.uasset",
-				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Mixamo/YBot/Animations/Standing_Run_Forward.uasset"
+				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Mixamo/YBot/Animations/Standing_Run_Forward.uasset",
+				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Input/IA_Attack.uasset",
+				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Input/IA_Equip.uasset",
+				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/ABP_Drummer_MainStates.uasset"
 			]
 		}
 	]

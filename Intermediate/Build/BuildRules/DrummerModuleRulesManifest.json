@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"/Users/olavu/Documents/Unreal Projects/Drummer/Source/Drummer/Drummer.Build.cs",
+		"/Users/olavu/Documents/Unreal Projects/Drummer/Source/Drummer.Target.cs",
+		"/Users/olavu/Documents/Unreal Projects/Drummer/Source/DrummerEditor.Target.cs"
+	],
+	"EngineVersion": "5.3.2"
+}
