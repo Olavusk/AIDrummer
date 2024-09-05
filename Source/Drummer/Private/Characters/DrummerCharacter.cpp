@@ -11,6 +11,7 @@
 #include "Items/Weapons/Weapon.h"
 #include "Items/Chair/Chair.h"
 #include "Items/Item.h"
+#include "Animation/AnimInstance.h"
 
 // #include "CommonTextBlock.h"
 
@@ -59,8 +60,8 @@ void ADrummerCharacter::BeginPlay()
 
 void ADrummerCharacter::Move(const FInputActionValue &Value)
 {
-	// if (ActionState != EActionState::EAS_Unoccupied)
-	// 	return;
+	if (ActionState == EActionState::EAS_Attacking)
+		return;
 	// SIMPLE MOVEMENT
 	const FVector2D MovementVector = Value.Get<FVector2D>();
 
@@ -97,6 +98,49 @@ void ADrummerCharacter::EKeyPressed()
 	}
 }
 
+void ADrummerCharacter::Attack()
+{
+	if (CanAttack())
+	{
+		PlayAttackMontage();
+		ActionState = EActionState::EAS_Attacking;
+	}
+}
+
+bool ADrummerCharacter::CanAttack()
+{
+	return ActionState == EActionState::EAS_Unoccupied &&
+		   CharacterState != ECharacterState::ECS_Unequipped;
+}
+
+void ADrummerCharacter::PlayAttackMontage()
+{
+	UAnimInstance *AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance && AttackMontage)
+	{
+		AnimInstance->Montage_Play(AttackMontage);
+		const int32 Selection = FMath::RandRange(0, 1);
+		FName SectionName = FName();
+		switch (Selection)
+		{
+		case 0:
+			SectionName = FName("Attack1");
+			break;
+		case 1:
+			SectionName = FName("Attack2");
+			break;
+		default:
+			break;
+		}
+		AnimInstance->Montage_JumpToSection(SectionName, AttackMontage);
+	}
+}
+
+void ADrummerCharacter::AttackEnd()
+{
+	ActionState = EActionState::EAS_Unoccupied;
+}
+
 void ADrummerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -111,7 +155,7 @@ void ADrummerCharacter::SetupPlayerInputComponent(UInputComponent *PlayerInputCo
 		EnhancedInputComponent->BindAction(MovementAction, ETriggerEvent::Triggered, this, &ADrummerCharacter::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ADrummerCharacter::Look);
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ADrummerCharacter::Jump);
-		// EnhancedInputComponent->BindAction(PunchAction, ETriggerEvent::Triggered, this, &ADrummerCharacter::Punch);
+		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Triggered, this, &ADrummerCharacter::Attack);
 		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &ADrummerCharacter::EKeyPressed);
 	}
 }

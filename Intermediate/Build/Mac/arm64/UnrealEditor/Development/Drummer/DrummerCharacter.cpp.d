@@ -3964,4 +3964,5 @@
   Runtime/Engine/Public/Subsystems/WorldSubsystem.h \
   ../Plugins/EnhancedInput/Intermediate/Build/Mac/UnrealEditor/Inc/EnhancedInput/UHT/EnhancedInputSubsystems.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Public/Items/Chair/Chair.h \
-  /Users/olavu/Documents/Unreal\ Projects/Drummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Chair.generated.h
+  /Users/olavu/Documents/Unreal\ Projects/Drummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Chair.generated.h \
+  Runtime/Engine/Classes/Animation/AnimInstance.h

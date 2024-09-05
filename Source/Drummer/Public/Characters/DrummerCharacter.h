@@ -14,6 +14,7 @@ class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;
 class AItem;
+class UAnimMontage;
 
 UCLASS()
 class DRUMMER_API ADrummerCharacter : public ACharacter
@@ -43,17 +44,33 @@ protected:
 	UInputAction *JumpAction;
 
 	UPROPERTY(EditAnywhere, Category = Input)
-	UInputAction *PunchAction;
+	UInputAction *AttackAction;
 
 	UPROPERTY(EditAnywhere, Category = Input)
 	UInputAction *InteractAction;
 
+	/**
+	 * Callbacks for input
+	 */
 	void Move(const FInputActionValue &Value);
 	void Look(const FInputActionValue &Value);
 	void EKeyPressed();
+	void Attack();
+
+	/**
+	 * Play montage functions
+	 */
+	void PlayAttackMontage();
+
+	UFUNCTION(BlueprintCallable)
+	void AttackEnd();
+	bool CanAttack();
 
 private:
 	ECharacterState CharacterState = ECharacterState::ECS_Unequipped;
+
+	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	EActionState ActionState = EActionState::EAS_Unoccupied;
 
 	UPROPERTY(VisibleAnywhere)
 	USpringArmComponent *CameraBoom;
@@ -63,4 +80,11 @@ private:
 
 	UPROPERTY(VisibleInstanceOnly)
 	AItem *OverlappingItem;
+
+	/**
+	 * Animation montages
+	 */
+
+	UPROPERTY(EditDefaultsOnly, Category = Montages)
+	UAnimMontage *AttackMontage;
 };

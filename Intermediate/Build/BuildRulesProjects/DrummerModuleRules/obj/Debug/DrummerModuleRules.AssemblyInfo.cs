@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DrummerModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1fc36b9f757900271ed7dd234b29f845eca1f30")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6109842f638c8aeeea2997db7a9c19def2c7c05e")]
 [assembly: System.Reflection.AssemblyProductAttribute("DrummerModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DrummerModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

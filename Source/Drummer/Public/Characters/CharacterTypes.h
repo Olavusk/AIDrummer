@@ -9,3 +9,10 @@ enum class ECharacterState : uint8
     ECS_Drumming UMETA(DisplayName = "Drumming"),
 
 };
+
+UENUM(BlueprintType)
+enum class EActionState : uint8
+{
+    EAS_Unoccupied UMETA(DisplayName = "Unnoccupied"),
+    EAS_Attacking UMETA(DisplayName = "Attacking"),
+};
