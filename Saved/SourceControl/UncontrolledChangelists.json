@@ -171,6 +171,12 @@
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Audio/Running/sfx_basicFootstep1.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Audio/Running/sfx_basicFootstep2_1.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Audio/Running/sfx_basicFootstep3.uasset",
+				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Animations/Unequip.uasset",
+				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Animations/Equip.uasset",
+				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Mixamo/YBot/Animations/Unequip.uasset",
+				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Mixamo/YBot/Animations/Equip.uasset",
+				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Animations/AM_Equip.uasset",
+				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Mixamo/YBot/Animations/Standing_Disarm_Over_Shoulder.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Input/IA_Punch.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/Input/IA_Equip.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/Characters/ABP_Drummer_MainStates.uasset"

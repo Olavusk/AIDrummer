@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 	DRUMMER_API UClass* Z_Construct_UClass_ADrummerCharacter();
 	DRUMMER_API UClass* Z_Construct_UClass_ADrummerCharacter_NoRegister();
 	DRUMMER_API UClass* Z_Construct_UClass_AItem_NoRegister();
+	DRUMMER_API UClass* Z_Construct_UClass_AWeapon_NoRegister();
 	DRUMMER_API UEnum* Z_Construct_UEnum_Drummer_EActionState();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
@@ -112,9 +113,17 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_OverlappingItem;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EquippedWeapon_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_EquippedWeapon;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttackMontage_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_AttackMontage;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EquipMontage_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_EquipMontage;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -210,6 +219,13 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_OverlappingItem = { "OverlappingItem", nullptr, (EPropertyFlags)0x0040000000020801, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADrummerCharacter, OverlappingItem), Z_Construct_UClass_AItem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_OverlappingItem_MetaData), Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_OverlappingItem_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_EquippedWeapon_MetaData[] = {
+		{ "Category", "Weapon" },
+		{ "ModuleRelativePath", "Public/Characters/DrummerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_EquippedWeapon = { "EquippedWeapon", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADrummerCharacter, EquippedWeapon), Z_Construct_UClass_AWeapon_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_EquippedWeapon_MetaData), Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_EquippedWeapon_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_AttackMontage_MetaData[] = {
 		{ "Category", "Montages" },
 #if !UE_BUILD_SHIPPING
@@ -222,6 +238,13 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_AttackMontage = { "AttackMontage", nullptr, (EPropertyFlags)0x0040000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADrummerCharacter, AttackMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_AttackMontage_MetaData), Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_AttackMontage_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_EquipMontage_MetaData[] = {
+		{ "Category", "Montages" },
+		{ "ModuleRelativePath", "Public/Characters/DrummerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_EquipMontage = { "EquipMontage", nullptr, (EPropertyFlags)0x0040000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADrummerCharacter, EquipMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_EquipMontage_MetaData), Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_EquipMontage_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADrummerCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_DrummerContext,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_MovementAction,
@@ -234,7 +257,9 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_CameraBoom,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_ViewCamera,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_OverlappingItem,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_EquippedWeapon,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_AttackMontage,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_EquipMontage,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADrummerCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADrummerCharacter>::IsAbstract,
@@ -274,9 +299,9 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADrummerCharacter, ADrummerCharacter::StaticClass, TEXT("ADrummerCharacter"), &Z_Registration_Info_UClass_ADrummerCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADrummerCharacter), 345354012U) },
+		{ Z_Construct_UClass_ADrummerCharacter, ADrummerCharacter::StaticClass, TEXT("ADrummerCharacter"), &Z_Registration_Info_UClass_ADrummerCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADrummerCharacter), 2101946730U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_2756904936(TEXT("/Script/Drummer"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_221866801(TEXT("/Script/Drummer"),
 		Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
