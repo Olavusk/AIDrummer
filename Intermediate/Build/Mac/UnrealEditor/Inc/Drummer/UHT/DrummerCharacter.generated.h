@@ -19,6 +19,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_23_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execFinishEquipping); \
+	DECLARE_FUNCTION(execArm); \
+	DECLARE_FUNCTION(execDisarm); \
 	DECLARE_FUNCTION(execAttackEnd);
 
 

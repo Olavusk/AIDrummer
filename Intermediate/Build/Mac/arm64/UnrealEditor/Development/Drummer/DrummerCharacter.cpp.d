@@ -3859,49 +3859,13 @@
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/bitset \
   /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Private/Characters/DrummerCharacter.cpp \
   /Users/olavu/Documents/Unreal\ Projects/Drummer/Intermediate/Build/Mac/arm64/UnrealEditor/Development/Drummer/Definitions.Drummer.h \
-  /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Public/Characters/DrummerCharacter.h \
-  Runtime/Core/Public/CoreMinimal.h \
-  Runtime/Engine/Classes/GameFramework/Character.h \
-  Runtime/CoreUObject/Public/UObject/ObjectMacros.h \
-  Runtime/CoreUObject/Public/UObject/UObjectGlobals.h \
-  Runtime/CoreUObject/Public/Templates/SubclassOf.h \
-  Runtime/CoreUObject/Public/UObject/CoreNet.h \
-  Runtime/Engine/Classes/Engine/NetSerialization.h \
-  Runtime/Engine/Classes/Engine/EngineTypes.h \
-  Runtime/Engine/Classes/Components/ActorComponent.h \
-  Runtime/Engine/Classes/GameFramework/Actor.h \
-  Runtime/Engine/Classes/GameFramework/Pawn.h \
-  Runtime/Engine/Classes/GameFramework/CharacterMovementReplication.h \
-  Runtime/CoreUObject/Public/UObject/Object.h \
-  Runtime/Core/Public/Serialization/BitWriter.h \
-  Runtime/Core/Public/Containers/BitArray.h \
-  Runtime/Experimental/Iris/Core/Public/Iris/Serialization/IrisObjectReferencePackageMap.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/IrisCore/UHT/IrisObjectReferencePackageMap.generated.h \
-  Runtime/CoreUObject/Public/UObject/ScriptMacros.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CharacterMovementReplication.generated.h \
-  Runtime/Engine/Classes/Animation/AnimationAsset.h \
-  Runtime/Engine/Classes/GameFramework/RootMotionSource.h \
-  Runtime/Core/Public/HAL/IConsoleManager.h \
-  Runtime/CoreUObject/Public/UObject/Class.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/RootMotionSource.generated.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/Character.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Public/Items/Weapons/Weapon.h \
-  /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Public/Items/Item.h \
-  Runtime/Engine/Classes/Components/SphereComponent.h \
-  Runtime/Engine/Classes/Components/ShapeComponent.h \
-  Runtime/Engine/Classes/Components/PrimitiveComponent.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ShapeComponent.generated.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/SphereComponent.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/Drummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Item.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/Drummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Weapon.generated.h \
-  ../Plugins/EnhancedInput/Source/EnhancedInput/Public/InputActionValue.h \
-  Runtime/InputCore/Classes/InputCoreTypes.h \
-  ../Plugins/EnhancedInput/Intermediate/Build/Mac/UnrealEditor/Inc/EnhancedInput/UHT/InputActionValue.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Public/Characters/CharacterTypes.h \
-  /Users/olavu/Documents/Unreal\ Projects/Drummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerCharacter.generated.h \
   Runtime/Engine/Classes/GameFramework/SpringArmComponent.h \
+  Runtime/Core/Public/CoreMinimal.h \
+  Runtime/CoreUObject/Public/UObject/ObjectMacros.h \
+  Runtime/Engine/Classes/Engine/EngineTypes.h \
   Runtime/Engine/Classes/Components/SceneComponent.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/SpringArmComponent.generated.h \
+  Runtime/CoreUObject/Public/UObject/ScriptMacros.h \
   Runtime/Engine/Classes/Camera/CameraComponent.h \
   Runtime/CoreUObject/Public/UObject/ScriptInterface.h \
   Runtime/Engine/Classes/Engine/BlendableInterface.h \
@@ -3910,10 +3874,17 @@
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CameraComponent.generated.h \
   Runtime/Engine/Classes/GameFramework/CharacterMovementComponent.h \
   Runtime/Core/Public/Math/RandomStream.h \
+  Runtime/CoreUObject/Public/UObject/UObjectGlobals.h \
+  Runtime/Engine/Classes/Engine/NetSerialization.h \
   Runtime/Engine/Classes/Engine/EngineBaseTypes.h \
   Runtime/Engine/Public/WorldCollision.h \
   Runtime/Engine/Classes/AI/Navigation/NavigationTypes.h \
+  Runtime/Engine/Classes/Animation/AnimationAsset.h \
   Runtime/Engine/Classes/Animation/AnimMontage.h \
+  Runtime/Engine/Classes/GameFramework/RootMotionSource.h \
+  Runtime/Core/Public/HAL/IConsoleManager.h \
+  Runtime/CoreUObject/Public/UObject/Class.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/RootMotionSource.generated.h \
   Runtime/Engine/Classes/AI/Navigation/NavigationAvoidanceTypes.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavigationAvoidanceTypes.generated.h \
   Runtime/Engine/Public/AI/RVOAvoidanceInterface.h \
@@ -3921,14 +3892,24 @@
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/RVOAvoidanceInterface.generated.h \
   Runtime/Engine/Classes/GameFramework/PawnMovementComponent.h \
   Runtime/Engine/Classes/GameFramework/NavMovementComponent.h \
+  Runtime/Engine/Classes/GameFramework/Actor.h \
   Runtime/Engine/Classes/AI/Navigation/NavAgentInterface.h \
   Runtime/Engine/Classes/AI/Navigation/PathFollowingAgentInterface.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/PathFollowingAgentInterface.generated.h \
   Runtime/Engine/Classes/GameFramework/MovementComponent.h \
   Runtime/PhysicsCore/Public/Chaos/ChaosEngineInterface.h \
+  Runtime/Engine/Classes/Components/ActorComponent.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/MovementComponent.generated.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavMovementComponent.generated.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/PawnMovementComponent.generated.h \
+  Runtime/Engine/Classes/GameFramework/CharacterMovementReplication.h \
+  Runtime/CoreUObject/Public/UObject/Object.h \
+  Runtime/Core/Public/Serialization/BitWriter.h \
+  Runtime/Core/Public/Containers/BitArray.h \
+  Runtime/Experimental/Iris/Core/Public/Iris/Serialization/IrisObjectReferencePackageMap.h \
+  Runtime/CoreUObject/Public/UObject/CoreNet.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/IrisCore/UHT/IrisObjectReferencePackageMap.generated.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CharacterMovementReplication.generated.h \
   Runtime/Engine/Classes/Interfaces/NetworkPredictionInterface.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NetworkPredictionInterface.generated.h \
   Runtime/Engine/Public/CharacterMovementComponentAsync.h \
@@ -3943,6 +3924,9 @@
   ../Plugins/EnhancedInput/Source/EnhancedInput/Public/InputAction.h \
   Runtime/Engine/Classes/Engine/DataAsset.h \
   ../Plugins/EnhancedInput/Source/EnhancedInput/Public/InputModifiers.h \
+  ../Plugins/EnhancedInput/Source/EnhancedInput/Public/InputActionValue.h \
+  Runtime/InputCore/Classes/InputCoreTypes.h \
+  ../Plugins/EnhancedInput/Intermediate/Build/Mac/UnrealEditor/Inc/EnhancedInput/UHT/InputActionValue.generated.h \
   ../Plugins/EnhancedInput/Intermediate/Build/Mac/UnrealEditor/Inc/EnhancedInput/UHT/InputModifiers.generated.h \
   ../Plugins/EnhancedInput/Source/EnhancedInput/Public/InputTriggers.h \
   ../Plugins/EnhancedInput/Intermediate/Build/Mac/UnrealEditor/Inc/EnhancedInput/UHT/InputTriggers.generated.h \
@@ -3963,6 +3947,22 @@
   Runtime/Engine/Public/Subsystems/LocalPlayerSubsystem.h \
   Runtime/Engine/Public/Subsystems/WorldSubsystem.h \
   ../Plugins/EnhancedInput/Intermediate/Build/Mac/UnrealEditor/Inc/EnhancedInput/UHT/EnhancedInputSubsystems.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Public/Items/Weapons/Weapon.h \
+  /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Public/Items/Item.h \
+  Runtime/Engine/Classes/Components/SphereComponent.h \
+  Runtime/Engine/Classes/Components/ShapeComponent.h \
+  Runtime/CoreUObject/Public/Templates/SubclassOf.h \
+  Runtime/Engine/Classes/Components/PrimitiveComponent.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ShapeComponent.generated.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/SphereComponent.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/Drummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Item.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/Drummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Weapon.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Public/Items/Chair/Chair.h \
   /Users/olavu/Documents/Unreal\ Projects/Drummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Chair.generated.h \
-  Runtime/Engine/Classes/Animation/AnimInstance.h
+  Runtime/Engine/Classes/Animation/AnimInstance.h \
+  /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Public/Characters/DrummerCharacter.h \
+  Runtime/Engine/Classes/GameFramework/Character.h \
+  Runtime/Engine/Classes/GameFramework/Pawn.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/Character.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/Drummer/Source/Drummer/Public/Characters/CharacterTypes.h \
+  /Users/olavu/Documents/Unreal\ Projects/Drummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerCharacter.generated.h

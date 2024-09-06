@@ -1,7 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Characters/DrummerCharacter.h"
-
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -12,6 +10,7 @@
 #include "Items/Chair/Chair.h"
 #include "Items/Item.h"
 #include "Animation/AnimInstance.h"
+#include "Characters/DrummerCharacter.h"
 
 // #include "CommonTextBlock.h"
 
@@ -60,7 +59,7 @@ void ADrummerCharacter::BeginPlay()
 
 void ADrummerCharacter::Move(const FInputActionValue &Value)
 {
-	if (ActionState == EActionState::EAS_Attacking)
+	if (ActionState != EActionState::EAS_Unoccupied)
 		return;
 	// SIMPLE MOVEMENT
 	const FVector2D MovementVector = Value.Get<FVector2D>();
@@ -84,19 +83,19 @@ void ADrummerCharacter::Look(const FInputActionValue &Value)
 
 void ADrummerCharacter::EKeyPressed()
 {
-	if (OverlappingItem)
+	AWeapon *OverlappingWeapon = Cast<AWeapon>(OverlappingItem);
+	if (OverlappingWeapon)
 	{
-		if (AWeapon *OverlappingWeapon = Cast<AWeapon>(OverlappingItem))
-		{
-			OverlappingWeapon->Equip(GetMesh(), FName("RightHandSocket"));
-			CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
-			OverlappingItem = nullptr;
-			EquippedWeapon = OverlappingWeapon;
-		}
-		else if (AChair *OverlappingChair = Cast<AChair>(OverlappingItem))
-		{
-			CharacterState = ECharacterState::ECS_Drumming;
-		}
+		OverlappingWeapon->Equip(GetMesh(), FName("RightHandSocket"));
+		CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
+		OverlappingItem = nullptr; // Clear the item after equipping
+		EquippedWeapon = OverlappingWeapon;
+
+		// Log to ensure OverlappingItem is correctly cleared
+		UE_LOG(LogTemp, Warning, TEXT("After Equip: OverlappingItem: %s"), *GetNameSafe(OverlappingItem));
+		UE_LOG(LogTemp, Warning, TEXT("CharacterState1: %d, ActionState: %d"), CharacterState, ActionState);
+
+		return;
 	}
 	else
 	{
@@ -104,12 +103,20 @@ void ADrummerCharacter::EKeyPressed()
 		{
 			PlayEquipMontage(FName("Unequip"));
 			CharacterState = ECharacterState::ECS_Unequipped;
+			ActionState = EActionState::EAS_EquippingWeapon;
+			UE_LOG(LogTemp, Warning, TEXT("CharacterState2: %d, ActionState: %d"), CharacterState, ActionState);
 		}
 		else if (CanArm())
 		{
 			PlayEquipMontage(FName("Equip"));
 			CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
+			ActionState = EActionState::EAS_EquippingWeapon;
+			UE_LOG(LogTemp, Warning, TEXT("CharacterState3: %d, ActionState: %d"), CharacterState, ActionState);
 		}
+	}
+	if (AChair *OverlappingChair = Cast<AChair>(OverlappingItem))
+	{
+		CharacterState = ECharacterState::ECS_Drumming;
 	}
 }
 
@@ -141,6 +148,25 @@ bool ADrummerCharacter::CanArm()
 		   EquippedWeapon;
 }
 
+void ADrummerCharacter::Disarm()
+{
+	if (EquippedWeapon)
+	{
+		EquippedWeapon->AttachMeshToSocket(GetMesh(), FName("SpineSocket"));
+	}
+}
+
+void ADrummerCharacter::Arm()
+{
+	if (EquippedWeapon)
+	{
+		EquippedWeapon->AttachMeshToSocket(GetMesh(), FName("RightHandSocket"));
+	}
+}
+void ADrummerCharacter::FinishEquipping()
+{
+	ActionState = EActionState::EAS_Unoccupied;
+}
 void ADrummerCharacter::PlayAttackMontage()
 {
 	UAnimInstance *AnimInstance = GetMesh()->GetAnimInstance();

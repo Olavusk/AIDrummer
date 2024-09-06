@@ -22,6 +22,27 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_Drummer();
 // End Cross Module References
+	DEFINE_FUNCTION(ADrummerCharacter::execFinishEquipping)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->FinishEquipping();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ADrummerCharacter::execArm)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Arm();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ADrummerCharacter::execDisarm)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Disarm();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ADrummerCharacter::execAttackEnd)
 	{
 		P_FINISH;
@@ -33,9 +54,34 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 	{
 		UClass* Class = ADrummerCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "Arm", &ADrummerCharacter::execArm },
 			{ "AttackEnd", &ADrummerCharacter::execAttackEnd },
+			{ "Disarm", &ADrummerCharacter::execDisarm },
+			{ "FinishEquipping", &ADrummerCharacter::execFinishEquipping },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ADrummerCharacter_Arm_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADrummerCharacter_Arm_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/Characters/DrummerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADrummerCharacter_Arm_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADrummerCharacter, nullptr, "Arm", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADrummerCharacter_Arm_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADrummerCharacter_Arm_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_ADrummerCharacter_Arm()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADrummerCharacter_Arm_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ADrummerCharacter_AttackEnd_Statics
 	{
@@ -56,6 +102,50 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADrummerCharacter_AttackEnd_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ADrummerCharacter_Disarm_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADrummerCharacter_Disarm_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/Characters/DrummerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADrummerCharacter_Disarm_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADrummerCharacter, nullptr, "Disarm", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADrummerCharacter_Disarm_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADrummerCharacter_Disarm_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_ADrummerCharacter_Disarm()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADrummerCharacter_Disarm_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ADrummerCharacter_FinishEquipping_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADrummerCharacter_FinishEquipping_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/Characters/DrummerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADrummerCharacter_FinishEquipping_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADrummerCharacter, nullptr, "FinishEquipping", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADrummerCharacter_FinishEquipping_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADrummerCharacter_FinishEquipping_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_ADrummerCharacter_FinishEquipping()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADrummerCharacter_FinishEquipping_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -134,7 +224,10 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADrummerCharacter_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADrummerCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ADrummerCharacter_Arm, "Arm" }, // 2696180486
 		{ &Z_Construct_UFunction_ADrummerCharacter_AttackEnd, "AttackEnd" }, // 4062595048
+		{ &Z_Construct_UFunction_ADrummerCharacter_Disarm, "Disarm" }, // 1748714641
+		{ &Z_Construct_UFunction_ADrummerCharacter_FinishEquipping, "FinishEquipping" }, // 3534440601
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADrummerCharacter_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -194,7 +287,7 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 		{ "ModuleRelativePath", "Public/Characters/DrummerCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_ActionState = { "ActionState", nullptr, (EPropertyFlags)0x0040000000000004, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADrummerCharacter, ActionState), Z_Construct_UEnum_Drummer_EActionState, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_ActionState_MetaData), Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_ActionState_MetaData) }; // 2320188286
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_ActionState = { "ActionState", nullptr, (EPropertyFlags)0x0040000000000004, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADrummerCharacter, ActionState), Z_Construct_UEnum_Drummer_EActionState, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_ActionState_MetaData), Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_ActionState_MetaData) }; // 1176607902
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADrummerCharacter_Statics::NewProp_CameraBoom_MetaData[] = {
 		{ "Category", "DrummerCharacter" },
@@ -299,9 +392,9 @@ void EmptyLinkFunctionForGeneratedCodeDrummerCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADrummerCharacter, ADrummerCharacter::StaticClass, TEXT("ADrummerCharacter"), &Z_Registration_Info_UClass_ADrummerCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADrummerCharacter), 2101946730U) },
+		{ Z_Construct_UClass_ADrummerCharacter, ADrummerCharacter::StaticClass, TEXT("ADrummerCharacter"), &Z_Registration_Info_UClass_ADrummerCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADrummerCharacter), 346585946U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_221866801(TEXT("/Script/Drummer"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_1228449236(TEXT("/Script/Drummer"),
 		Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_DrummerCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

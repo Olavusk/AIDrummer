@@ -98,12 +98,15 @@ void EmptyLinkFunctionForGeneratedCodeCharacterTypes() {}
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_Drummer_EActionState_Statics::Enumerators[] = {
 		{ "EActionState::EAS_Unoccupied", (int64)EActionState::EAS_Unoccupied },
 		{ "EActionState::EAS_Attacking", (int64)EActionState::EAS_Attacking },
+		{ "EActionState::EAS_EquippingWeapon", (int64)EActionState::EAS_EquippingWeapon },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_Drummer_EActionState_Statics::Enum_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
 		{ "EAS_Attacking.DisplayName", "Attacking" },
 		{ "EAS_Attacking.Name", "EActionState::EAS_Attacking" },
+		{ "EAS_EquippingWeapon.DisplayName", "Equipping Weapon" },
+		{ "EAS_EquippingWeapon.Name", "EActionState::EAS_EquippingWeapon" },
 		{ "EAS_Unoccupied.DisplayName", "Unnoccupied" },
 		{ "EAS_Unoccupied.Name", "EActionState::EAS_Unoccupied" },
 		{ "ModuleRelativePath", "Public/Characters/CharacterTypes.h" },
@@ -135,9 +138,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterTypes() {}
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_CharacterTypes_h_Statics::EnumInfo[] = {
 		{ ECharacterState_StaticEnum, TEXT("ECharacterState"), &Z_Registration_Info_UEnum_ECharacterState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3071611521U) },
-		{ EActionState_StaticEnum, TEXT("EActionState"), &Z_Registration_Info_UEnum_EActionState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2320188286U) },
+		{ EActionState_StaticEnum, TEXT("EActionState"), &Z_Registration_Info_UEnum_EActionState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1176607902U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_CharacterTypes_h_4237128263(TEXT("/Script/Drummer"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_CharacterTypes_h_2352535476(TEXT("/Script/Drummer"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_CharacterTypes_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Characters_CharacterTypes_h_Statics::EnumInfo));
