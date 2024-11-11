@@ -27,26 +27,4 @@ void UDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
         IsFalling = DrummerCharacterMovement->IsFalling();
         CharacterState = DrummerCharacter->GetCharacterState();
     }
-
-    // Capture and log skeletal bone positions
-    if (USkeletalMeshComponent *SkelMesh = GetSkelMeshComponent())
-    {
-        BoneTransforms.Empty(); // Clear previous frame data
-
-        // Get all bone names and store positions
-        int32 BoneCount = SkelMesh->GetNumBones();
-        for (int32 i = 0; i < BoneCount; ++i)
-        {
-            FName BoneName = SkelMesh->GetBoneName(i);
-            FTransform BoneTransform = SkelMesh->GetBoneTransform(i);
-            BoneTransforms.Add(BoneTransform);
-
-            // Optionally, log or broadcast the bone position
-            FVector BonePosition = BoneTransform.GetLocation();
-            UE_LOG(LogTemp, Log, TEXT("Bone %s Position: %s"), *BoneName.ToString(), *BonePosition.ToString());
-
-            // Broadcasting logic can be implemented here if needed
-            BroadcastBonePosition(BoneName, BonePosition); // hypothetical function
-        }
-    }
 }

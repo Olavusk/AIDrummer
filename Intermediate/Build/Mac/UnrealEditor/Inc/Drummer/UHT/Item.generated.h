@@ -17,19 +17,14 @@ struct FHitResult;
 #endif
 #define DRUMMER_Item_generated_h
 
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_SPARSE_DATA
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
- \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Items_Item_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnSphereEndOverlap); \
 	DECLARE_FUNCTION(execOnSphereOverlap); \
 	DECLARE_FUNCTION(execTransformedCos); \
 	DECLARE_FUNCTION(execTransformedSin);
 
 
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_ACCESSORS
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_INCLASS_NO_PURE_DECLS \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Items_Item_h_21_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAItem(); \
 	friend struct Z_Construct_UClass_AItem_Statics; \
@@ -38,11 +33,11 @@ public: \
 	DECLARE_SERIALIZER(AItem)
 
 
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_ENHANCED_CONSTRUCTORS \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Items_Item_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
-	NO_API AItem(AItem&&); \
-	NO_API AItem(const AItem&); \
+	AItem(AItem&&); \
+	AItem(const AItem&); \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AItem); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AItem); \
@@ -50,17 +45,13 @@ public: \
 	NO_API virtual ~AItem();
 
 
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_18_PROLOG
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_GENERATED_BODY \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Items_Item_h_18_PROLOG
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Items_Item_h_21_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_SPARSE_DATA \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_ACCESSORS \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_INCLASS_NO_PURE_DECLS \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h_21_ENHANCED_CONSTRUCTORS \
+	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Items_Item_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Items_Item_h_21_INCLASS_NO_PURE_DECLS \
+	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Items_Item_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -68,7 +59,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> DRUMMER_API UClass* StaticClass<class AItem>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Items_Item_h
+#define CURRENT_FILE_ID FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Items_Item_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

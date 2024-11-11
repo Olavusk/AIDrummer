@@ -14,12 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DRUMMER_Bird_generated_h
 
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_SPARSE_DATA
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_ACCESSORS
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_INCLASS_NO_PURE_DECLS \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Pawns_Bird_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABird(); \
 	friend struct Z_Construct_UClass_ABird_Statics; \
@@ -28,11 +23,11 @@ public: \
 	DECLARE_SERIALIZER(ABird)
 
 
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_ENHANCED_CONSTRUCTORS \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Pawns_Bird_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
-	NO_API ABird(ABird&&); \
-	NO_API ABird(const ABird&); \
+	ABird(ABird&&); \
+	ABird(const ABird&); \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ABird); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABird); \
@@ -40,17 +35,12 @@ public: \
 	NO_API virtual ~ABird();
 
 
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_14_PROLOG
-#define FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_GENERATED_BODY \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Pawns_Bird_h_14_PROLOG
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Pawns_Bird_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_SPARSE_DATA \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_ACCESSORS \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_INCLASS_NO_PURE_DECLS \
-	FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h_17_ENHANCED_CONSTRUCTORS \
+	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Pawns_Bird_h_17_INCLASS_NO_PURE_DECLS \
+	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Pawns_Bird_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -58,7 +48,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> DRUMMER_API UClass* StaticClass<class ABird>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_olavu_Documents_Unreal_Projects_Drummer_Source_Drummer_Public_Pawns_Bird_h
+#define CURRENT_FILE_ID FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Pawns_Bird_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

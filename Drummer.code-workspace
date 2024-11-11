@@ -6,7 +6,7 @@
 		},
 		{
 			"name": "UE5",
-			"path": "/Users/Shared/Epic Games/UE_5.3"
+			"path": "/Users/Shared/Epic Games/UE_5.4"
 		}
 	],
 	"settings": {
@@ -16,10 +16,7 @@
 	"extensions": {
 		"recommendations": [
 			"ms-vscode.cpptools",
-			"ms-dotnettools.csharp",
-			"vadimcn.vscode-lldb",
-			"ms-vscode.mono-debug",
-			"dfarley1.file-picker"
+			"ms-dotnettools.csharp"
 		]
 	},
 	"tasks": {
@@ -33,13 +30,13 @@
 					"Drummer",
 					"Mac",
 					"Debug",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -50,7 +47,7 @@
 					"Drummer",
 					"Mac",
 					"Debug",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -59,7 +56,7 @@
 				],
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -70,14 +67,14 @@
 					"Drummer",
 					"Mac",
 					"Debug",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex",
 					"-clean"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -88,13 +85,13 @@
 					"Drummer",
 					"Mac",
 					"DebugGame",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -105,7 +102,7 @@
 					"Drummer",
 					"Mac",
 					"DebugGame",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -114,7 +111,7 @@
 				],
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -125,14 +122,14 @@
 					"Drummer",
 					"Mac",
 					"DebugGame",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex",
 					"-clean"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -143,13 +140,13 @@
 					"Drummer",
 					"Mac",
 					"Development",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -160,7 +157,7 @@
 					"Drummer",
 					"Mac",
 					"Development",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -169,7 +166,7 @@
 				],
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -180,14 +177,14 @@
 					"Drummer",
 					"Mac",
 					"Development",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex",
 					"-clean"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -198,13 +195,13 @@
 					"Drummer",
 					"Mac",
 					"Test",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -215,7 +212,7 @@
 					"Drummer",
 					"Mac",
 					"Test",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -224,7 +221,7 @@
 				],
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -235,14 +232,14 @@
 					"Drummer",
 					"Mac",
 					"Test",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex",
 					"-clean"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -253,13 +250,13 @@
 					"Drummer",
 					"Mac",
 					"Shipping",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -270,7 +267,7 @@
 					"Drummer",
 					"Mac",
 					"Shipping",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -279,7 +276,7 @@
 				],
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -290,289 +287,14 @@
 					"Drummer",
 					"Mac",
 					"Shipping",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex",
 					"-clean"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Debug Build",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Debug",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex"
-				],
-				"problemMatcher": "$msCompile",
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Debug Rebuild",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Debug",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex"
-				],
-				"problemMatcher": "$msCompile",
-				"dependsOn": [
-					"Drummer IOS Debug Clean"
-				],
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Debug Clean",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Debug",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex",
-					"-clean"
-				],
-				"problemMatcher": "$msCompile",
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS DebugGame Build",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"DebugGame",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex"
-				],
-				"problemMatcher": "$msCompile",
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS DebugGame Rebuild",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"DebugGame",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex"
-				],
-				"problemMatcher": "$msCompile",
-				"dependsOn": [
-					"Drummer IOS DebugGame Clean"
-				],
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS DebugGame Clean",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"DebugGame",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex",
-					"-clean"
-				],
-				"problemMatcher": "$msCompile",
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Development Build",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Development",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex"
-				],
-				"problemMatcher": "$msCompile",
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Development Rebuild",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Development",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex"
-				],
-				"problemMatcher": "$msCompile",
-				"dependsOn": [
-					"Drummer IOS Development Clean"
-				],
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Development Clean",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Development",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex",
-					"-clean"
-				],
-				"problemMatcher": "$msCompile",
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Test Build",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Test",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex"
-				],
-				"problemMatcher": "$msCompile",
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Test Rebuild",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Test",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex"
-				],
-				"problemMatcher": "$msCompile",
-				"dependsOn": [
-					"Drummer IOS Test Clean"
-				],
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Test Clean",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Test",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex",
-					"-clean"
-				],
-				"problemMatcher": "$msCompile",
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Shipping Build",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Shipping",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex"
-				],
-				"problemMatcher": "$msCompile",
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Shipping Rebuild",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Shipping",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex"
-				],
-				"problemMatcher": "$msCompile",
-				"dependsOn": [
-					"Drummer IOS Shipping Clean"
-				],
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
-				}
-			},
-			{
-				"label": "Drummer IOS Shipping Clean",
-				"group": "build",
-				"command": "Engine/Build/BatchFiles/Mac/Build.sh",
-				"args": [
-					"Drummer",
-					"IOS",
-					"Shipping",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
-					"-waitmutex",
-					"-clean"
-				],
-				"problemMatcher": "$msCompile",
-				"type": "shell",
-				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -583,13 +305,13 @@
 					"DrummerEditor",
 					"Mac",
 					"Debug",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -600,7 +322,7 @@
 					"DrummerEditor",
 					"Mac",
 					"Debug",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -609,7 +331,7 @@
 				],
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -620,14 +342,14 @@
 					"DrummerEditor",
 					"Mac",
 					"Debug",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex",
 					"-clean"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -638,13 +360,13 @@
 					"DrummerEditor",
 					"Mac",
 					"DebugGame",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -655,7 +377,7 @@
 					"DrummerEditor",
 					"Mac",
 					"DebugGame",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -664,7 +386,7 @@
 				],
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -675,14 +397,14 @@
 					"DrummerEditor",
 					"Mac",
 					"DebugGame",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex",
 					"-clean"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -693,13 +415,13 @@
 					"DrummerEditor",
 					"Mac",
 					"Development",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -710,7 +432,7 @@
 					"DrummerEditor",
 					"Mac",
 					"Development",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -719,7 +441,7 @@
 				],
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			},
 			{
@@ -730,14 +452,14 @@
 					"DrummerEditor",
 					"Mac",
 					"Development",
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-waitmutex",
 					"-clean"
 				],
 				"problemMatcher": "$msCompile",
 				"type": "shell",
 				"options": {
-					"cwd": "/Users/Shared/Epic Games/UE_5.3"
+					"cwd": "/Users/Shared/Epic Games/UE_5.4"
 				}
 			}
 		]
@@ -748,84 +470,84 @@
 			{
 				"name": "Launch Drummer (Debug)",
 				"request": "launch",
-				"program": "/Users/olavu/Documents/Unreal Projects/Drummer/Binaries/Mac/UnrealGame-Mac-Debug.app/Contents/MacOS/UnrealGame-Mac-Debug",
+				"program": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Binaries/Mac/UnrealGame-Mac-Debug.app/Contents/MacOS/UnrealGame-Mac-Debug",
 				"preLaunchTask": "Drummer Mac Debug Build",
 				"args": [
 				],
-				"cwd": "/Users/Shared/Epic Games/UE_5.3",
+				"cwd": "/Users/Shared/Epic Games/UE_5.4",
 				"type": "lldb"
 			},
 			{
 				"name": "Launch Drummer (DebugGame)",
 				"request": "launch",
-				"program": "/Users/olavu/Documents/Unreal Projects/Drummer/Binaries/Mac/UnrealGame-Mac-DebugGame.app/Contents/MacOS/UnrealGame-Mac-DebugGame",
+				"program": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Binaries/Mac/UnrealGame-Mac-DebugGame.app/Contents/MacOS/UnrealGame-Mac-DebugGame",
 				"preLaunchTask": "Drummer Mac DebugGame Build",
 				"args": [
 				],
-				"cwd": "/Users/Shared/Epic Games/UE_5.3",
+				"cwd": "/Users/Shared/Epic Games/UE_5.4",
 				"type": "lldb"
 			},
 			{
 				"name": "Launch Drummer (Development)",
 				"request": "launch",
-				"program": "/Users/olavu/Documents/Unreal Projects/Drummer/Binaries/Mac/UnrealGame.app/Contents/MacOS/UnrealGame",
+				"program": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Binaries/Mac/UnrealGame.app/Contents/MacOS/UnrealGame",
 				"preLaunchTask": "Drummer Mac Development Build",
 				"args": [
 				],
-				"cwd": "/Users/Shared/Epic Games/UE_5.3",
+				"cwd": "/Users/Shared/Epic Games/UE_5.4",
 				"type": "lldb"
 			},
 			{
 				"name": "Launch Drummer (Test)",
 				"request": "launch",
-				"program": "/Users/olavu/Documents/Unreal Projects/Drummer/Binaries/Mac/UnrealGame-Mac-Test.app/Contents/MacOS/UnrealGame-Mac-Test",
+				"program": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Binaries/Mac/UnrealGame-Mac-Test.app/Contents/MacOS/UnrealGame-Mac-Test",
 				"preLaunchTask": "Drummer Mac Test Build",
 				"args": [
 				],
-				"cwd": "/Users/Shared/Epic Games/UE_5.3",
+				"cwd": "/Users/Shared/Epic Games/UE_5.4",
 				"type": "lldb"
 			},
 			{
 				"name": "Launch Drummer (Shipping)",
 				"request": "launch",
-				"program": "/Users/olavu/Documents/Unreal Projects/Drummer/Binaries/Mac/UnrealGame-Mac-Shipping.app/Contents/MacOS/UnrealGame-Mac-Shipping",
+				"program": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Binaries/Mac/UnrealGame-Mac-Shipping.app/Contents/MacOS/UnrealGame-Mac-Shipping",
 				"preLaunchTask": "Drummer Mac Shipping Build",
 				"args": [
 				],
-				"cwd": "/Users/Shared/Epic Games/UE_5.3",
+				"cwd": "/Users/Shared/Epic Games/UE_5.4",
 				"type": "lldb"
 			},
 			{
 				"name": "Launch DrummerEditor (Debug)",
 				"request": "launch",
-				"program": "/Users/Shared/Epic Games/UE_5.3/Engine/Binaries/Mac/UnrealEditor-Mac-Debug.app/Contents/MacOS/UnrealEditor-Mac-Debug",
+				"program": "/Users/Shared/Epic Games/UE_5.4/Engine/Binaries/Mac/UnrealEditor-Mac-Debug.app/Contents/MacOS/UnrealEditor-Mac-Debug",
 				"preLaunchTask": "DrummerEditor Mac Debug Build",
 				"args": [
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject"
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject"
 				],
-				"cwd": "/Users/Shared/Epic Games/UE_5.3",
+				"cwd": "/Users/Shared/Epic Games/UE_5.4",
 				"type": "lldb"
 			},
 			{
 				"name": "Launch DrummerEditor (DebugGame)",
 				"request": "launch",
-				"program": "/Users/Shared/Epic Games/UE_5.3/Engine/Binaries/Mac/UnrealEditor-Mac-DebugGame.app/Contents/MacOS/UnrealEditor-Mac-DebugGame",
+				"program": "/Users/Shared/Epic Games/UE_5.4/Engine/Binaries/Mac/UnrealEditor-Mac-DebugGame.app/Contents/MacOS/UnrealEditor-Mac-DebugGame",
 				"preLaunchTask": "DrummerEditor Mac DebugGame Build",
 				"args": [
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject"
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject"
 				],
-				"cwd": "/Users/Shared/Epic Games/UE_5.3",
+				"cwd": "/Users/Shared/Epic Games/UE_5.4",
 				"type": "lldb"
 			},
 			{
 				"name": "Launch DrummerEditor (Development)",
 				"request": "launch",
-				"program": "/Users/Shared/Epic Games/UE_5.3/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor",
+				"program": "/Users/Shared/Epic Games/UE_5.4/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor",
 				"preLaunchTask": "DrummerEditor Mac Development Build",
 				"args": [
-					"/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject"
+					"/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject"
 				],
-				"cwd": "/Users/Shared/Epic Games/UE_5.3",
+				"cwd": "/Users/Shared/Epic Games/UE_5.4",
 				"type": "lldb"
 			},
 			{
@@ -833,11 +555,11 @@
 				"type": "coreclr",
 				"request": "launch",
 				"preLaunchTask": "UnrealBuildTool Mac Development Build",
-				"program": "/Users/Shared/Epic Games/UE_5.3/Engine/Build/BatchFiles/RunUBT.bat",
+				"program": "/Users/Shared/Epic Games/UE_5.4/Engine/Build/BatchFiles/RunUBT.bat",
 				"args": [
 					"-projectfiles",
 					"-vscode",
-					"-project=/Users/olavu/Documents/Unreal Projects/Drummer/Drummer.uproject",
+					"-project=/Users/olavu/Documents/Unreal Projects/AIDrummer/Drummer.uproject",
 					"-game",
 					"-engine",
 					"-dotnet"
@@ -845,7 +567,7 @@
 				"console": "internalConsole",
 				"internalConsoleOptions": "openOnSessionStart",
 				"stopAtEntry": false,
-				"cwd": "/Users/Shared/Epic Games/UE_5.3"
+				"cwd": "/Users/Shared/Epic Games/UE_5.4"
 			}
 		]
 	}

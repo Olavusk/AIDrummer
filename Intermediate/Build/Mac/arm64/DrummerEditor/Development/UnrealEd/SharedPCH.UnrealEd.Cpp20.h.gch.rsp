@@ -12,13 +12,13 @@
 -I"Runtime/Core/Internal"
 -I"Runtime/TraceLog/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/CoreUObject/UHT"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/CoreUObject/VerseVMBytecode"
 -I"Runtime/CoreUObject/Public"
 -I"Runtime/CoreUObject/Internal"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/AssetRegistry/UHT"
 -I"Runtime/AssetRegistry/Public"
 -I"Runtime/AssetRegistry/Internal"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT"
--I"../Shaders/Shared"
 -I"Runtime/Engine/Classes"
 -I"Runtime/Engine/Public"
 -I"Runtime/Engine/Internal"
@@ -30,12 +30,15 @@
 -I"Runtime/Net/Core/Classes"
 -I"Runtime/Net/Core/Public"
 -I"Runtime/Net/Common/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/ImageCore/UHT"
 -I"Runtime/ImageCore/Public"
 -I"Runtime/Json/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/JsonUtilities/UHT"
 -I"Runtime/JsonUtilities/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/SlateCore/UHT"
 -I"Runtime/SlateCore/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/DeveloperSettings/UHT"
+-I"Runtime/DeveloperSettings/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/InputCore/UHT"
 -I"Runtime/InputCore/Classes"
 -I"Runtime/InputCore/Public"
@@ -47,6 +50,7 @@
 -I"Runtime/Messaging/Public"
 -I"Runtime/MessagingCommon/Public"
 -I"Runtime/RenderCore/Public"
+-I"Runtime/RenderCore/Internal"
 -I"Runtime/Analytics/AnalyticsET/Public"
 -I"Runtime/Analytics/Analytics/Public"
 -I"Runtime/Sockets/Public"
@@ -59,8 +63,6 @@
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/GameplayTags/UHT"
 -I"Runtime/GameplayTags/Classes"
 -I"Runtime/GameplayTags/Public"
--I"../Intermediate/Build/Mac/UnrealEditor/Inc/DeveloperSettings/UHT"
--I"Runtime/DeveloperSettings/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/PacketHandler/UHT"
 -I"Runtime/PacketHandlers/PacketHandler/Classes"
 -I"Runtime/PacketHandlers/PacketHandler/Public"
@@ -71,6 +73,7 @@
 -I"Runtime/MeshDescription/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/StaticMeshDescription/UHT"
 -I"Runtime/StaticMeshDescription/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/SkeletalMeshDescription/UHT"
 -I"Runtime/SkeletalMeshDescription/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/AnimationCore/UHT"
 -I"Runtime/AnimationCore/Public"
@@ -85,6 +88,8 @@
 -I"Runtime/Experimental/Chaos/Public"
 -I"Runtime/Experimental/Voronoi/Public"
 -I"Runtime/GeometryCore/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/ChaosVDRuntime/UHT"
+-I"Runtime/Experimental/ChaosVisualDebugger/Public"
 -I"Runtime/SignalProcessing/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/AudioExtensions/UHT"
 -I"Runtime/AudioExtensions/Public"
@@ -113,31 +118,58 @@
 -I"Runtime/MovieSceneCapture/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/Renderer/UHT"
 -I"Runtime/Renderer/Public"
+-I"Runtime/Renderer/Internal"
+-I"../Shaders/Public"
+-I"../Shaders/Shared"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/TypedElementFramework/UHT"
 -I"Runtime/TypedElementFramework/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/TypedElementRuntime/UHT"
 -I"Runtime/TypedElementRuntime/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/AnimationDataController/UHT"
 -I"Developer/AnimationDataController/Public"
--I"../Intermediate/Build/Mac/UnrealEditor/Inc/InterchangeCore/UHT"
--I"Runtime/Interchange/Core/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/AnimationBlueprintEditor/UHT"
+-I"Editor/AnimationBlueprintEditor/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/Kismet/UHT"
 -I"Editor/Kismet/Classes"
 -I"Editor/Kismet/Public"
+-I"Editor/Kismet/Internal"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/Persona/UHT"
+-I"Editor/Persona/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/SkeletonEditor/UHT"
+-I"Editor/SkeletonEditor/Public"
+-I"Developer/AnimationWidgets/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/ToolWidgets/UHT"
+-I"Developer/ToolWidgets/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/ToolMenus/UHT"
 -I"Developer/ToolMenus/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/AnimationEditor/UHT"
+-I"Editor/AnimationEditor/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/AdvancedPreviewScene/UHT"
+-I"Editor/AdvancedPreviewScene/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/PropertyEditor/UHT"
+-I"Editor/PropertyEditor/Public"
+-I"Editor/PropertyEditor/Internal"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/EditorConfig/UHT"
+-I"Editor/EditorConfig/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/EditorFramework/UHT"
+-I"Editor/EditorFramework/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/EditorSubsystem/UHT"
 -I"Editor/EditorSubsystem/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/InteractiveToolsFramework/UHT"
+-I"Runtime/InteractiveToolsFramework/Public"
+-I"Editor/ActorPickerMode/Public"
+-I"Editor/SceneDepthPickerMode/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/AnimationEditMode/UHT"
+-I"Editor/AnimationEditMode/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/InterchangeCore/UHT"
+-I"Runtime/Interchange/Core/Public"
 -I"Developer/DirectoryWatcher/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/Documentation/UHT"
 -I"Editor/Documentation/Public"
 -I"Editor/MainFrame/Public"
 -I"Runtime/Projects/Public"
+-I"Runtime/Projects/Internal"
 -I"Runtime/SandboxFile/Public"
--I"../Intermediate/Build/Mac/UnrealEditor/Inc/EditorFramework/UHT"
--I"Editor/EditorFramework/Public"
--I"../Intermediate/Build/Mac/UnrealEditor/Inc/InteractiveToolsFramework/UHT"
--I"Runtime/InteractiveToolsFramework/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/SourceControl/UHT"
 -I"Developer/SourceControl/Public"
 -I"Developer/UncontrolledChangelists/Public"
@@ -165,8 +197,6 @@
 -I"Editor/LevelEditor/Public"
 -I"Editor/CommonMenuExtensions/Public"
 -I"Developer/Settings/Public"
--I"../Intermediate/Build/Mac/UnrealEditor/Inc/ToolWidgets/UHT"
--I"Developer/ToolWidgets/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/VREditor/UHT"
 -I"Editor/VREditor/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/ViewportInteraction/UHT"
@@ -176,13 +206,6 @@
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/Landscape/UHT"
 -I"Runtime/Landscape/Classes"
 -I"Runtime/Landscape/Public"
--I"../Intermediate/Build/Mac/UnrealEditor/Inc/PropertyEditor/UHT"
--I"Editor/PropertyEditor/Public"
--I"Editor/PropertyEditor/Internal"
--I"../Intermediate/Build/Mac/UnrealEditor/Inc/EditorConfig/UHT"
--I"Editor/EditorConfig/Public"
--I"Editor/ActorPickerMode/Public"
--I"Editor/SceneDepthPickerMode/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/DetailCustomizations/UHT"
 -I"Editor/DetailCustomizations/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/ClassViewer/UHT"
@@ -200,6 +223,7 @@
 -I"Developer/CollectionManager/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/ContentBrowserData/UHT"
 -I"Editor/ContentBrowserData/Public"
+-I"ThirdParty/libSampleRate/Public"
 -I"Runtime/NetworkFileSystem/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/UMG/UHT"
 -I"Runtime/UMG/Public"
@@ -207,6 +231,8 @@
 -I"Runtime/MovieScene/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/TimeManagement/UHT"
 -I"Runtime/TimeManagement/Public"
+-I"../Intermediate/Build/Mac/UnrealEditor/Inc/UniversalObjectLocator/UHT"
+-I"Runtime/UniversalObjectLocator/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/MovieSceneTracks/UHT"
 -I"Runtime/MovieSceneTracks/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/Constraints/UHT"
@@ -257,7 +283,6 @@
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/MaterialUtilities/UHT"
 -I"Developer/MaterialUtilities/Public"
 -I"Editor/KismetCompiler/Public"
--isystem"ThirdParty/mimalloc/include"
 -isystem"ThirdParty/LibTiff/Source/Mac"
 -isystem"ThirdParty/LibTiff/Source"
 -Wall
@@ -274,6 +299,8 @@
 -Wno-unused-but-set-parameter
 -Wno-ordered-compare-function-pointers
 -Wno-bitwise-instead-of-logical
+-Wno-deprecated-copy
+-Wno-deprecated-copy-with-user-provided-copy
 -Wno-gnu-string-literal-operator-template
 -Wno-inconsistent-missing-override
 -Wno-invalid-offsetof
@@ -297,6 +324,11 @@
 -Wno-unknown-warning-option
 -Wno-range-loop-analysis
 -Wno-single-bit-bitfield-constant-conversion
+-Wno-shadow
+-Wno-invalid-unevaluated-string
+-Wno-deprecated-this-capture
+-ffp-contract=off
+-fno-delete-null-pointer-checks
 -O3
 -fexceptions
 -DPLATFORM_EXCEPTIONS_DISABLED=0
@@ -312,13 +344,14 @@
 -ffp-contract=off
 -arch arm64
 -isysroot "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
--mmacosx-version-min=10.15
--include-pch "/Users/olavu/Documents/Unreal Projects/Drummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/Engine/SharedPCH.Engine.Cpp20.h.gch"
+-mmacosx-version-min=13.00
+-include-pch "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/Engine/SharedPCH.Engine.Cpp20.h.gch"
 -x objective-c++-header
 -std=c++20
 -fpch-validate-input-files-content
 -stdlib=libc++
 -fpch-instantiate-templates
-"/Users/olavu/Documents/Unreal Projects/Drummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/UnrealEd/SharedPCH.UnrealEd.Cpp20.h"
--MD -MF"/Users/olavu/Documents/Unreal Projects/Drummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/UnrealEd/SharedPCH.UnrealEd.Cpp20.h.d"
--o "/Users/olavu/Documents/Unreal Projects/Drummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/UnrealEd/SharedPCH.UnrealEd.Cpp20.h.gch"
+"/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/UnrealEd/SharedPCH.UnrealEd.Cpp20.h"
+-MD -MF"/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/UnrealEd/SharedPCH.UnrealEd.Cpp20.h.d"
+-o "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/UnrealEd/SharedPCH.UnrealEd.Cpp20.h.gch"
+-DUE_USE_SWIFT_UI_MAIN=0

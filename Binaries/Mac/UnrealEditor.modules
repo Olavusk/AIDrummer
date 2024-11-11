@@ -1,7 +1,7 @@
 {
-	"BuildId": "27405482",
+	"BuildId": "33043543",
 	"Modules": 
 	{
-		"Drummer": "UnrealEditor-Drummer-7663.dylib"
+		"Drummer": "UnrealEditor-Drummer.dylib"
 	}
 }

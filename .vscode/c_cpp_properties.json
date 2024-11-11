@@ -5,30 +5,30 @@
             "compilerPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
             "compilerArgs": [
                 "-isysroot",
-                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
             ],
             "macFrameworkPath": [
-                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks"
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
             ],
             "cStandard": "c17",
             "cppStandard": "c++20",
             "intelliSenseMode": "clang-x64",
-            "compileCommands": "/Users/olavu/Documents/Unreal Projects/Drummer/.vscode/compileCommands_Drummer.json"
+            "compileCommands": "/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Drummer.json"
         },
         {
             "name": "Mac",
             "compilerPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
             "compilerArgs": [
                 "-isysroot",
-                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
             ],
             "macFrameworkPath": [
-                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks"
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
             ],
             "cStandard": "c17",
             "cppStandard": "c++20",
             "intelliSenseMode": "clang-x64",
-            "compileCommands": "/Users/olavu/Documents/Unreal Projects/Drummer/.vscode/compileCommands_Default.json"
+            "compileCommands": "/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default.json"
         }
     ],
     "version": 4
