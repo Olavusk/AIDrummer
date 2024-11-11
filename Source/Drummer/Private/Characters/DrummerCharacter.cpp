@@ -10,9 +10,8 @@
 #include "Items/Chair/Chair.h"
 #include "Items/Item.h"
 #include "Animation/AnimInstance.h"
+#include "Components/BoxComponent.h"
 #include "Characters/DrummerCharacter.h"
-
-// #include "CommonTextBlock.h"
 
 // Sets default values
 ADrummerCharacter::ADrummerCharacter()
@@ -83,19 +82,25 @@ void ADrummerCharacter::Look(const FInputActionValue &Value)
 
 void ADrummerCharacter::EKeyPressed()
 {
-	AWeapon *OverlappingWeapon = Cast<AWeapon>(OverlappingItem);
-	if (OverlappingWeapon)
+	if (OverlappingItem)
 	{
-		OverlappingWeapon->Equip(GetMesh(), FName("RightHandSocket"));
-		CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
-		OverlappingItem = nullptr; // Clear the item after equipping
-		EquippedWeapon = OverlappingWeapon;
+		AWeapon *OverlappingWeapon = Cast<AWeapon>(OverlappingItem);
+		if (OverlappingWeapon)
+		{
+			OverlappingWeapon->Equip(GetMesh(), FName("RightHandSocket"));
+			CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
+			OverlappingItem = nullptr;
+			EquippedWeapon = OverlappingWeapon;
+		}
 
-		// Log to ensure OverlappingItem is correctly cleared
-		UE_LOG(LogTemp, Warning, TEXT("After Equip: OverlappingItem: %s"), *GetNameSafe(OverlappingItem));
-		UE_LOG(LogTemp, Warning, TEXT("CharacterState1: %d, ActionState: %d"), CharacterState, ActionState);
-
-		return;
+		ADrumstick *OverlappingDrumstick = Cast<ADrumstick>(OverlappingItem);
+		if (OverlappingDrumstick)
+		{
+			OverlappingDrumstick->Equip(GetMesh(), FName("LeftHandSocket"));
+			CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
+			OverlappingItem = nullptr;
+			EquippedDrumstick = OverlappingDrumstick;
+		}
 	}
 	else
 	{
@@ -113,10 +118,6 @@ void ADrummerCharacter::EKeyPressed()
 			ActionState = EActionState::EAS_EquippingWeapon;
 			UE_LOG(LogTemp, Warning, TEXT("CharacterState3: %d, ActionState: %d"), CharacterState, ActionState);
 		}
-	}
-	if (AChair *OverlappingChair = Cast<AChair>(OverlappingItem))
-	{
-		CharacterState = ECharacterState::ECS_Drumming;
 	}
 }
 
@@ -166,6 +167,7 @@ void ADrummerCharacter::Arm()
 void ADrummerCharacter::FinishEquipping()
 {
 	ActionState = EActionState::EAS_Unoccupied;
+	UE_LOG(LogTemp, Warning, TEXT("Equip Montage Finished: CharacterState: %d, ActionState: %d"), CharacterState, ActionState);
 }
 void ADrummerCharacter::PlayAttackMontage()
 {
@@ -190,7 +192,7 @@ void ADrummerCharacter::PlayAttackMontage()
 	}
 }
 
-void ADrummerCharacter::PlayEquipMontage(FName SectionName)
+void ADrummerCharacter::PlayEquipMontage(const FName &SectionName)
 {
 	UAnimInstance *AnimInstance = GetMesh()->GetAnimInstance();
 	if (AnimInstance && EquipMontage)
@@ -221,5 +223,14 @@ void ADrummerCharacter::SetupPlayerInputComponent(UInputComponent *PlayerInputCo
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ADrummerCharacter::Jump);
 		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Triggered, this, &ADrummerCharacter::Attack);
 		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &ADrummerCharacter::EKeyPressed);
+	}
+}
+
+void ADrummerCharacter::SetWeaponCollisionEnabled(ECollisionEnabled::Type CollisionEnabled)
+{
+	if (EquippedWeapon && EquippedWeapon->GetWeaponBox())
+	{
+		EquippedWeapon->GetWeaponBox()->SetCollisionEnabled(CollisionEnabled);
+		EquippedWeapon->IgnoreActors.Empty();
 	}
 }

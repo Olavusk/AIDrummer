@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Items/Weapons/Weapon.h"
+#include "Items/Drumsticks/Drumstick.h"
 #include "InputActionValue.h"
 #include "CharacterTypes.h"
 #include "DrummerCharacter.generated.h"
@@ -16,6 +17,7 @@ class UInputAction;
 class AItem;
 class UAnimMontage;
 class AWeapon;
+class ADrumstick;
 
 UCLASS()
 class DRUMMER_API ADrummerCharacter : public ACharacter
@@ -28,6 +30,9 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent *PlayerInputComponent) override;
 	FORCEINLINE void SetOverlappingItem(AItem *Item) { OverlappingItem = Item; }
 	FORCEINLINE ECharacterState GetCharacterState() const { return CharacterState; }
+
+	UFUNCTION(BlueprintCallable)
+	void SetWeaponCollisionEnabled(ECollisionEnabled::Type CollisionEnabled);
 
 protected:
 	virtual void BeginPlay() override;
@@ -67,7 +72,7 @@ protected:
 	void AttackEnd();
 	bool CanAttack();
 
-	void PlayEquipMontage(FName SectionName);
+	void PlayEquipMontage(const FName &SectionName);
 	bool CanDisarm();
 	bool CanArm();
 
@@ -97,6 +102,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = Weapon)
 	AWeapon *EquippedWeapon;
+	UPROPERTY(VisibleAnywhere, Category = Drumstick)
+	ADrumstick *EquippedDrumstick;
 
 	/**
 	 * Animation montages
