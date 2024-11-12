@@ -10,6 +10,7 @@
 /**
  *
  */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnBonePositionUpdated, FName, BoneName, FVector, BonePosition);
 UCLASS()
 class DRUMMER_API UDrummerAnimInstance : public UAnimInstance
 {
@@ -33,4 +34,11 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, Category = "Movement | Character State")
 	ECharacterState CharacterState;
+
+	UPROPERTY(BlueprintAssignable, Category = "Animation")
+	FOnBonePositionUpdated OnBonePositionUpdated;
+
+private:
+	TArray<FTransform> BoneTransforms;
+	void BroadcastBonePosition(FName BoneName, FVector Position);
 };

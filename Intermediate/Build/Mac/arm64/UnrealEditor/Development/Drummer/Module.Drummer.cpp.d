@@ -3977,12 +3977,6 @@
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Chair.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/CharacterTypes.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/CharacterTypes.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Drummer.init.gen.cpp \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerAnimInstance.gen.cpp \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/DrummerAnimInstance.h \
-  Runtime/Engine/Classes/Animation/AnimInstance.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerAnimInstance.generated.h \
-  Runtime/Engine/Classes/Components/SkeletalMeshComponent.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerCharacter.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/DrummerCharacter.h \
   Runtime/Engine/Classes/GameFramework/Character.h \
@@ -4044,7 +4038,16 @@
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Drummer.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Drummer.h \
   Runtime/Core/Public/Modules/ModuleManager.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Characters/DrummerAnimInstance.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Characters/DrummerCharacter.cpp \
+  Runtime/Engine/Classes/GameFramework/SpringArmComponent.h \
+  Runtime/Engine/Classes/Components/SceneComponent.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/SpringArmComponent.generated.h \
+  Runtime/Engine/Classes/Camera/CameraComponent.h \
+  Runtime/CoreUObject/Public/UObject/ScriptInterface.h \
+  Runtime/Engine/Classes/Engine/BlendableInterface.h \
+  Runtime/Engine/Classes/Engine/Scene.h \
+  Runtime/Engine/Classes/Camera/CameraTypes.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CameraComponent.generated.h \
   Runtime/Engine/Classes/GameFramework/CharacterMovementComponent.h \
   Runtime/Core/Public/Math/RandomStream.h \
   Runtime/Engine/Classes/Engine/EngineBaseTypes.h \
@@ -4062,7 +4065,6 @@
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/PathFollowingAgentInterface.generated.h \
   Runtime/Engine/Classes/GameFramework/MovementComponent.h \
   Runtime/PhysicsCore/Public/Chaos/ChaosEngineInterface.h \
-  Runtime/Engine/Classes/Components/SceneComponent.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/MovementComponent.generated.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavMovementComponent.generated.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/PawnMovementComponent.generated.h \
@@ -4075,23 +4077,6 @@
   Runtime/Engine/Public/Engine/OverlapInfo.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CharacterMovementComponentAsync.generated.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CharacterMovementComponent.generated.h \
-  Runtime/Engine/Classes/Kismet/KismetMathLibrary.h \
-  Runtime/CoreUObject/Public/UObject/Script.h \
-  Runtime/CoreUObject/Public/UObject/UnrealType.h \
-  Runtime/CoreUObject/Public/UObject/Stack.h \
-  Runtime/Engine/Classes/Kismet/BlueprintFunctionLibrary.h \
-  Runtime/Core/Public/Misc/QualifiedFrameTime.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/KismetMathLibrary.generated.h \
-  Runtime/Engine/Classes/Kismet/KismetMathLibrary.inl \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Characters/DrummerCharacter.cpp \
-  Runtime/Engine/Classes/GameFramework/SpringArmComponent.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/SpringArmComponent.generated.h \
-  Runtime/Engine/Classes/Camera/CameraComponent.h \
-  Runtime/CoreUObject/Public/UObject/ScriptInterface.h \
-  Runtime/Engine/Classes/Engine/BlendableInterface.h \
-  Runtime/Engine/Classes/Engine/Scene.h \
-  Runtime/Engine/Classes/Camera/CameraTypes.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CameraComponent.generated.h \
   Runtime/Engine/Classes/Components/InputComponent.h \
   ../Plugins/EnhancedInput/Source/EnhancedInput/Public/EnhancedInputComponent.h \
   ../Plugins/EnhancedInput/Source/EnhancedInput/Public/InputAction.h \
@@ -4117,15 +4102,18 @@
   Runtime/Engine/Public/Subsystems/LocalPlayerSubsystem.h \
   Runtime/Engine/Public/Subsystems/WorldSubsystem.h \
   ../Plugins/EnhancedInput/Intermediate/Build/Mac/UnrealEditor/Inc/EnhancedInput/UHT/EnhancedInputSubsystems.generated.h \
+  Runtime/Engine/Classes/Animation/AnimInstance.h \
   Runtime/Engine/Classes/Components/BoxComponent.h \
   Runtime/Engine/Public/ShowFlags.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/BoxComponent.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Enemy/Enemy.cpp \
+  Runtime/Engine/Classes/Components/SkeletalMeshComponent.h \
   Runtime/Engine/Classes/Components/CapsuleComponent.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CapsuleComponent.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/DebugMacros.h \
   Runtime/Engine/Public/DrawDebugHelpers.h \
   Runtime/Engine/Classes/Kismet/KismetSystemLibrary.h \
+  Runtime/CoreUObject/Public/UObject/UnrealType.h \
   Runtime/CoreUObject/Public/UObject/TextProperty.h \
   Runtime/CoreUObject/Public/UObject/SoftObjectPtr.h \
   Runtime/CoreUObject/Public/UObject/PropertyAccessUtil.h \
@@ -4137,6 +4125,7 @@
   Runtime/Core/Public/UObject/NameTypes.h \
   Runtime/CoreUObject/Public/UObject/TopLevelAssetPath.h \
   Runtime/Engine/Classes/Engine/LatentActionManager.h \
+  Runtime/Engine/Classes/Kismet/BlueprintFunctionLibrary.h \
   Runtime/Engine/Classes/Engine/CollisionProfile.h \
   Runtime/CoreUObject/Public/AssetRegistry/ARFilter.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/KismetSystemLibrary.generated.h \
