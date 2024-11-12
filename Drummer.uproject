@@ -47,6 +47,10 @@
 		{
 			"Name": "HairStrands",
 			"Enabled": true
+		},
+		{
+			"Name": "MIDIDevice",
+			"Enabled": true
 		}
 	]
 }

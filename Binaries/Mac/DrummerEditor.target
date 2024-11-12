@@ -3430,6 +3430,14 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Runtime/MIDIDevice/Binaries/Mac/UnrealEditor-MIDIDevice.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/MIDIDevice/Binaries/Mac/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Runtime/MeshModelingToolset/Binaries/Mac/UnrealEditor-MeshModelingTools.dylib",
 			"Type": "DynamicLibrary"
 		},
@@ -22784,6 +22792,10 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Runtime/MIDIDevice/MIDIDevice.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Runtime/MeshModelingToolset/MeshModelingToolset.uplugin",
 			"Type": "UFS"
 		},
@@ -22965,6 +22977,7 @@
 		"LiveLinkControlRig",
 		"LocalizableMessage",
 		"LocationServicesBPLibrary",
+		"MIDIDevice",
 		"MacGraphicsSwitching",
 		"MaterialAnalyzer",
 		"MediaCompositing",
