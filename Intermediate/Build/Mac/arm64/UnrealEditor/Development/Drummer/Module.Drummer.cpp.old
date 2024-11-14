@@ -2,8 +2,6 @@
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Bird.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Chair.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/CharacterTypes.gen.cpp"
-#include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Drummer.init.gen.cpp"
-#include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerAnimInstance.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerCharacter.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Drumstick.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Enemy.gen.cpp"
