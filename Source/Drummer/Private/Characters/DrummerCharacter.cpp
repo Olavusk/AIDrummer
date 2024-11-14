@@ -96,7 +96,7 @@ void ADrummerCharacter::EKeyPressed()
 		ADrumstick *OverlappingDrumstick = Cast<ADrumstick>(OverlappingItem);
 		if (OverlappingDrumstick)
 		{
-			OverlappingDrumstick->Equip(GetMesh(), FName("RightHandSocket"));
+			OverlappingDrumstick->Equip(GetMesh(), FName("RightHandDrumstick"));
 			CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
 			OverlappingItem = nullptr;
 			EquippedDrumstick = OverlappingDrumstick;
@@ -146,7 +146,7 @@ bool ADrummerCharacter::CanArm()
 {
 	return ActionState == EActionState::EAS_Unoccupied &&
 		   CharacterState == ECharacterState::ECS_Unequipped &&
-		   EquippedWeapon;
+		   (EquippedWeapon || EquippedDrumstick);
 }
 
 void ADrummerCharacter::Disarm()
