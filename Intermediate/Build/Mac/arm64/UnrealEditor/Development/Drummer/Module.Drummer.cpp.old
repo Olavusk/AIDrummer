@@ -23,7 +23,6 @@
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Interfaces/IEquippable.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Interfaces/MIDIEventReceiver.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Items/Chair/Chair.cpp"
-#include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Items/Drumsticks/Drumstick.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Items/Item.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Items/Weapons/Weapon.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/Drumset/KickDrumReceiver.cpp"

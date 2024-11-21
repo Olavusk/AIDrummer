@@ -14,24 +14,28 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DRUMMER_DrummerCharacter_generated_h
 
-#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execEquipDrumsticks); \
 	DECLARE_FUNCTION(execFinishEquipping); \
 	DECLARE_FUNCTION(execArm); \
 	DECLARE_FUNCTION(execDisarm); \
 	DECLARE_FUNCTION(execAttackEnd); \
+	DECLARE_FUNCTION(execEnterDrummingState); \
+	DECLARE_FUNCTION(execSetDrumstickCollisionEnabled); \
 	DECLARE_FUNCTION(execSetWeaponCollisionEnabled);
 
 
-#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_25_INCLASS_NO_PURE_DECLS \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_28_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADrummerCharacter(); \
 	friend struct Z_Construct_UClass_ADrummerCharacter_Statics; \
 public: \
 	DECLARE_CLASS(ADrummerCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Drummer"), NO_API) \
-	DECLARE_SERIALIZER(ADrummerCharacter)
+	DECLARE_SERIALIZER(ADrummerCharacter) \
+	virtual UObject* _getUObject() const override { return const_cast<ADrummerCharacter*>(this); }
 
 
-#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_25_ENHANCED_CONSTRUCTORS \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ADrummerCharacter(ADrummerCharacter&&); \
@@ -43,13 +47,13 @@ public: \
 	NO_API virtual ~ADrummerCharacter();
 
 
-#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_22_PROLOG
-#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_25_GENERATED_BODY \
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_25_PROLOG
+#define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_28_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_25_INCLASS_NO_PURE_DECLS \
-	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_25_ENHANCED_CONSTRUCTORS \
+	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_28_INCLASS_NO_PURE_DECLS \
+	FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_DrummerCharacter_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
