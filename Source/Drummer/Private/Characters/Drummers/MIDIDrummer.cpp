@@ -13,20 +13,24 @@ AMIDIDrummer::AMIDIDrummer()
 void AMIDIDrummer::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (MIDIBroadcaster)
+	{
+		MIDIBroadcaster->OnMIDINoteEvent.AddDynamic(this, &AMIDIDrummer::HandleMIDIEvent);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("MIDIBroadcaster is not assigned in MIDIDrummer."));
+	}
 }
 
-// Called every frame
-void AMIDIDrummer::OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, FString EventType)
+void AMIDIDrummer::HandleMIDIEvent(int32 Channel, int32 NoteID, int32 Velocity, FString EventType)
 {
-	float Timestamp = GetWorld() ? GetWorld()->GetTimeSeconds() : 0.0f;
+	// Log or process the MIDI event
+	UE_LOG(LogTemp, Log, TEXT("MIDIDrummer received MIDI Event - Channel: %d, Note: %d, Velocity: %d, EventType: %s"),
+		   Channel, NoteID, Velocity, *EventType);
 
-	// Handle MIDI event
-	if (GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow,
-										 FString::Printf(TEXT("Time: %.2f, Channel: %d, NoteID: %d, Velocity: %d, EventType: %s"),
-														 Timestamp, Channel, NoteID, Velocity, *EventType));
-	}
+	// can add additional handling logic here (e.g., triggering animations or sounds)
 }
 
 // Called every frame

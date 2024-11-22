@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "Midi/MIDIDrumReceiver.h"
+#include "Midi/MIDIEventBroadcaster.h"
 #include "MIDIDrummer.generated.h"
 
 UCLASS()
@@ -17,6 +17,10 @@ public:
 	AMIDIDrummer();
 
 protected:
+	// Reference to the MIDI Event Broadcaster
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MIDI")
+	AMIDIEventBroadcaster *MIDIBroadcaster;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -24,6 +28,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// MIDIDrumReceiver.h
-	virtual void OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, FString EventType) override;
+	UFUNCTION()
+	void HandleMIDIEvent(int32 Channel, int32 NoteID, int32 Velocity, FString EventType);
 };
