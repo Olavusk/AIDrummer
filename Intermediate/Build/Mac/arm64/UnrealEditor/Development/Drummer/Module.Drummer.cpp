@@ -13,6 +13,7 @@
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/KickDrumReceiver.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummer.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerAnimInstance.gen.cpp"
+#include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerTypes.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrumReceiver.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventBroadcaster.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventReceiver.gen.cpp"

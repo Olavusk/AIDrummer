@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeMIDIDrummer() {}
 DRUMMER_API UClass* Z_Construct_UClass_AMIDIDrummer();
 DRUMMER_API UClass* Z_Construct_UClass_AMIDIDrummer_NoRegister();
 DRUMMER_API UClass* Z_Construct_UClass_AMIDIEventBroadcaster_NoRegister();
+DRUMMER_API UEnum* Z_Construct_UEnum_Drummer_EMIDIDrummerActionState();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 UPackage* Z_Construct_UPackage__Script_Drummer();
 // End Cross Module References
@@ -106,8 +107,49 @@ struct Z_Construct_UClass_AMIDIDrummer_Statics
 		{ "ToolTip", "Reference to the MIDI Event Broadcaster" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RightFootState_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "ActionState" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Action states for each limb\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Characters/Drummers/MIDIDrummer.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Action states for each limb" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LeftFootState_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "ActionState" },
+		{ "ModuleRelativePath", "Public/Characters/Drummers/MIDIDrummer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RightHandState_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "ActionState" },
+		{ "ModuleRelativePath", "Public/Characters/Drummers/MIDIDrummer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LeftHandState_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "ActionState" },
+		{ "ModuleRelativePath", "Public/Characters/Drummers/MIDIDrummer.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentActionState_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "ActionState" },
+		{ "ModuleRelativePath", "Public/Characters/Drummers/MIDIDrummer.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MIDIBroadcaster;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_RightFootState_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_RightFootState;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_LeftFootState_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_LeftFootState;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_RightHandState_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_RightHandState;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_LeftHandState_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_LeftHandState;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_CurrentActionState_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_CurrentActionState;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -120,8 +162,28 @@ struct Z_Construct_UClass_AMIDIDrummer_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_MIDIBroadcaster = { "MIDIBroadcaster", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMIDIDrummer, MIDIBroadcaster), Z_Construct_UClass_AMIDIEventBroadcaster_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MIDIBroadcaster_MetaData), NewProp_MIDIBroadcaster_MetaData) };
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_RightFootState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_RightFootState = { "RightFootState", nullptr, (EPropertyFlags)0x0040000000000014, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMIDIDrummer, RightFootState), Z_Construct_UEnum_Drummer_EMIDIDrummerActionState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RightFootState_MetaData), NewProp_RightFootState_MetaData) }; // 4087162050
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_LeftFootState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_LeftFootState = { "LeftFootState", nullptr, (EPropertyFlags)0x0040000000000014, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMIDIDrummer, LeftFootState), Z_Construct_UEnum_Drummer_EMIDIDrummerActionState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LeftFootState_MetaData), NewProp_LeftFootState_MetaData) }; // 4087162050
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_RightHandState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_RightHandState = { "RightHandState", nullptr, (EPropertyFlags)0x0040000000000014, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMIDIDrummer, RightHandState), Z_Construct_UEnum_Drummer_EMIDIDrummerActionState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RightHandState_MetaData), NewProp_RightHandState_MetaData) }; // 4087162050
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_LeftHandState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_LeftHandState = { "LeftHandState", nullptr, (EPropertyFlags)0x0040000000000014, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMIDIDrummer, LeftHandState), Z_Construct_UEnum_Drummer_EMIDIDrummerActionState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LeftHandState_MetaData), NewProp_LeftHandState_MetaData) }; // 4087162050
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_CurrentActionState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_CurrentActionState = { "CurrentActionState", nullptr, (EPropertyFlags)0x0040000000000014, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMIDIDrummer, CurrentActionState), Z_Construct_UEnum_Drummer_EMIDIDrummerActionState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentActionState_MetaData), NewProp_CurrentActionState_MetaData) }; // 4087162050
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMIDIDrummer_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_MIDIBroadcaster,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_RightFootState_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_RightFootState,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_LeftFootState_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_LeftFootState,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_RightHandState_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_RightHandState,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_LeftHandState_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_LeftHandState,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_CurrentActionState_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMIDIDrummer_Statics::NewProp_CurrentActionState,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMIDIDrummer_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AMIDIDrummer_Statics::DependentSingletons[])() = {
@@ -164,10 +226,10 @@ AMIDIDrummer::~AMIDIDrummer() {}
 struct Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummer_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMIDIDrummer, AMIDIDrummer::StaticClass, TEXT("AMIDIDrummer"), &Z_Registration_Info_UClass_AMIDIDrummer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMIDIDrummer), 3884326713U) },
+		{ Z_Construct_UClass_AMIDIDrummer, AMIDIDrummer::StaticClass, TEXT("AMIDIDrummer"), &Z_Registration_Info_UClass_AMIDIDrummer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMIDIDrummer), 4115892538U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummer_h_2558153378(TEXT("/Script/Drummer"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummer_h_618484301(TEXT("/Script/Drummer"),
 	Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummer_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

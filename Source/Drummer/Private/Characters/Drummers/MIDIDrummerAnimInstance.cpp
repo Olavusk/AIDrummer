@@ -39,7 +39,7 @@ void UMIDIDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
 
                 FVector BonePosition = BoneTransform.GetLocation();
                 // Broadcast the bone position
-                UE_LOG(LogTemp, Log, TEXT("XABone %s Position: %s"), *BoneName.ToString(), *BonePosition.ToString());
+                // UE_LOG(LogTemp, Log, TEXT("XABone %s Position: %s"), *BoneName.ToString(), *BonePosition.ToString());
                 BroadcastBonePosition(BoneName, BonePosition);
             }
         }

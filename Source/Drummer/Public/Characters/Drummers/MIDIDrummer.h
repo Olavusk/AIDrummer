@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "MIDIDrummerTypes.h"
 #include "Midi/MIDIEventBroadcaster.h"
 #include "MIDIDrummer.generated.h"
 
@@ -30,4 +31,30 @@ public:
 
 	UFUNCTION()
 	void HandleMIDIEvent(int32 Channel, int32 NoteID, int32 Velocity, FString EventType);
+
+private:
+	EMIDIDrummerState CurrentState = EMIDIDrummerState::EDS_Idle;
+
+	// Action states for each limb
+	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
+	EMIDIDrummerActionState RightFootState = EMIDIDrummerActionState::EDAS_Unoccupied;
+
+	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
+	EMIDIDrummerActionState LeftFootState = EMIDIDrummerActionState::EDAS_Unoccupied;
+
+	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
+	EMIDIDrummerActionState RightHandState = EMIDIDrummerActionState::EDAS_Unoccupied;
+
+	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
+	EMIDIDrummerActionState LeftHandState = EMIDIDrummerActionState::EDAS_Unoccupied;
+
+	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
+	EMIDIDrummerActionState CurrentActionState = EMIDIDrummerActionState::EDAS_Unoccupied;
+
+	// Methods to update states
+	void UpdateState(EMIDIDrummerState NewState);
+	void UpdateLimbActionState(EMIDIDrummerActionState &LimbState, EMIDIDrummerActionState NewActionState);
+
+	// Reset a limb's action state to Unoccupied
+	void ResetLimbActionState(EMIDIDrummerActionState &LimbState);
 };
