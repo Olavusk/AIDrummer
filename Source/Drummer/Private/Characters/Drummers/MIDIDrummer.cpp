@@ -17,6 +17,10 @@ void AMIDIDrummer::BeginPlay()
 	if (MIDIBroadcaster)
 	{
 		MIDIBroadcaster->OnMIDINoteEvent.AddDynamic(this, &AMIDIDrummer::HandleMIDIEvent);
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Turquoise, TEXT("Bound to MIDIBroadcaster!"));
+		}
 	}
 	else
 	{

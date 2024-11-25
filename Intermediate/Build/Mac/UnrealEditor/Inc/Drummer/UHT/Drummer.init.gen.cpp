@@ -10,6 +10,7 @@ void EmptyLinkFunctionForGeneratedCodeDrummer_init() {}
 	DRUMMER_API UFunction* Z_Construct_UDelegateFunction_Drummer_MIDIFileNoteEvent__DelegateSignature();
 	DRUMMER_API UFunction* Z_Construct_UDelegateFunction_Drummer_MIDINoteEvent__DelegateSignature();
 	DRUMMER_API UFunction* Z_Construct_UDelegateFunction_Drummer_OnBonePositionUpdated__DelegateSignature();
+	DRUMMER_API UFunction* Z_Construct_UDelegateFunction_Drummer_OnMIDIBonePositionUpdated__DelegateSignature();
 	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_Drummer;
 	FORCENOINLINE UPackage* Z_Construct_UPackage__Script_Drummer()
 	{
@@ -19,19 +20,20 @@ void EmptyLinkFunctionForGeneratedCodeDrummer_init() {}
 				(UObject* (*)())Z_Construct_UDelegateFunction_Drummer_MIDIFileNoteEvent__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_Drummer_MIDINoteEvent__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_Drummer_OnBonePositionUpdated__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_Drummer_OnMIDIBonePositionUpdated__DelegateSignature,
 			};
 			static const UECodeGen_Private::FPackageParams PackageParams = {
 				"/Script/Drummer",
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xD57B8642,
-				0xB58E30D4,
+				0x099B0A5D,
+				0x31B4C0B2,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_Drummer.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_Drummer.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Drummer(Z_Construct_UPackage__Script_Drummer, TEXT("/Script/Drummer"), Z_Registration_Info_UPackage__Script_Drummer, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xD57B8642, 0xB58E30D4));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Drummer(Z_Construct_UPackage__Script_Drummer, TEXT("/Script/Drummer"), Z_Registration_Info_UPackage__Script_Drummer, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x099B0A5D, 0x31B4C0B2));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

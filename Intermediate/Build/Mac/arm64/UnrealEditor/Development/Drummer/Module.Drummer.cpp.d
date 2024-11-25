@@ -4038,6 +4038,9 @@
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummer.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummer.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummer.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerAnimInstance.gen.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummerAnimInstance.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerAnimInstance.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrumReceiver.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventBroadcaster.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventReceiver.gen.cpp \
@@ -4151,6 +4154,7 @@
   Runtime/Engine/Classes/Particles/WorldPSCPool.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/GameplayStatics.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Characters/Drummers/MIDIDrummer.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Characters/Drummers/MIDIDrummerAnimInstance.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Enemy/Enemy.cpp \
   Runtime/Engine/Classes/Components/CapsuleComponent.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CapsuleComponent.generated.h \
