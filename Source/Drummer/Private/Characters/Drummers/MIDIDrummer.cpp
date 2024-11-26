@@ -79,8 +79,6 @@ void AMIDIDrummer::UpdateLimbActionState(EMIDIDrummerActionState &LimbState, EMI
 	{
 		LimbState = NewActionState;
 		UE_LOG(LogTemp, Log, TEXT("Limb Action State updated to: %d"), static_cast<int32>(NewActionState));
-
-		// Schedule a reset to Unoccupied after 0.5 seconds
 	}
 }
 
