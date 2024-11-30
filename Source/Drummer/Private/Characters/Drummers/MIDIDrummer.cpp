@@ -30,36 +30,67 @@ void AMIDIDrummer::BeginPlay()
 
 void AMIDIDrummer::HandleMIDIEvent(int32 Channel, int32 NoteID, int32 Velocity, FString EventType)
 {
-	// Log or process the MIDI event
 	UE_LOG(LogTemp, Log, TEXT("MIDIDrummer received MIDI Event - Channel: %d, Note: %d, Velocity: %d, EventType: %s"),
 		   Channel, NoteID, Velocity, *EventType);
 
 	// Update drummer state to Drumming
 	UpdateState(EMIDIDrummerState::EDS_Drumming);
 
-	// Handle specific MIDI notes for each limb
 	switch (NoteID)
 	{
 	case 36: // Kick drum (Right foot)
-		UpdateLimbActionState(RightFootState, EMIDIDrummerActionState::EDAS_RightFootMove);
+		if (RightFootState == EMIDIDrummerActionState::EDAS_Unoccupied)
+		{
+			UpdateLimbActionState(RightFootState, EMIDIDrummerActionState::EDAS_Moving);
+			SimpleDrumMontagePlay(FName("Kick_1"));
+		}
 		break;
 
 	case 38: // Snare drum (Left hand)
-		UpdateLimbActionState(LeftHandState, EMIDIDrummerActionState::EDAS_LeftHandMove);
+		if (LeftHandState == EMIDIDrummerActionState::EDAS_Unoccupied)
+		{
+			UpdateLimbActionState(LeftHandState, EMIDIDrummerActionState::EDAS_Moving);
+			SimpleDrumMontagePlay(FName("Snare_1"));
+		}
 		break;
 
 	case 40: // High tom (Right hand)
-		UpdateLimbActionState(RightHandState, EMIDIDrummerActionState::EDAS_RightHandMove);
+		if (RightHandState == EMIDIDrummerActionState::EDAS_Unoccupied)
+		{
+			UpdateLimbActionState(RightHandState, EMIDIDrummerActionState::EDAS_Moving);
+			SimpleDrumMontagePlay(FName("Tom_High"));
+		}
 		break;
 
 	case 48: // Low tom (Left foot)
-		UpdateLimbActionState(LeftFootState, EMIDIDrummerActionState::EDAS_LeftFootMove);
+		if (LeftFootState == EMIDIDrummerActionState::EDAS_Unoccupied)
+		{
+			UpdateLimbActionState(LeftFootState, EMIDIDrummerActionState::EDAS_Moving);
+			SimpleDrumMontagePlay(FName("Tom_Low"));
+		}
 		break;
 
 	default:
 		UE_LOG(LogTemp, Warning, TEXT("Unmapped MIDI Note: %d"), NoteID);
 		break;
 	}
+}
+
+void AMIDIDrummer::SimpleDrumMontagePlay(const FName &SectionName)
+{
+	// Ensure montage and animation instance are valid
+	UAnimInstance *AnimInstance = GetMesh()->GetAnimInstance();
+	if (!AnimInstance || !SimpleDrumMontage)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AnimInstance or SimpleDrumMontage is not assigned."));
+		return;
+	}
+
+	// Play montage and jump to section
+	AnimInstance->Montage_Play(SimpleDrumMontage);
+	AnimInstance->Montage_JumpToSection(SectionName, SimpleDrumMontage);
+
+	UE_LOG(LogTemp, Log, TEXT("Playing montage section %s."), *SectionName.ToString());
 }
 
 // Update the overall state of the drummer
@@ -72,20 +103,34 @@ void AMIDIDrummer::UpdateState(EMIDIDrummerState NewState)
 	}
 }
 
-// Update the action state of a specific limb
 void AMIDIDrummer::UpdateLimbActionState(EMIDIDrummerActionState &LimbState, EMIDIDrummerActionState NewActionState)
 {
-	if (LimbState != NewActionState)
+	// Transition logic
+	if (LimbState == EMIDIDrummerActionState::EDAS_Unoccupied && NewActionState == EMIDIDrummerActionState::EDAS_Moving)
 	{
-		LimbState = NewActionState;
-		UE_LOG(LogTemp, Log, TEXT("Limb Action State updated to: %d"), static_cast<int32>(NewActionState));
+		LimbState = EMIDIDrummerActionState::EDAS_Moving;
+		UE_LOG(LogTemp, Log, TEXT("Limb transitioned to Moving."));
+	}
+	else if (LimbState == EMIDIDrummerActionState::EDAS_Moving && NewActionState == EMIDIDrummerActionState::EDAS_Unoccupied)
+	{
+		LimbState = EMIDIDrummerActionState::EDAS_Unoccupied;
+		UE_LOG(LogTemp, Log, TEXT("Limb transitioned to Unoccupied."));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Invalid state transition."));
 	}
 }
 
 void AMIDIDrummer::ResetLimbActionState(EMIDIDrummerActionState &LimbState)
 {
 	LimbState = EMIDIDrummerActionState::EDAS_Unoccupied;
-	UE_LOG(LogTemp, Log, TEXT("Limb Action State reset to Unoccupied"));
+	UE_LOG(LogTemp, Log, TEXT("Limb state reset to Unoccupied."));
+}
+
+void AMIDIDrummer::KickEnd()
+{
+	RightFootState = EMIDIDrummerActionState::EDAS_Unoccupied;
 }
 
 // Called every frame

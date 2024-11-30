@@ -15,7 +15,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define DRUMMER_MIDIDrummer_generated_h
 
 #define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummer_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execHandleMIDIEvent);
+	DECLARE_FUNCTION(execHandleMIDIEvent); \
+	DECLARE_FUNCTION(execKickEnd);
 
 
 #define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummer_h_14_INCLASS_NO_PURE_DECLS \

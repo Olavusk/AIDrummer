@@ -29,10 +29,7 @@ template<> DRUMMER_API UEnum* StaticEnum<EMIDIDrummerState>();
 
 #define FOREACH_ENUM_EMIDIDRUMMERACTIONSTATE(op) \
 	op(EMIDIDrummerActionState::EDAS_Unoccupied) \
-	op(EMIDIDrummerActionState::EDAS_RightFootMove) \
-	op(EMIDIDrummerActionState::EDAS_LeftFootMove) \
-	op(EMIDIDrummerActionState::EDAS_RightHandMove) \
-	op(EMIDIDrummerActionState::EDAS_LeftHandMove) 
+	op(EMIDIDrummerActionState::EDAS_Moving) 
 
 enum class EMIDIDrummerActionState : uint8;
 template<> struct TIsUEnumClass<EMIDIDrummerActionState> { enum { Value = true }; };

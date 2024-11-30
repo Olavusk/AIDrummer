@@ -25,11 +25,14 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintCallable)
+	void KickEnd();
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void HandleMIDIEvent(int32 Channel, int32 NoteID, int32 Velocity, FString EventType);
 
 private:
@@ -48,13 +51,15 @@ private:
 	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
 	EMIDIDrummerActionState LeftHandState = EMIDIDrummerActionState::EDAS_Unoccupied;
 
-	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
-	EMIDIDrummerActionState CurrentActionState = EMIDIDrummerActionState::EDAS_Unoccupied;
-
 	// Methods to update states
 	void UpdateState(EMIDIDrummerState NewState);
 	void UpdateLimbActionState(EMIDIDrummerActionState &LimbState, EMIDIDrummerActionState NewActionState);
-
 	// Reset a limb's action state to Unoccupied
 	void ResetLimbActionState(EMIDIDrummerActionState &LimbState);
+	void SimpleDrumMontagePlay(const FName &SectionName);
+	/**
+	 * Animation montages
+	 */
+	UPROPERTY(EditDefaultsOnly, Category = Montages)
+	UAnimMontage *SimpleDrumMontage;
 };

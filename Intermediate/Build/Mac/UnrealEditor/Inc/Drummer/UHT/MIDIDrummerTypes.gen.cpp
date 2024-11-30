@@ -88,14 +88,8 @@ struct Z_Construct_UEnum_Drummer_EMIDIDrummerActionState_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "EDAS_LeftFootMove.DisplayName", "Left Foot Move" },
-		{ "EDAS_LeftFootMove.Name", "EMIDIDrummerActionState::EDAS_LeftFootMove" },
-		{ "EDAS_LeftHandMove.DisplayName", "Left Hand Move" },
-		{ "EDAS_LeftHandMove.Name", "EMIDIDrummerActionState::EDAS_LeftHandMove" },
-		{ "EDAS_RightFootMove.DisplayName", "Right Foot Move" },
-		{ "EDAS_RightFootMove.Name", "EMIDIDrummerActionState::EDAS_RightFootMove" },
-		{ "EDAS_RightHandMove.DisplayName", "Right Hand Move" },
-		{ "EDAS_RightHandMove.Name", "EMIDIDrummerActionState::EDAS_RightHandMove" },
+		{ "EDAS_Moving.DisplayName", "Moving" },
+		{ "EDAS_Moving.Name", "EMIDIDrummerActionState::EDAS_Moving" },
 		{ "EDAS_Unoccupied.DisplayName", "Unoccupied" },
 		{ "EDAS_Unoccupied.Name", "EMIDIDrummerActionState::EDAS_Unoccupied" },
 		{ "ModuleRelativePath", "Public/Characters/Drummers/MIDIDrummerTypes.h" },
@@ -103,10 +97,7 @@ struct Z_Construct_UEnum_Drummer_EMIDIDrummerActionState_Statics
 #endif // WITH_METADATA
 	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
 		{ "EMIDIDrummerActionState::EDAS_Unoccupied", (int64)EMIDIDrummerActionState::EDAS_Unoccupied },
-		{ "EMIDIDrummerActionState::EDAS_RightFootMove", (int64)EMIDIDrummerActionState::EDAS_RightFootMove },
-		{ "EMIDIDrummerActionState::EDAS_LeftFootMove", (int64)EMIDIDrummerActionState::EDAS_LeftFootMove },
-		{ "EMIDIDrummerActionState::EDAS_RightHandMove", (int64)EMIDIDrummerActionState::EDAS_RightHandMove },
-		{ "EMIDIDrummerActionState::EDAS_LeftHandMove", (int64)EMIDIDrummerActionState::EDAS_LeftHandMove },
+		{ "EMIDIDrummerActionState::EDAS_Moving", (int64)EMIDIDrummerActionState::EDAS_Moving },
 	};
 	static const UECodeGen_Private::FEnumParams EnumParams;
 };
@@ -137,10 +128,10 @@ struct Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Sourc
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ EMIDIDrummerState_StaticEnum, TEXT("EMIDIDrummerState"), &Z_Registration_Info_UEnum_EMIDIDrummerState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2436876966U) },
-		{ EMIDIDrummerActionState_StaticEnum, TEXT("EMIDIDrummerActionState"), &Z_Registration_Info_UEnum_EMIDIDrummerActionState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4087162050U) },
+		{ EMIDIDrummerActionState_StaticEnum, TEXT("EMIDIDrummerActionState"), &Z_Registration_Info_UEnum_EMIDIDrummerActionState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2638317012U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummerTypes_h_1940671948(TEXT("/Script/Drummer"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummerTypes_h_4060752360(TEXT("/Script/Drummer"),
 	nullptr, 0,
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummerTypes_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Characters_Drummers_MIDIDrummerTypes_h_Statics::EnumInfo));
