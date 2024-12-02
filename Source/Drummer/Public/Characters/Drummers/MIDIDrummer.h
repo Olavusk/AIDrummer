@@ -39,16 +39,16 @@ private:
 	EMIDIDrummerState CurrentState = EMIDIDrummerState::EDS_Idle;
 
 	// Action states for each limb
-	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(BlueprintReadWrite, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
 	EMIDIDrummerActionState RightFootState = EMIDIDrummerActionState::EDAS_Unoccupied;
 
-	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(BlueprintReadWrite, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
 	EMIDIDrummerActionState LeftFootState = EMIDIDrummerActionState::EDAS_Unoccupied;
 
-	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(BlueprintReadWrite, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
 	EMIDIDrummerActionState RightHandState = EMIDIDrummerActionState::EDAS_Unoccupied;
 
-	UPROPERTY(BlueprintReadOnly, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(BlueprintReadWrite, Category = "ActionState", meta = (AllowPrivateAccess = "true"))
 	EMIDIDrummerActionState LeftHandState = EMIDIDrummerActionState::EDAS_Unoccupied;
 
 	// Methods to update states

@@ -27,7 +27,7 @@ void EmptyLinkFunctionForGeneratedCodeDrummer_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xE539B687,
+				0x6498399B,
 				0x3351C060,
 				METADATA_PARAMS(0, nullptr)
 			};
@@ -35,5 +35,5 @@ void EmptyLinkFunctionForGeneratedCodeDrummer_init() {}
 		}
 		return Z_Registration_Info_UPackage__Script_Drummer.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Drummer(Z_Construct_UPackage__Script_Drummer, TEXT("/Script/Drummer"), Z_Registration_Info_UPackage__Script_Drummer, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xE539B687, 0x3351C060));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Drummer(Z_Construct_UPackage__Script_Drummer, TEXT("/Script/Drummer"), Z_Registration_Info_UPackage__Script_Drummer, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x6498399B, 0x3351C060));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
