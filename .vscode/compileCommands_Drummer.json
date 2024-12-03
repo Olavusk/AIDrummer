@@ -48,6 +48,14 @@
 		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
 	},
 	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Characters/Drummers/MIDIDrummer.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Drummer/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Enemy/Enemy.cpp",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
@@ -144,6 +152,14 @@
 		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
 	},
 	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/MIDIFileBroadcaster.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Drummer/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Pawns/Bird.cpp",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
@@ -169,6 +185,14 @@
 	},
 	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Characters/DrummerCharacter.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Drummer/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummer.h",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
 			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Drummer/Drummer.1.rsp"
@@ -265,6 +289,14 @@
 	},
 	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Midi/MIDIEventBroadcaster.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Drummer/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Midi/MIDIFileBroadcaster.h",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
 			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Drummer/Drummer.1.rsp"

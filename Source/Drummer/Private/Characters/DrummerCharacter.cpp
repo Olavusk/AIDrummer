@@ -9,8 +9,10 @@
 #include "Items/Weapons/Weapon.h"
 #include "Items/Chair/Chair.h"
 #include "Items/Item.h"
+#include "Interfaces/MIDIEventReceiver.h"
 #include "Animation/AnimInstance.h"
 #include "Components/BoxComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "Characters/DrummerCharacter.h"
 
 // Sets default values
@@ -37,22 +39,13 @@ void ADrummerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// Existing Input Mapping Logic
 	if (APlayerController *PlayerController = Cast<APlayerController>(Controller))
 	{
 		if (UEnhancedInputLocalPlayerSubsystem *Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
 			Subsystem->AddMappingContext(DrummerContext, 0);
-
-			UE_LOG(LogTemp, Warning, TEXT("DrummerContext mapping context added."));
 		}
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("Failed to get EnhancedInputLocalPlayerSubsystem!"));
-		}
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("Failed to get PlayerController!"));
 	}
 }
 
@@ -84,40 +77,48 @@ void ADrummerCharacter::EKeyPressed()
 {
 	if (OverlappingItem)
 	{
-		AWeapon *OverlappingWeapon = Cast<AWeapon>(OverlappingItem);
-		if (OverlappingWeapon)
+		if (ADrumstick *OverlappingDrumstick = Cast<ADrumstick>(OverlappingItem))
 		{
-			OverlappingWeapon->Equip(GetMesh(), FName("RightHandSocket"));
-			CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
-			OverlappingItem = nullptr;
-			EquippedWeapon = OverlappingWeapon;
+			if (!EquippedRightHandDrumstick) // Equip to the right hand first
+			{
+				OverlappingDrumstick->Equip(GetMesh(), FName("RightHandDrumstick"));
+				EquippedRightHandDrumstick = OverlappingDrumstick;
+				UE_LOG(LogTemp, Log, TEXT("Equipped drumstick in right hand."));
+			}
+			else if (!EquippedLeftHandDrumstick) // Equip to the left hand next
+			{
+				OverlappingDrumstick->Equip(GetMesh(), FName("LeftHandDrumstick"));
+				EquippedLeftHandDrumstick = OverlappingDrumstick;
+				UE_LOG(LogTemp, Log, TEXT("Equipped drumstick in left hand."));
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Both hands are already equipped with drumsticks."));
+			}
+
+			OverlappingItem = nullptr; // Clear the overlap
+			return;
 		}
 
-		ADrumstick *OverlappingDrumstick = Cast<ADrumstick>(OverlappingItem);
-		if (OverlappingDrumstick)
+		if (AChair *OverlappingChair = Cast<AChair>(OverlappingItem))
 		{
-			OverlappingDrumstick->Equip(GetMesh(), FName("RightHandDrumstick"));
-			CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
-			OverlappingItem = nullptr;
-			EquippedDrumstick = OverlappingDrumstick;
+			EnterDrummingState(); // Ensure both hands have drumsticks
+			return;
 		}
 	}
-	else
+
+	// Default arm/disarm logic if no specific item is overlapping
+	if (CanDisarm())
 	{
-		if (CanDisarm())
-		{
-			PlayEquipMontage(FName("Unequip"));
-			CharacterState = ECharacterState::ECS_Unequipped;
-			ActionState = EActionState::EAS_EquippingWeapon;
-			UE_LOG(LogTemp, Warning, TEXT("CharacterState2: %d, ActionState: %d"), CharacterState, ActionState);
-		}
-		else if (CanArm())
-		{
-			PlayEquipMontage(FName("Equip"));
-			CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
-			ActionState = EActionState::EAS_EquippingWeapon;
-			UE_LOG(LogTemp, Warning, TEXT("CharacterState3: %d, ActionState: %d"), CharacterState, ActionState);
-		}
+		PlayEquipMontage(FName("Unequip"));
+		CharacterState = ECharacterState::ECS_Unequipped;
+		ActionState = EActionState::EAS_EquippingWeapon;
+	}
+	else if (CanArm())
+	{
+		PlayEquipMontage(FName("Equip"));
+		CharacterState = ECharacterState::ECS_EquippedOneHandedWeapon;
+		ActionState = EActionState::EAS_EquippingWeapon;
 	}
 }
 
@@ -146,7 +147,7 @@ bool ADrummerCharacter::CanArm()
 {
 	return ActionState == EActionState::EAS_Unoccupied &&
 		   CharacterState == ECharacterState::ECS_Unequipped &&
-		   (EquippedWeapon || EquippedDrumstick);
+		   (EquippedWeapon || EquippedRightHandDrumstick || EquippedLeftHandDrumstick);
 }
 
 void ADrummerCharacter::Disarm()
@@ -164,11 +165,61 @@ void ADrummerCharacter::Arm()
 		EquippedWeapon->AttachMeshToSocket(GetMesh(), FName("RightHandSocket"));
 	}
 }
+
+void ADrummerCharacter::EnterDrummingState()
+{
+	// Ensure right-hand drumstick is equipped
+	if (!EquippedRightHandDrumstick)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Right hand missing a drumstick. Spawning one."));
+		EquippedRightHandDrumstick = GetWorld()->SpawnActor<ADrumstick>(DrumstickClass);
+		if (EquippedRightHandDrumstick)
+		{
+			EquippedRightHandDrumstick->Equip(GetMesh(), FName("RightHandDrumstick"));
+		}
+	}
+
+	// Ensure left-hand drumstick is equipped
+	if (!EquippedLeftHandDrumstick)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Left hand missing a drumstick. Spawning one."));
+		EquippedLeftHandDrumstick = GetWorld()->SpawnActor<ADrumstick>(DrumstickClass);
+		if (EquippedLeftHandDrumstick)
+		{
+			EquippedLeftHandDrumstick->Equip(GetMesh(), FName("LeftHandDrumstick"));
+		}
+	}
+
+	// Update character state to Drumming
+	CharacterState = ECharacterState::ECS_Drumming;
+	UE_LOG(LogTemp, Log, TEXT("Entered Drumming State with both hands equipped."));
+
+	// Ensure MIDIBroadcaster is valid
+	if (MIDIBroadcaster)
+	{
+		MIDIBroadcaster->OnMIDINoteEvent.AddDynamic(this, &ADrummerCharacter::OnMIDIEventReceived);
+		// Debug Message
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Bound to MIDIBroadcaster!"));
+		}
+	}
+	else
+	{
+		// Debug Message
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("MIDIBroadcaster not foundz!"));
+		}
+	}
+}
+
 void ADrummerCharacter::FinishEquipping()
 {
 	ActionState = EActionState::EAS_Unoccupied;
 	UE_LOG(LogTemp, Warning, TEXT("Equip Montage Finished: CharacterState: %d, ActionState: %d"), CharacterState, ActionState);
 }
+
 void ADrummerCharacter::PlayAttackMontage()
 {
 	UAnimInstance *AnimInstance = GetMesh()->GetAnimInstance();
@@ -212,6 +263,54 @@ void ADrummerCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
+void ADrummerCharacter::EquipDrumsticks()
+{
+	// Equip or spawn and equip the right-hand drumstick
+	if (!EquippedRightHandDrumstick)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Right-hand drumstick missing, spawning new one."));
+		EquippedRightHandDrumstick = GetWorld()->SpawnActor<ADrumstick>(DrumstickClass);
+		if (EquippedRightHandDrumstick)
+		{
+			EquippedRightHandDrumstick->Equip(GetMesh(), FName("RightHandDrumstick"));
+		}
+	}
+	else
+	{
+		EquippedRightHandDrumstick->Equip(GetMesh(), FName("RightHandDrumstick"));
+	}
+
+	// Equip or spawn and equip the left-hand drumstick
+	if (!EquippedLeftHandDrumstick)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Left-hand drumstick missing, spawning new one."));
+		EquippedLeftHandDrumstick = GetWorld()->SpawnActor<ADrumstick>(DrumstickClass);
+		if (EquippedLeftHandDrumstick)
+		{
+			EquippedLeftHandDrumstick->Equip(GetMesh(), FName("LeftHandDrumstick"));
+		}
+	}
+	else
+	{
+		EquippedLeftHandDrumstick->Equip(GetMesh(), FName("LeftHandDrumstick"));
+	}
+
+	// Debug log to confirm both drumsticks are equipped
+	if (EquippedRightHandDrumstick && EquippedLeftHandDrumstick)
+	{
+		UE_LOG(LogTemp, Log, TEXT("Both drumsticks are now equipped."));
+	}
+}
+void ADrummerCharacter::PlaySimpleDrumMontage(const FName &SectionName)
+{
+	UAnimInstance *AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance && SimpleDrumMontage)
+	{
+		AnimInstance->Montage_Play(SimpleDrumMontage);
+		AnimInstance->Montage_JumpToSection(SectionName, SimpleDrumMontage);
+	}
+}
+
 void ADrummerCharacter::SetupPlayerInputComponent(UInputComponent *PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
@@ -232,5 +331,73 @@ void ADrummerCharacter::SetWeaponCollisionEnabled(ECollisionEnabled::Type Collis
 	{
 		EquippedWeapon->GetWeaponBox()->SetCollisionEnabled(CollisionEnabled);
 		EquippedWeapon->IgnoreActors.Empty();
+	}
+}
+
+void ADrummerCharacter::HandleSimpleDrumMontage(int32 NoteID)
+{
+	FName SectionName;
+
+	switch (NoteID)
+	{
+	case 36: // Kick Drum
+		SectionName = FName("Kick_1");
+		break;
+	case 38: // Snare Drum
+		SectionName = FName("SnareDrum_1");
+		break;
+	case 42: // Hi-Hat
+		SectionName = FName("HiHat_1");
+		break;
+	default:
+		UE_LOG(LogTemp, Log, TEXT("Unhandled NoteID: %d"), NoteID);
+		return; // Exit if no matching NoteID
+	}
+
+	if (SimpleDrumMontage) // Fixed here
+	{
+		PlaySimpleDrumMontage(SectionName);
+		UE_LOG(LogTemp, Log, TEXT("Playing section %s for NoteID %d."), *SectionName.ToString(), NoteID);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("SimpleDrumMontage is not assigned."));
+	}
+}
+
+void ADrummerCharacter::OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, const FString EventType)
+{
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("MIDI Note Received: %d"), NoteID));
+	}
+
+	if (CharacterState == ECharacterState::ECS_Drumming)
+	{
+		HandleSimpleDrumMontage(NoteID);
+	}
+	else
+	{
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Character is not in Drumming State."));
+		}
+	}
+}
+
+void ADrummerCharacter::SetDrumstickCollisionEnabled(ECollisionEnabled::Type CollisionEnabled)
+{
+	// Handle Right Hand Drumstick
+	if (EquippedRightHandDrumstick && EquippedRightHandDrumstick->GetDrumstickBox())
+	{
+		EquippedRightHandDrumstick->GetDrumstickBox()->SetCollisionEnabled(CollisionEnabled);
+		EquippedRightHandDrumstick->IgnoreActors.Empty();
+	}
+
+	// Handle Left Hand Drumstick
+	if (EquippedLeftHandDrumstick && EquippedLeftHandDrumstick->GetDrumstickBox())
+	{
+		EquippedLeftHandDrumstick->GetDrumstickBox()->SetCollisionEnabled(CollisionEnabled);
+		EquippedLeftHandDrumstick->IgnoreActors.Empty();
 	}
 }

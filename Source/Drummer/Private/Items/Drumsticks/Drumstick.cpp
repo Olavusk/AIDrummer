@@ -29,9 +29,6 @@ void ADrumstick::Equip(USceneComponent *InParent, FName InSocketName)
 {
     AttachMeshToSocket(InParent, InSocketName);
     ItemState = EItemState::EIS_Equipped;
-
-    // Ensure collision is fully disabled
-    DrumstickBox->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 void ADrumstick::AttachMeshToSocket(USceneComponent *InParent, const FName &InSocketName)
 {

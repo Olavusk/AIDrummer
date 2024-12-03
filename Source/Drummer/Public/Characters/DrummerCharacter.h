@@ -8,6 +8,8 @@
 #include "Items/Drumsticks/Drumstick.h"
 #include "InputActionValue.h"
 #include "CharacterTypes.h"
+#include "MIDI/MIDIEventBroadcaster.h"
+#include "Interfaces/MIDIEventReceiver.h"
 #include "DrummerCharacter.generated.h"
 
 class USpringArmComponent;
@@ -18,9 +20,10 @@ class AItem;
 class UAnimMontage;
 class AWeapon;
 class ADrumstick;
+class IMIDIEventReceiver;
 
 UCLASS()
-class DRUMMER_API ADrummerCharacter : public ACharacter
+class DRUMMER_API ADrummerCharacter : public ACharacter, public IMIDIEventReceiver
 {
 	GENERATED_BODY()
 
@@ -31,8 +34,17 @@ public:
 	FORCEINLINE void SetOverlappingItem(AItem *Item) { OverlappingItem = Item; }
 	FORCEINLINE ECharacterState GetCharacterState() const { return CharacterState; }
 
+	// Override the OnMIDIEventReceived method from the IMIDIEventReceiver interface
+	virtual void OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, const FString EventType) override;
+
 	UFUNCTION(BlueprintCallable)
 	void SetWeaponCollisionEnabled(ECollisionEnabled::Type CollisionEnabled);
+
+	UFUNCTION(BlueprintCallable)
+	void SetDrumstickCollisionEnabled(ECollisionEnabled::Type CollisionEnabled);
+
+	UFUNCTION(BlueprintCallable)
+	void EnterDrummingState();
 
 protected:
 	virtual void BeginPlay() override;
@@ -85,6 +97,15 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void FinishEquipping();
 
+	void PlaySimpleDrumMontage(const FName &SectionName);
+	void HandleSimpleDrumMontage(int32 NoteID);
+
+	UFUNCTION(BlueprintCallable)
+	void EquipDrumsticks();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MIDI")
+	AMIDIEventBroadcaster *MIDIBroadcaster;
+
 private:
 	ECharacterState CharacterState = ECharacterState::ECS_Unequipped;
 
@@ -102,8 +123,15 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = Weapon)
 	AWeapon *EquippedWeapon;
+
 	UPROPERTY(VisibleAnywhere, Category = Drumstick)
-	ADrumstick *EquippedDrumstick;
+	ADrumstick *EquippedRightHandDrumstick;
+
+	UPROPERTY(VisibleAnywhere, Category = Drumstick)
+	ADrumstick *EquippedLeftHandDrumstick;
+
+	UPROPERTY(EditDefaultsOnly, Category = Drumstick)
+	TSubclassOf<ADrumstick> DrumstickClass;
 
 	/**
 	 * Animation montages
@@ -114,4 +142,7 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
 	UAnimMontage *EquipMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category = Montages)
+	UAnimMontage *SimpleDrumMontage;
 };

@@ -4011,13 +4011,17 @@
   ../Plugins/EnhancedInput/Source/EnhancedInput/Public/InputActionValue.h \
   Runtime/InputCore/Classes/InputCoreTypes.h \
   ../Plugins/EnhancedInput/Intermediate/Build/Mac/UnrealEditor/Inc/EnhancedInput/UHT/InputActionValue.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/MIDI/MIDIEventBroadcaster.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventBroadcaster.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Interfaces/MIDIEventReceiver.h \
+  Runtime/CoreUObject/Public/UObject/Interface.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventReceiver.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerCharacter.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Drumstick.gen.cpp \
   Runtime/Engine/Classes/Engine/HitResult.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Enemy.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Enemy/Enemy.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Interfaces/HitInterface.h \
-  Runtime/CoreUObject/Public/UObject/Interface.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/HitInterface.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Enemy.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/HitInterface.gen.cpp \
@@ -4029,14 +4033,22 @@
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Midi/Drumset/KickDrumReceiver.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Midi/MIDIDrumReceiver.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Midi/MIDIEventBroadcaster.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventBroadcaster.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Interfaces/MIDIEventReceiver.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventReceiver.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrumReceiver.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/KickDrumReceiver.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummer.gen.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummer.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummerTypes.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummer.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerAnimInstance.gen.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummerAnimInstance.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerAnimInstance.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerTypes.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrumReceiver.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventBroadcaster.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventReceiver.gen.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIFileBroadcaster.gen.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Midi/MIDIFileBroadcaster.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIFileBroadcaster.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/SnareDrumReceiver.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Midi/Drumset/SnareDrumReceiver.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/SnareDrumReceiver.generated.h \
@@ -4120,11 +4132,9 @@
   Runtime/Engine/Classes/Components/BoxComponent.h \
   Runtime/Engine/Public/ShowFlags.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/BoxComponent.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Enemy/Enemy.cpp \
-  Runtime/Engine/Classes/Components/CapsuleComponent.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CapsuleComponent.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/DebugMacros.h \
-  Runtime/Engine/Public/DrawDebugHelpers.h \
+  Runtime/Engine/Classes/Kismet/GameplayStatics.h \
+  Runtime/Engine/Classes/Engine/LatentActionManager.h \
+  Runtime/Engine/Classes/GameFramework/PlayerController.h \
   Runtime/Engine/Classes/Kismet/KismetSystemLibrary.h \
   Runtime/CoreUObject/Public/UObject/TextProperty.h \
   Runtime/CoreUObject/Public/UObject/SoftObjectPtr.h \
@@ -4136,18 +4146,22 @@
   Runtime/Core/Public/Templates/UniquePtr.h \
   Runtime/Core/Public/UObject/NameTypes.h \
   Runtime/CoreUObject/Public/UObject/TopLevelAssetPath.h \
-  Runtime/Engine/Classes/Engine/LatentActionManager.h \
   Runtime/Engine/Classes/Engine/CollisionProfile.h \
   Runtime/CoreUObject/Public/AssetRegistry/ARFilter.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/KismetSystemLibrary.generated.h \
-  Runtime/Engine/Classes/Kismet/GameplayStatics.h \
-  Runtime/Engine/Classes/GameFramework/PlayerController.h \
   Runtime/Engine/Classes/Sound/DialogueTypes.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/DialogueTypes.generated.h \
   Runtime/Engine/Classes/Kismet/GameplayStaticsTypes.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/GameplayStaticsTypes.generated.h \
   Runtime/Engine/Classes/Particles/WorldPSCPool.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/GameplayStatics.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Characters/Drummers/MIDIDrummer.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Characters/Drummers/MIDIDrummerAnimInstance.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Enemy/Enemy.cpp \
+  Runtime/Engine/Classes/Components/CapsuleComponent.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CapsuleComponent.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/DebugMacros.h \
+  Runtime/Engine/Public/DrawDebugHelpers.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Interfaces/HitInterface.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Interfaces/IEquippable.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Interfaces/MIDIEventReceiver.cpp \
