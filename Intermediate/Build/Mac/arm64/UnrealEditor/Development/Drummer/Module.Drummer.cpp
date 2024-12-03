@@ -37,5 +37,4 @@
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/Drumset/SnareDrumReceiver.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/MIDIDrumReceiver.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/MIDIEventBroadcaster.cpp"
-#include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/MIDIFileBroadcaster.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Pawns/Bird.cpp"

@@ -4174,5 +4174,4 @@
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Midi/MIDIDrumReceiver.cpp \
   Runtime/Engine/Classes/Engine/Engine.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Midi/MIDIEventBroadcaster.cpp \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Midi/MIDIFileBroadcaster.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Pawns/Bird.cpp
