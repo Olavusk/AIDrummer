@@ -1,6 +1,8 @@
 {
 	"SourceFiles": [
 		"/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Drummer.Build.cs",
+		"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Smartsuit.Build.cs",
+		"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/SmartsuitEditor.Build.cs",
 		"/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer.Target.cs",
 		"/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/DrummerEditor.Target.cs"
 	],

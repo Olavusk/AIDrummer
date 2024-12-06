@@ -1,5 +1,365 @@
 [
 	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/AnimNode_RokokoFacePose.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/RokokoBodyRemapAsset.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/RokokoFaceMapData.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/RokokoModule.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/RokokoRemote.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/RokokoSkeletonData.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/RokokoStudioCommandAPI.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/Smartsuit.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/SmartsuitBlueprintLibrary.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/SmartsuitController.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/SmartsuitPoseNode.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/SmartsuitPrivatePCH.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/VirtualProductionFrame.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/VirtualProductionProp.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/VirtualProductionSource.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private/VirtualProductionTracker.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/AnimNode_RokokoFacePose.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/RokokoBodyRemapAsset.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/RokokoFaceMapData.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/RokokoModule.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/RokokoRemote.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/RokokoSkeletonData.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/RokokoStudioCommandAPI.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/Smartsuit.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/SmartsuitBlueprintLibrary.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/SmartsuitController.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/SmartsuitPoseNode.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/VirtualProductionFrame.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/VirtualProductionProp.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/VirtualProductionSource.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/VirtualProductionSourceSettings.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/VirtualProductionTracker.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Smartsuit.Build.cs",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Smartsuit.104.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Private/AnimGraphNode_RokokoFacePose.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Private/SmartsuitEditor.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Private/SmartsuitEditorPrivatePCH.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Private/SmartsuitPose.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Private/VirtualProductionSourceEditor.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Private/VirtualProductionSourceEditor.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Private/VirtualProductionSourceFactory.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Private/VirtualProductionSourceFactory.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Public/AnimGraphNode_RokokoFacePose.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Public/SmartsuitEditor.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Public/SmartsuitPose.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/SmartsuitEditor.Build.cs",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/SmartsuitEditor.105.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/DebugMacros.h",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
@@ -49,6 +409,14 @@
 	},
 	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Characters/Drummers/MIDIDrummer.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Characters/Drummers/MIDIDrummerAnimInstance.cpp",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
 			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
@@ -120,6 +488,14 @@
 		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
 	},
 	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/Binasc.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/Drumset/KickDrumReceiver.cpp",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
@@ -160,6 +536,38 @@
 		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
 	},
 	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/MidiEvent.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/MidiEventList.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/MidiFile.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Midi/MidiMessage.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Pawns/Bird.cpp",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
@@ -193,6 +601,22 @@
 	},
 	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummer.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummerAnimInstance.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummerTypes.h",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
 			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
@@ -264,6 +688,14 @@
 		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
 	},
 	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Midi/Binasc.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Midi/Drumset/KickDrumReceiver.h",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
@@ -297,6 +729,38 @@
 	},
 	{
 		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Midi/MIDIFileBroadcaster.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Midi/MidiEvent.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Midi/MidiEventList.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Midi/MidiFile.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.4/Engine/Source"
+	},
+	{
+		"file": "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Public/Midi/MidiMessage.h",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
 			"@/Users/olavu/Documents/Unreal Projects/AIDrummer/.vscode/compileCommands_Default/Drummer.1.rsp"
