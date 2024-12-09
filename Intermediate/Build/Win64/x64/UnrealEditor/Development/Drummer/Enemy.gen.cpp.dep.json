@@ -1,0 +1,25 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\enemy.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\x64\\drummereditor\\development\\unrealed\\sharedpch.unrealed.project.novalfmtstr.valapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\drummer\\definitions.drummer.h",
+            "j:\\unrealengine\\projects\\aidrummer\\source\\drummer\\public\\enemy\\enemy.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "j:\\unrealengine\\projects\\aidrummer\\source\\drummer\\public\\interfaces\\hitinterface.h",
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\hitinterface.generated.h",
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\enemy.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

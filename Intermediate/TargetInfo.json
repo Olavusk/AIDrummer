@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "Drummer",
-			"Path": "../Source/Drummer.Target.cs",
+			"Path": "..\\Source\\Drummer.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "DrummerEditor",
-			"Path": "../Source/DrummerEditor.Target.cs",
+			"Path": "..\\Source\\DrummerEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

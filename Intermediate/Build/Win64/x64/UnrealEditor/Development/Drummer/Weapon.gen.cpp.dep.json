@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\weapon.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\x64\\drummereditor\\development\\unrealed\\sharedpch.unrealed.project.novalfmtstr.valapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\drummer\\definitions.drummer.h",
+            "j:\\unrealengine\\projects\\aidrummer\\source\\drummer\\public\\items\\weapons\\weapon.h",
+            "j:\\unrealengine\\projects\\aidrummer\\source\\drummer\\public\\items\\item.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\spherecomponent.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\shapecomponent.generated.h",
+            "j:\\unrealengine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\spherecomponent.generated.h",
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\item.generated.h",
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\weapon.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -5,6 +5,7 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"J:/UnrealEngine/projects/AIDrummer/Content/StarterContent/Architecture/Floor_400x400.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/StarterContent/Props/SM_PillarFrame.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/Blueprints/GameMode/BP_BirdGameMode.uasset",
 				"/Users/olavu/Documents/Unreal Projects/Drummer/Content/StarterContent/Maps/Minimal_Default.umap",

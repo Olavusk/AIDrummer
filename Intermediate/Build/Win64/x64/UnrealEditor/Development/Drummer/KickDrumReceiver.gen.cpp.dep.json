@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\kickdrumreceiver.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\x64\\drummereditor\\development\\unrealed\\sharedpch.unrealed.project.novalfmtstr.valapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\drummer\\definitions.drummer.h",
+            "j:\\unrealengine\\projects\\aidrummer\\source\\drummer\\public\\midi\\drumset\\kickdrumreceiver.h",
+            "j:\\unrealengine\\projects\\aidrummer\\source\\drummer\\public\\midi\\mididrumreceiver.h",
+            "j:\\unrealengine\\projects\\aidrummer\\source\\drummer\\public\\midi\\midieventbroadcaster.h",
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\midieventbroadcaster.generated.h",
+            "j:\\unrealengine\\projects\\aidrummer\\source\\drummer\\public\\interfaces\\midieventreceiver.h",
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\midieventreceiver.generated.h",
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\mididrumreceiver.generated.h",
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\kickdrumreceiver.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

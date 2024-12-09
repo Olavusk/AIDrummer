@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Drummer.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Drummer.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\DrummerEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
+    <None Include="..\..\.ignore" />
+    <None Include="..\..\Drummer.code-workspace" />
+    <None Include="..\..\MCO_Mocap_Basics.png" />
+    <None Include="..\..\Modular_Drum_Kit_Set.png" />
+    <None Include="..\..\README.md" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Drummer">
+      <UniqueIdentifier>{2D2566E3-56C4-3186-BC15-FD34A7433919}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\DebugMacros.h">
+      <Filter>Source\Drummer</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\Drummer\Drummer.Build.cs">
+      <Filter>Source\Drummer</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\Drummer\Drummer.cpp">
+      <Filter>Source\Drummer</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Drummer\Drummer.h">
+      <Filter>Source\Drummer</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Private">
+      <UniqueIdentifier>{B887B972-C8AC-3D49-ADFE-0C185EF6ACAF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Drummer\Private\Characters">
+      <UniqueIdentifier>{7808AD98-3C8F-3F60-BDB5-A75E9A7A6FC5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Characters\DrummerAnimInstance.cpp">
+      <Filter>Source\Drummer\Private\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Characters\DrummerCharacter.cpp">
+      <Filter>Source\Drummer\Private\Characters</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Private\Characters\Drummers">
+      <UniqueIdentifier>{C3E6BFF6-C188-35DF-B751-1DD38D94AA37}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Characters\Drummers\MIDIDrummer.cpp">
+      <Filter>Source\Drummer\Private\Characters\Drummers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Characters\Drummers\MIDIDrummerAnimInstance.cpp">
+      <Filter>Source\Drummer\Private\Characters\Drummers</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Private\Enemy">
+      <UniqueIdentifier>{99AACF9C-B928-381A-9E01-45605BFAA690}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Enemy\Enemy.cpp">
+      <Filter>Source\Drummer\Private\Enemy</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Private\Interfaces">
+      <UniqueIdentifier>{1F302F6F-AEA9-3A66-B505-AA308A12FA72}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Interfaces\HitInterface.cpp">
+      <Filter>Source\Drummer\Private\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Interfaces\IEquippable.cpp">
+      <Filter>Source\Drummer\Private\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Interfaces\MIDIEventReceiver.cpp">
+      <Filter>Source\Drummer\Private\Interfaces</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Private\Items">
+      <UniqueIdentifier>{49D1B3C7-08F0-337C-B474-D50DF1811357}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Items\Item.cpp">
+      <Filter>Source\Drummer\Private\Items</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Private\Items\Chair">
+      <UniqueIdentifier>{E3C99F42-6541-3F49-9DA7-6E0A519740F0}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Items\Chair\Chair.cpp">
+      <Filter>Source\Drummer\Private\Items\Chair</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Private\Items\Drumsticks">
+      <UniqueIdentifier>{1947869E-C366-3A24-9FDB-95626F8F9049}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Items\Drumsticks\Drumstick.cpp">
+      <Filter>Source\Drummer\Private\Items\Drumsticks</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Private\Items\Weapons">
+      <UniqueIdentifier>{8B39A7DA-988E-3F8B-889F-F021AB44AF97}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Items\Weapons\Weapon.cpp">
+      <Filter>Source\Drummer\Private\Items\Weapons</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Private\Midi">
+      <UniqueIdentifier>{5F93CE9B-0DA0-32A7-826D-6D456DBA1A96}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Midi\Binasc.cpp">
+      <Filter>Source\Drummer\Private\Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Midi\MIDIDrumReceiver.cpp">
+      <Filter>Source\Drummer\Private\Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Midi\MidiEvent.cpp">
+      <Filter>Source\Drummer\Private\Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Midi\MIDIEventBroadcaster.cpp">
+      <Filter>Source\Drummer\Private\Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Midi\MidiEventList.cpp">
+      <Filter>Source\Drummer\Private\Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Midi\MidiFile.cpp">
+      <Filter>Source\Drummer\Private\Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Midi\MIDIFileBroadcaster.cpp">
+      <Filter>Source\Drummer\Private\Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Midi\MidiMessage.cpp">
+      <Filter>Source\Drummer\Private\Midi</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Private\Midi\Drumset">
+      <UniqueIdentifier>{0BF66809-45E9-3980-ACEB-FAEA1F7B666C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Midi\Drumset\KickDrumReceiver.cpp">
+      <Filter>Source\Drummer\Private\Midi\Drumset</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drummer\Private\Midi\Drumset\SnareDrumReceiver.cpp">
+      <Filter>Source\Drummer\Private\Midi\Drumset</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Private\Pawns">
+      <UniqueIdentifier>{BD44606A-4CE9-35BF-BB4F-084B16D22336}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Drummer\Private\Pawns\Bird.cpp">
+      <Filter>Source\Drummer\Private\Pawns</Filter>
+    </ClCompile>
+    <Filter Include="Source\Drummer\Public">
+      <UniqueIdentifier>{104A0C27-27FC-3D8F-B01D-D648946DA043}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Drummer\Public\Characters">
+      <UniqueIdentifier>{1EF4E662-CBB1-35A9-A99A-921DEC9EFCBF}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Characters\CharacterTypes.h">
+      <Filter>Source\Drummer\Public\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Characters\DrummerAnimInstance.h">
+      <Filter>Source\Drummer\Public\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Characters\DrummerCharacter.h">
+      <Filter>Source\Drummer\Public\Characters</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Public\Characters\Drummers">
+      <UniqueIdentifier>{44B9762E-102B-3243-9909-797E6BECBE40}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Characters\Drummers\MIDIDrummer.h">
+      <Filter>Source\Drummer\Public\Characters\Drummers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Characters\Drummers\MIDIDrummerAnimInstance.h">
+      <Filter>Source\Drummer\Public\Characters\Drummers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Characters\Drummers\MIDIDrummerTypes.h">
+      <Filter>Source\Drummer\Public\Characters\Drummers</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Public\Enemy">
+      <UniqueIdentifier>{F582A265-8353-33CE-B4CE-62293C2E1637}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Enemy\Enemy.h">
+      <Filter>Source\Drummer\Public\Enemy</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Public\Interfaces">
+      <UniqueIdentifier>{0F7192C2-4CB8-3E27-80FA-ABA1A6BDE09D}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Interfaces\HitInterface.h">
+      <Filter>Source\Drummer\Public\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Interfaces\IEquippable.h">
+      <Filter>Source\Drummer\Public\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Interfaces\MIDIEventReceiver.h">
+      <Filter>Source\Drummer\Public\Interfaces</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Public\Items">
+      <UniqueIdentifier>{F1E0E202-B28A-361B-9077-502183CE8BC1}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Items\Item.h">
+      <Filter>Source\Drummer\Public\Items</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Public\Items\Chair">
+      <UniqueIdentifier>{19A26D57-FD6C-3F60-9AFF-5E480AC508B9}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Items\Chair\Chair.h">
+      <Filter>Source\Drummer\Public\Items\Chair</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Public\Items\Drumsticks">
+      <UniqueIdentifier>{F045DAED-C00D-3E59-ACE5-F469EF82296D}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Items\Drumsticks\Drumstick.h">
+      <Filter>Source\Drummer\Public\Items\Drumsticks</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Public\Items\Weapons">
+      <UniqueIdentifier>{CB7ECEC9-8244-3847-8817-82FC2ADD2005}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Items\Weapons\Weapon.h">
+      <Filter>Source\Drummer\Public\Items\Weapons</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Public\Midi">
+      <UniqueIdentifier>{A5C3E63A-D711-349D-93C1-14D730EE28BA}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Midi\Binasc.h">
+      <Filter>Source\Drummer\Public\Midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Midi\MIDIDrumReceiver.h">
+      <Filter>Source\Drummer\Public\Midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Midi\MidiEvent.h">
+      <Filter>Source\Drummer\Public\Midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Midi\MIDIEventBroadcaster.h">
+      <Filter>Source\Drummer\Public\Midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Midi\MidiEventList.h">
+      <Filter>Source\Drummer\Public\Midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Midi\MidiFile.h">
+      <Filter>Source\Drummer\Public\Midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Midi\MIDIFileBroadcaster.h">
+      <Filter>Source\Drummer\Public\Midi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Midi\MidiMessage.h">
+      <Filter>Source\Drummer\Public\Midi</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Public\Midi\Drumset">
+      <UniqueIdentifier>{B9F99F6B-9365-38A6-A497-BC2A787A849E}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Midi\Drumset\KickDrumReceiver.h">
+      <Filter>Source\Drummer\Public\Midi\Drumset</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drummer\Public\Midi\Drumset\SnareDrumReceiver.h">
+      <Filter>Source\Drummer\Public\Midi\Drumset</Filter>
+    </ClInclude>
+    <Filter Include="Source\Drummer\Public\Pawns">
+      <UniqueIdentifier>{CD4F2D09-2BB2-3DBA-9813-66C74FEE1D97}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Drummer\Public\Pawns\Bird.h">
+      <Filter>Source\Drummer\Public\Pawns</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

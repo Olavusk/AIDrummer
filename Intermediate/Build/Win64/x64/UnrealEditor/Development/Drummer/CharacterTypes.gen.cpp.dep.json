@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\unrealeditor\\inc\\drummer\\uht\\charactertypes.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\x64\\drummereditor\\development\\unrealed\\sharedpch.unrealed.project.novalfmtstr.valapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "j:\\unrealengine\\projects\\aidrummer\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\drummer\\definitions.drummer.h",
+            "j:\\unrealengine\\projects\\aidrummer\\source\\drummer\\public\\characters\\charactertypes.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Drummer.Build.cs",
-		"/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer.Target.cs",
-		"/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/DrummerEditor.Target.cs"
+		"J:\\UnrealEngine\\projects\\AIDrummer\\Source\\Drummer\\Drummer.Build.cs",
+		"J:\\UnrealEngine\\projects\\AIDrummer\\Source\\Drummer.Target.cs",
+		"J:\\UnrealEngine\\projects\\AIDrummer\\Source\\DrummerEditor.Target.cs"
 	],
 	"EngineVersion": "5.4.4"
 }
