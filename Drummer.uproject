@@ -55,6 +55,19 @@
 		{
 			"Name": "SkeletalMeshModelingTools",
 			"Enabled": true
-		}
+		},
+		{
+			"Name": "Smartsuit",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/7e20fe7d4247410cb4f7d3e162d61c21"
+		},
+		{
+			"Name": "SQLiteSupport",
+			"Enabled": true
+		},
+		{
+			"Name": "SQLiteCore",
+			"Enabled": true
+		},
 	]
 }

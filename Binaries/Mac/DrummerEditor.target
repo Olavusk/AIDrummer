@@ -3330,11 +3330,27 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Runtime/Database/DatabaseSupport/Binaries/Mac/UnrealEditor-DatabaseSupport.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/Database/DatabaseSupport/Binaries/Mac/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Runtime/Database/SQLiteCore/Binaries/Mac/UnrealEditor-SQLiteCore.dylib",
 			"Type": "DynamicLibrary"
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Runtime/Database/SQLiteCore/Binaries/Mac/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/Database/SQLiteSupport/Binaries/Mac/UnrealEditor-SQLiteSupport.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/Database/SQLiteSupport/Binaries/Mac/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -22772,7 +22788,15 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Runtime/Database/DatabaseSupport/DatabaseSupport.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Runtime/Database/SQLiteCore/SQLiteCore.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/Database/SQLiteSupport/SQLiteSupport.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -22945,6 +22969,7 @@
 		"CurveEditorTools",
 		"CustomMeshComponent",
 		"DataValidation",
+		"DatabaseSupport",
 		"Dataflow",
 		"DatasmithContent",
 		"DeformerGraph",
@@ -23040,6 +23065,7 @@
 		"RigLogic",
 		"RigVM",
 		"SQLiteCore",
+		"SQLiteSupport",
 		"SequencerAnimTools",
 		"SequencerScripting",
 		"SignificanceManager",
