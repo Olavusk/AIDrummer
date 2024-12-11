@@ -20,6 +20,7 @@
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIFileBroadcaster.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/SnareDrumReceiver.gen.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Weapon.gen.cpp"
+#include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Database/InitializeDatabase.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Drummer.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Characters/DrummerAnimInstance.cpp"
 #include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Source/Drummer/Private/Characters/DrummerCharacter.cpp"

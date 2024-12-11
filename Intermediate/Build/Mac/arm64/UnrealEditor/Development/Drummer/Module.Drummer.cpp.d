@@ -3977,10 +3977,30 @@
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Chair.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/CharacterTypes.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/CharacterTypes.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DataRecorder.gen.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Database/DataRecorder.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Midi/MIDIEventBroadcaster.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventBroadcaster.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummerAnimInstance.h \
+  Runtime/Engine/Classes/Animation/AnimInstance.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerAnimInstance.generated.h \
+  ../Plugins/Runtime/Database/SQLiteCore/Source/SQLiteCore/Public/SQLiteDatabase.h \
+  Runtime/Core/Public/CoreTypes.h \
+  ../Plugins/Runtime/Database/SQLiteCore/Source/SQLiteCore/Public/SQLitePreparedStatement.h \
+  ../Plugins/Runtime/Database/SQLiteCore/Source/SQLiteCore/Public/SQLiteTypes.h \
+  Runtime/Core/Public/Misc/Guid.h Runtime/Core/Public/Misc/DateTime.h \
+  Runtime/Core/Public/Misc/EnumClassFlags.h \
+  Runtime/Core/Public/UObject/NameTypes.h \
+  Runtime/Core/Public/Containers/ArrayView.h \
+  Runtime/Core/Public/Containers/UnrealString.h \
+  Runtime/Core/Public/Internationalization/Text.h \
+  Runtime/Core/Public/Templates/EnableIf.h \
+  Runtime/Core/Public/Templates/IsEnumClass.h \
+  Runtime/Core/Public/Delegates/IntegerSequence.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DataRecorder.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Drummer.init.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerAnimInstance.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/DrummerAnimInstance.h \
-  Runtime/Engine/Classes/Animation/AnimInstance.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerAnimInstance.generated.h \
   Runtime/Engine/Classes/Components/SkeletalMeshComponent.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/DrummerCharacter.gen.cpp \
@@ -4012,7 +4032,6 @@
   Runtime/InputCore/Classes/InputCoreTypes.h \
   ../Plugins/EnhancedInput/Intermediate/Build/Mac/UnrealEditor/Inc/EnhancedInput/UHT/InputActionValue.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/MIDI/MIDIEventBroadcaster.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventBroadcaster.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Interfaces/MIDIEventReceiver.h \
   Runtime/CoreUObject/Public/UObject/Interface.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventReceiver.generated.h \
@@ -4032,7 +4051,6 @@
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/KickDrumReceiver.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Midi/Drumset/KickDrumReceiver.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Midi/MIDIDrumReceiver.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Midi/MIDIEventBroadcaster.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrumReceiver.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/KickDrumReceiver.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummer.gen.cpp \
@@ -4040,8 +4058,6 @@
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummerTypes.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummer.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerAnimInstance.gen.cpp \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Characters/Drummers/MIDIDrummerAnimInstance.h \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerAnimInstance.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrummerTypes.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIDrumReceiver.gen.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/MIDIEventBroadcaster.gen.cpp \
@@ -4053,21 +4069,6 @@
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Public/Midi/Drumset/SnareDrumReceiver.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/SnareDrumReceiver.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/UnrealEditor/Inc/Drummer/UHT/Weapon.gen.cpp \
-  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Database/InitializeDatabase.cpp \
-  ../Plugins/Runtime/Database/SQLiteCore/Source/SQLiteCore/Public/SQLiteDatabase.h \
-  Runtime/Core/Public/CoreTypes.h \
-  ../Plugins/Runtime/Database/SQLiteCore/Source/SQLiteCore/Public/SQLitePreparedStatement.h \
-  ../Plugins/Runtime/Database/SQLiteCore/Source/SQLiteCore/Public/SQLiteTypes.h \
-  Runtime/Core/Public/Misc/Guid.h Runtime/Core/Public/Misc/DateTime.h \
-  Runtime/Core/Public/Misc/EnumClassFlags.h \
-  Runtime/Core/Public/UObject/NameTypes.h \
-  Runtime/Core/Public/Containers/ArrayView.h \
-  Runtime/Core/Public/Containers/UnrealString.h \
-  Runtime/Core/Public/Internationalization/Text.h \
-  Runtime/Core/Public/Templates/EnableIf.h \
-  Runtime/Core/Public/Templates/IsEnumClass.h \
-  Runtime/Core/Public/Delegates/IntegerSequence.h \
-  Runtime/Core/Public/Misc/Paths.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Drummer.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Drummer.h \
   Runtime/Core/Public/Modules/ModuleManager.h \
@@ -4169,6 +4170,8 @@
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/GameplayStatics.generated.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Characters/Drummers/MIDIDrummer.cpp \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Characters/Drummers/MIDIDrummerAnimInstance.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Database/DataRecorder.cpp \
+  Runtime/Core/Public/Misc/Paths.h \
   /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Source/Drummer/Private/Enemy/Enemy.cpp \
   Runtime/Engine/Classes/Components/CapsuleComponent.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CapsuleComponent.generated.h \
