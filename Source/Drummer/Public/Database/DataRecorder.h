@@ -2,9 +2,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "SQLiteDatabase.h"
 #include "Midi/MIDIEventBroadcaster.h"
 #include "Characters/Drummers/MIDIDrummerAnimInstance.h"
-#include "SQLiteDatabase.h"
 #include "DataRecorder.generated.h"
 
 UCLASS()
@@ -13,44 +13,57 @@ class DRUMMER_API ADataRecorder : public AActor
 	GENERATED_BODY()
 
 public:
-	// Constructor
+	// Sets default values for this actor's properties
 	ADataRecorder();
-
-	// Start and Stop Recording
-	UFUNCTION(BlueprintCallable)
-	void StartRecording();
-
-	UFUNCTION(BlueprintCallable)
-	void StopRecording();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	// Called when the game is ending or the actor is being destroyed
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
-private:
-	// Database instance
-	FSQLiteDatabase Database;
-
-	// Current Session ID (we store this as a string)
-	FString CurrentSessionID;
-
-	// Is the recording active
-	bool bIsRecording;
-
-	// Listens for MIDI Note Events
-	UFUNCTION()
-	void OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, FString EventType);
-
-	// Listens for Bone Position Updates
-	UFUNCTION()
-	void OnBonePositionUpdated(FName BoneName, FVector Position);
-
-	// Initialize database
+public:
+	// **Expose to Blueprint for calling in Blueprints**
+	UFUNCTION(BlueprintCallable, Category = "Database")
 	void InitializeDatabase();
 
-	// Create a new session
+	UFUNCTION(BlueprintCallable, Category = "Database")
 	void CreateNewSession();
+
+	UFUNCTION(BlueprintCallable, Category = "Recording")
+	void StartRecording();
+
+	UFUNCTION(BlueprintCallable, Category = "Recording")
+	void StopRecording();
+
+	UFUNCTION(BlueprintCallable, Category = "Events")
+	void OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, FString EventType);
+
+	UFUNCTION(BlueprintCallable, Category = "Events")
+	void OnBonePositionUpdated(FName BoneName, FVector Position);
+
+private:
+	// SQLite Database
+	FSQLiteDatabase Database;
+
+	// **Reference to MIDI Event Broadcaster (Editable in Blueprint)**
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MIDI", meta = (AllowPrivateAccess = "true"))
+	AMIDIEventBroadcaster *MIDIBroadcaster;
+
+	// **Reference to the Skeletal Mesh or Animation Source (Editable in Blueprint)**
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation", meta = (AllowPrivateAccess = "true"))
+	USkeletalMeshComponent *AnimationSource;
+
+	// **Expose CurrentSessionID to Blueprint (Read-Only)**
+	UPROPERTY(BlueprintReadOnly, Category = "Session", meta = (AllowPrivateAccess = "true"))
+	FString CurrentSessionID;
+
+	// Flag to indicate whether recording is active
+	UPROPERTY(BlueprintReadOnly, Category = "Recording", meta = (AllowPrivateAccess = "true"))
+	bool bIsRecording;
+
+	// The start time of the recording
+	UPROPERTY(BlueprintReadOnly, Category = "Recording", meta = (AllowPrivateAccess = "true"))
+	float StartRecordingTime;
 };

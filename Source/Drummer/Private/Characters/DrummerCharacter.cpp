@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "Characters/DrummerCharacter.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -13,7 +14,6 @@
 #include "Animation/AnimInstance.h"
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "Characters/DrummerCharacter.h"
 
 // Sets default values
 ADrummerCharacter::ADrummerCharacter()

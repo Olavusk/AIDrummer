@@ -18,7 +18,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execOnBonePositionUpdated); \
 	DECLARE_FUNCTION(execOnMIDIEventReceived); \
 	DECLARE_FUNCTION(execStopRecording); \
-	DECLARE_FUNCTION(execStartRecording);
+	DECLARE_FUNCTION(execStartRecording); \
+	DECLARE_FUNCTION(execCreateNewSession); \
+	DECLARE_FUNCTION(execInitializeDatabase);
 
 
 #define FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Database_DataRecorder_h_13_INCLASS_NO_PURE_DECLS \

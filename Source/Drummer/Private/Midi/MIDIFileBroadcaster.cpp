@@ -1,8 +1,7 @@
 // MIDIFileBroadcaster.cpp
 
-#include "Midi/MidiFile.h"
 #include "Midi/MIDIFileBroadcaster.h"
-
+#include "Midi/MidiFile.h"
 // Constructor
 AMIDIFileBroadcaster::AMIDIFileBroadcaster()
 {
