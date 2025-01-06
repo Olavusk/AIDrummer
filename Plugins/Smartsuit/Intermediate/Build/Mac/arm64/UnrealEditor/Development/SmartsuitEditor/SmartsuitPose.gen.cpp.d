@@ -1,6 +1,6 @@
-/Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/arm64/UnrealEditor/Development/SmartsuitEditor/SmartsuitPose.gen.cpp.o: \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Intermediate/Build/Mac/arm64/RokokoUEPluginEditor/Development/Engine/SharedPCH.Engine.Project.ValApi.Cpp20.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Intermediate/Build/Mac/arm64/RokokoUEPluginEditor/Development/Engine/SharedDefinitions.Engine.Project.ValApi.Cpp20.h \
+/Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/arm64/UnrealEditor/Development/SmartsuitEditor/SmartsuitPose.gen.cpp.o: \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/Engine/SharedPCH.Engine.Project.NoValFmtStr.ValApi.Cpp20.InclOrderUnreal5_3.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/Engine/SharedDefinitions.Engine.Project.NoValFmtStr.ValApi.Cpp20.InclOrderUnreal5_3.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/EngineSharedPCH.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Slate/Public/SlateSharedPCH.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/CoreUObject/Public/CoreUObjectSharedPCH.h \
@@ -160,11 +160,15 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Concepts/GetTypeHashable.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/AlignmentTemplates.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Traits/ElementType.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/IsConstructible.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/MakeUnsigned.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Misc/StructBuilder.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/Function.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Misc/IntrusiveUnsetOptionalState.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Misc/OptionalFwd.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/FunctionFwd.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/IsInvocable.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/IsMemberPointer.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Containers/SparseArray.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Containers/ScriptArray.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Containers/BitArray.h \
@@ -205,11 +209,14 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Containers/StringView.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/String/Find.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Containers/ArrayView.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Stats/Stats.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Delegates/Delegate.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/SharedPointer.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/IsConst.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/PointerIsConvertibleFromTo.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/LosesQualifiersFromTo.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Stats/Stats.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Color.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Misc/Parse.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Delegates/Delegate.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/SharedPointer.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/CoreGlobals.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/HAL/PlatformTLS.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/GenericPlatform/GenericPlatformTLS.h \
@@ -242,7 +249,6 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Delegates/DelegateInstancesImpl.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Delegates/DelegateSignatureImpl.inl \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/UObject/ScriptDelegates.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/IsConst.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Delegates/DelegateCombinations.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/HAL/PlatformTime.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Mac/MacPlatformTime.h \
@@ -266,8 +272,6 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/ProfilingDebugging/TagTrace.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/TraceLog/Public/Trace/Detail/LogScope.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/TraceLog/Public/Trace/Detail/Writer.inl \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Color.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Misc/Parse.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/ProfilingDebugging/MiscTrace.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Stats/StatsTrace.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/HAL/Event.h \
@@ -301,7 +305,6 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/HAL/MallocAnsi.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Containers/LockFreeFixedSizeAllocator.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Misc/MemStack.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/IsInvocable.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Misc/ScopeExit.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Async/Fundamental/TaskShared.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Async/Fundamental/WaitingQueue.h \
@@ -333,7 +336,6 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Internationalization/LocalizedTextSourceTypes.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Internationalization/StringTableCoreFwd.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Internationalization/ITextData.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/IsConstructible.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Internationalization/Internationalization.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/IntVector.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Axis.h \
@@ -364,6 +366,7 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/IntegralConstant.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Templates/IsClass.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Misc/FrameNumber.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/ColorList.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/IntRect.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/TwoVectors.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Edge.h \
@@ -385,17 +388,16 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/ScaleMatrix.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/MirrorMatrix.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/ClipProjectionMatrix.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/ConvexHull2d.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/UnrealMath.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/ColorList.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/CurveEdInterface.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/InterpCurvePoint.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Float16Color.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/InterpCurve.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Algo/MinElement.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Algo/Impl/RangePointerType.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Ray.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/CurveEdInterface.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Float16Color.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Vector2DHalf.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/ConvexHull2d.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/UnrealMath.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Math/Ray.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Async/Future.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Async/ParallelFor.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Async/TaskGraphInterfaces.h \
@@ -979,11 +981,54 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavAgentInterface.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavAgentInterface.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavigationTypes.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/Actor.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/TimerHandle.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/TimerHandle.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/EngineTypes.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/EngineBaseTypes.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Net/Core/Public/Net/Core/Connection/NetEnums.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/NetCore/UHT/NetEnums.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/EngineBaseTypes.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/PropertyPairsMap.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/OverrideVoidReturnInvoker.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Components/ChildActorComponent.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Components/SceneComponent.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/ComponentInstanceDataCache.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ComponentInstanceDataCache.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Components/ActorComponent.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Interfaces/Interface_AssetUserData.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/AssetUserData.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/AssetUserData.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/Interface_AssetUserData.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ActorComponent.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Net/Core/Public/Net/Core/PushModel/PushModelMacros.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/SceneComponent.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ChildActorComponent.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Net/Core/Public/Net/Core/Misc/NetSubObjectRegistry.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/ReplicatedState.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/NetSerialization.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/EngineLogs.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Net/Core/Public/Net/Core/Serialization/QuantizedVectorSerialization.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NetSerialization.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ReplicatedState.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/Folder.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/WorldPartition/WorldPartitionActorDescType.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/Actor.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavDataGatheringMode.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavDataGatheringMode.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavigationTypes.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/AI/Navigation/NavQueryFilter.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavRelevantInterface.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavDataGatheringMode.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavDataGatheringMode.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/AI/NavigationModifier.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/PhysicsCore/Public/CollisionShape.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavLinkDefinition.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavAgentSelector.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavAgentSelector.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavLinkDefinition.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavigationDataResolution.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavigationDataResolution.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavigationRelevantData.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavRelevantInterface.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/AlphaBlend.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/AlphaBlend.generated.h \
@@ -998,15 +1043,7 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/UObject/UE5ReleaseStreamObjectVersion.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/UObject/DevObjectVersion.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/AnimTypes.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Interfaces/Interface_AssetUserData.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/AssetUserData.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/AssetUserData.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/Interface_AssetUserData.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/AnimInterpFilter.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/TimerHandle.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/TimerHandle.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/EngineTypes.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Interfaces/Interface_PreviewMeshProvider.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/Interface_PreviewMeshProvider.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/AnimationAsset.generated.h \
@@ -1020,7 +1057,6 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/BlueprintCore.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/Blueprint/BlueprintPropertyGuidProvider.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/CoreUObject/Public/Blueprint/BlueprintSupport.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/EngineLogs.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Editor/UnrealEd/Public/Kismet2/CompilerResultsLog.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Editor/UnrealEd/Public/EdGraphToken.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/Blueprint.generated.h \
@@ -1082,36 +1118,17 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Misc/Change.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/Engine.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/CoreUObject/Public/UObject/PrintStaleReferencesOptions.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/EngineBaseTypes.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Net/Core/Public/Net/Core/Connection/NetEnums.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/NetCore/UHT/NetEnums.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/EngineBaseTypes.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/World.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/Actor.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/PropertyPairsMap.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/OverrideVoidReturnInvoker.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Components/ChildActorComponent.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Components/SceneComponent.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/ComponentInstanceDataCache.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ComponentInstanceDataCache.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Components/ActorComponent.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ActorComponent.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Net/Core/Public/Net/Core/PushModel/PushModelMacros.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/SceneComponent.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ChildActorComponent.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Net/Core/Public/Net/Core/Misc/NetSubObjectRegistry.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/ReplicatedState.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/NetSerialization.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Net/Core/Public/Net/Core/Serialization/QuantizedVectorSerialization.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NetSerialization.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ReplicatedState.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/Folder.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/WorldPartition/WorldPartitionActorDescType.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/Actor.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/GameTime.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/CollisionQueryParams.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/WorldCollision.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/PhysicsCore/Public/CollisionShape.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/OverlapResult.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/ActorInstanceHandle.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/CoreUObject/Public/UObject/WeakInterfacePtr.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ActorInstanceHandle.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/OverlapResult.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/HitResult.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/HitResult.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/UpdateLevelVisibilityLevelInfo.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/UpdateLevelVisibilityLevelInfo.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/EngineDefines.h \
@@ -1163,11 +1180,6 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/IPhysicsComponent.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/Engine/ScopedMovementUpdate.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/Engine/OverlapInfo.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/HitResult.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/ActorInstanceHandle.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/CoreUObject/Public/UObject/WeakInterfacePtr.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ActorInstanceHandle.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/HitResult.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Components/ActorPrimitiveComponentInterface.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Components/ComponentInterfaces.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/PhysicsEngine/BodyInstance.h \
@@ -1349,6 +1361,7 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Containers/StridedView.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/MeshUVChannelInfo.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/MeshUVChannelInfo.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Shaders/Shared/NaniteDefinitions.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Components/InputComponent.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/InputComponent.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Components/SkeletalMeshComponent.h \
@@ -1593,6 +1606,7 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/RenderCore/Public/ShaderCompilerCore.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Hash/xxhash.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Core/Public/Misc/PathViews.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/RenderCore/Public/ShaderParameterParser.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/Rendering/SubstrateMaterialShared.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Shaders/Shared/SubstrateDefinitions.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/Shader/Preshader.h \
@@ -1629,6 +1643,7 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/PrimitiveSceneProxy.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/SceneView.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Renderer/Public/GlobalDistanceFieldConstants.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/InstanceUniformShaderParameters.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/InstanceDataTypes.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Public/SceneInterface.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Sound/SoundBase.h \
@@ -2243,10 +2258,10 @@
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMassFormatter.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSLengthFormatter.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSEnergyFormatter.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMeasurement.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUnit.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMeasurementFormatter.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNumberFormatter.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMeasurement.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUnit.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSLocale.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPersonNameComponents.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPersonNameComponentsFormatter.h \
@@ -2701,6 +2716,8 @@
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGShading.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGFunction.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGToneMapping.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGEXRToneMappingGamma.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGITUToneMapping.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibility.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSErrors.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityConstants.h \
@@ -3168,6 +3185,9 @@
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextLineFragment.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextViewportLayoutController.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAdaptiveImageGlyph.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWritingToolsCoordinatorAnimationParameters.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWritingToolsCoordinatorContext.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWritingToolsCoordinator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreDataErrors.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSDerivedAttributeDescription.h \
@@ -3809,8 +3829,8 @@
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__bit/byteswap.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__bit/endian.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__bit/has_single_bit.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Intermediate/Build/Mac/arm64/RokokoUEPluginEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.Cpp20.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Intermediate/Build/Mac/arm64/RokokoUEPluginEditor/Development/UnrealEd/SharedDefinitions.UnrealEd.Project.ValApi.Cpp20.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.NoValFmtStr.ValApi.Cpp20.InclOrderUnreal5_3.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/UnrealEd/SharedDefinitions.UnrealEd.Project.NoValFmtStr.ValApi.Cpp20.InclOrderUnreal5_3.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Editor/UnrealEd/Public/UnrealEdSharedPCH.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Messaging/Public/IMessageContext.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/CoreUObject/Public/AssetRegistry/ARFilter.h \
@@ -3830,6 +3850,12 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/GameplayTasks/UHT/GameplayTaskOwnerInterface.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/GameplayTasks/Classes/GameplayTask.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/GameplayTasks/UHT/GameplayTask.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/NavigationSystem/Public/NavFilters/NavigationQueryFilter.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/NavigationSystem/Public/NavAreas/NavArea.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavAreaBase.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/NavAreaBase.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/NavigationSystem/UHT/NavArea.generated.h \
+  /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/NavigationSystem/UHT/NavigationQueryFilter.generated.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Editor/UnrealEd/Public/AssetThumbnail.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Editor/UnrealEd/Public/TickableEditorObject.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Editor/UnrealEd/Public/Editor.h \
@@ -3932,10 +3958,10 @@
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Editor/UnrealEd/Public/MRUFavoritesList.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/Editor/UnrealEd/Public/MRUList.h \
   /Users/Shared/Epic\ Games/UE_5.4/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/UnrealEd/UHT/AssetEditorSubsystem.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/SmartsuitEditor/UHT/SmartsuitPose.gen.cpp \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/arm64/UnrealEditor/Development/SmartsuitEditor/Definitions.SmartsuitEditor.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/SmartsuitEditor/UHT/SmartsuitPose.gen.cpp \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/arm64/UnrealEditor/Development/SmartsuitEditor/Definitions.SmartsuitEditor.h \
   Runtime/CoreUObject/Public/UObject/GeneratedCppIncludes.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Source/SmartsuitEditor/Public/SmartsuitPose.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Public/SmartsuitPose.h \
   Editor/AnimGraph/Public/AnimGraphNode_SkeletalControlBase.h \
   Runtime/Core/Public/CoreMinimal.h \
   Runtime/CoreUObject/Public/UObject/ObjectMacros.h \
@@ -3958,7 +3984,7 @@
   ../Intermediate/Build/Mac/UnrealEditor/Inc/AnimGraph/UHT/AnimGraphNode_Base.generated.h \
   Runtime/CoreUObject/Public/UObject/ScriptMacros.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/AnimGraph/UHT/AnimGraphNode_SkeletalControlBase.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Source/Smartsuit/Public/SmartsuitPoseNode.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/SmartsuitPoseNode.h \
   Runtime/AnimGraphRuntime/Public/BoneControllers/AnimNode_SkeletalControlBase.h \
   Runtime/Engine/Public/Animation/BoneSocketReference.h \
   Runtime/Engine/Classes/Animation/InputScaleBias.h \
@@ -4004,12 +4030,12 @@
   Runtime/CoreUObject/Public/UObject/StructOnScope.h \
   Runtime/Core/Public/UObject/UnrealNames.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/LiveLinkInterface/UHT/LiveLinkTypes.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Source/Smartsuit/Public/SmartsuitController.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/SmartsuitController.h \
   Runtime/Engine/Classes/GameFramework/Actor.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Source/Smartsuit/Public/RokokoSkeletonData.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public/RokokoSkeletonData.h \
   Runtime/Launch/Resources/Version.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/Smartsuit/UHT/RokokoSkeletonData.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/Smartsuit/UHT/SmartsuitController.generated.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/Smartsuit/UHT/SmartsuitPoseNode.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/Smartsuit/UHT/RokokoSkeletonData.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/Smartsuit/UHT/SmartsuitController.generated.h \
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/Smartsuit/UHT/SmartsuitPoseNode.generated.h \
   Runtime/Engine/Public/EdGraph/EdGraphNodeUtils.h \
-  /Users/olavu/Documents/Unreal\ Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/SmartsuitEditor/UHT/SmartsuitPose.generated.h
+  /Users/olavu/Documents/Unreal\ Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/SmartsuitEditor/UHT/SmartsuitPose.generated.h

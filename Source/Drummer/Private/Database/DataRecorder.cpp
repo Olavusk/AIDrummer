@@ -12,27 +12,26 @@ ADataRecorder::ADataRecorder()
 void ADataRecorder::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// Initialize the database and start a new session
-	InitializeDatabase();
-	CreateNewSession();
 }
 
 void ADataRecorder::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
 
-	// Unbind all dynamic events to avoid lingering connections
 	if (MIDIBroadcaster)
 	{
 		MIDIBroadcaster->OnMIDINoteEvent.RemoveDynamic(this, &ADataRecorder::OnMIDIEventReceived);
 	}
 
-	if (AnimationSource)
+	if (AnimationSourceActor)
 	{
-		if (UMIDIDrummerAnimInstance *DrummerAnimInstance = Cast<UMIDIDrummerAnimInstance>(AnimationSource->GetAnimInstance()))
+		USkeletalMeshComponent *SkeletalMesh = AnimationSourceActor->FindComponentByClass<USkeletalMeshComponent>();
+		if (SkeletalMesh)
 		{
-			DrummerAnimInstance->OnMIDIBonePositionUpdated.RemoveDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
+			{
+				LiveAnimInstance->OnLiveBonePositionUpdated.RemoveDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+			}
 		}
 	}
 
@@ -70,6 +69,9 @@ void ADataRecorder::StartRecording()
 	if (bIsRecording)
 		return;
 
+	InitializeDatabase();
+	CreateNewSession();
+
 	bIsRecording = true;
 	StartRecordingTime = GetWorld()->GetTimeSeconds();
 
@@ -78,23 +80,15 @@ void ADataRecorder::StartRecording()
 		MIDIBroadcaster->OnMIDINoteEvent.AddDynamic(this, &ADataRecorder::OnMIDIEventReceived);
 	}
 
-	if (AnimationSource)
+	if (AnimationSourceActor)
 	{
-		if (UAnimInstance *AnimInstance = AnimationSource->GetAnimInstance())
+		USkeletalMeshComponent *SkeletalMesh = AnimationSourceActor->FindComponentByClass<USkeletalMeshComponent>();
+		if (SkeletalMesh)
 		{
-			UMIDIDrummerAnimInstance *DrummerAnimInstance = Cast<UMIDIDrummerAnimInstance>(AnimInstance);
-			if (DrummerAnimInstance)
+			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
 			{
-				DrummerAnimInstance->OnMIDIBonePositionUpdated.AddDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+				LiveAnimInstance->OnLiveBonePositionUpdated.AddDynamic(this, &ADataRecorder::OnBonePositionUpdated);
 			}
-			else
-			{
-				UE_LOG(LogTemp, Error, TEXT("DrummerAnimInstance is NULL."));
-			}
-		}
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("AnimationSource does not have an AnimInstance."));
 		}
 	}
 }
@@ -106,16 +100,31 @@ void ADataRecorder::StopRecording()
 
 	bIsRecording = false;
 
+	FSQLitePreparedStatement Statement = Database.PrepareStatement(TEXT("UPDATE Sessions SET EndTime = datetime('now') WHERE SessionID = ?1;"));
+
+	if (Statement.IsValid())
+	{
+		Statement.SetBindingValueByIndex(1, CurrentSessionID);
+		if (!Statement.Execute())
+		{
+			UE_LOG(LogTemp, Error, TEXT("Failed to update end time for SessionID: %s"), *CurrentSessionID);
+		}
+	}
+
 	if (MIDIBroadcaster)
 	{
 		MIDIBroadcaster->OnMIDINoteEvent.RemoveDynamic(this, &ADataRecorder::OnMIDIEventReceived);
 	}
 
-	if (AnimationSource)
+	if (AnimationSourceActor)
 	{
-		if (UMIDIDrummerAnimInstance *DrummerAnimInstance = Cast<UMIDIDrummerAnimInstance>(AnimationSource->GetAnimInstance()))
+		USkeletalMeshComponent *SkeletalMesh = AnimationSourceActor->FindComponentByClass<USkeletalMeshComponent>();
+		if (SkeletalMesh)
 		{
-			DrummerAnimInstance->OnMIDIBonePositionUpdated.RemoveDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
+			{
+				LiveAnimInstance->OnLiveBonePositionUpdated.RemoveDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+			}
 		}
 	}
 
@@ -130,17 +139,6 @@ void ADataRecorder::OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Veloc
 {
 	if (!bIsRecording)
 		return;
-
-	int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
-	FSQLitePreparedStatement Statement = Database.PrepareStatement(
-		TEXT("INSERT INTO MIDIEvents (SessionID, FrameIndex, Channel, NoteID, Velocity, EventType) VALUES (?1, ?2, ?3, ?4, ?5, ?6);"));
-	Statement.SetBindingValueByIndex(1, CurrentSessionID);
-	Statement.SetBindingValueByIndex(2, FrameIndex);
-	Statement.SetBindingValueByIndex(3, Channel);
-	Statement.SetBindingValueByIndex(4, NoteID);
-	Statement.SetBindingValueByIndex(5, Velocity);
-	Statement.SetBindingValueByIndex(6, EventType);
-	Statement.Execute();
 }
 
 void ADataRecorder::OnBonePositionUpdated(FName BoneName, FVector Position)
@@ -151,11 +149,15 @@ void ADataRecorder::OnBonePositionUpdated(FName BoneName, FVector Position)
 	int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
 	FSQLitePreparedStatement Statement = Database.PrepareStatement(
 		TEXT("INSERT INTO AnimationData (SessionID, FrameIndex, BoneName, BonePosition_X, BonePosition_Y, BonePosition_Z) VALUES (?1, ?2, ?3, ?4, ?5, ?6);"));
-	Statement.SetBindingValueByIndex(1, CurrentSessionID);
-	Statement.SetBindingValueByIndex(2, FrameIndex);
-	Statement.SetBindingValueByIndex(3, BoneName.ToString());
-	Statement.SetBindingValueByIndex(4, Position.X);
-	Statement.SetBindingValueByIndex(5, Position.Y);
-	Statement.SetBindingValueByIndex(6, Position.Z);
-	Statement.Execute();
+
+	if (Statement.IsValid())
+	{
+		Statement.SetBindingValueByIndex(1, CurrentSessionID);
+		Statement.SetBindingValueByIndex(2, FrameIndex);
+		Statement.SetBindingValueByIndex(3, BoneName.ToString());
+		Statement.SetBindingValueByIndex(4, Position.X);
+		Statement.SetBindingValueByIndex(5, Position.Y);
+		Statement.SetBindingValueByIndex(6, Position.Z);
+		Statement.Execute();
+	}
 }

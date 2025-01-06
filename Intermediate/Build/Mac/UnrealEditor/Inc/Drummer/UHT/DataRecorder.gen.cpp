@@ -15,7 +15,7 @@ DRUMMER_API UClass* Z_Construct_UClass_ADataRecorder();
 DRUMMER_API UClass* Z_Construct_UClass_ADataRecorder_NoRegister();
 DRUMMER_API UClass* Z_Construct_UClass_AMIDIEventBroadcaster_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
-ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Drummer();
 // End Cross Module References
 
@@ -55,13 +55,7 @@ struct Z_Construct_UFunction_ADataRecorder_InitializeDatabase_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Database" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// **Expose to Blueprint for calling in Blueprints**\n" },
-#endif
 		{ "ModuleRelativePath", "Public/Database/DataRecorder.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "**Expose to Blueprint for calling in Blueprints**" },
-#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -281,34 +275,33 @@ struct Z_Construct_UClass_ADataRecorder_Statics
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "MIDI" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// **Reference to MIDI Event Broadcaster (Editable in Blueprint)**\n" },
+		{ "Comment", "// Reference to MIDI Event Broadcaster (Editable in Blueprint)\n" },
 #endif
 		{ "ModuleRelativePath", "Public/Database/DataRecorder.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "**Reference to MIDI Event Broadcaster (Editable in Blueprint)**" },
+		{ "ToolTip", "Reference to MIDI Event Broadcaster (Editable in Blueprint)" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AnimationSource_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AnimationSourceActor_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Animation" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// **Reference to the Skeletal Mesh or Animation Source (Editable in Blueprint)**\n" },
+		{ "Comment", "// Reference to the Actor that holds the Skeletal Mesh\n" },
 #endif
-		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Database/DataRecorder.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "**Reference to the Skeletal Mesh or Animation Source (Editable in Blueprint)**" },
+		{ "ToolTip", "Reference to the Actor that holds the Skeletal Mesh" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentSessionID_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Session" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// **Expose CurrentSessionID to Blueprint (Read-Only)**\n" },
+		{ "Comment", "// Expose CurrentSessionID to Blueprint (Read-Only)\n" },
 #endif
 		{ "ModuleRelativePath", "Public/Database/DataRecorder.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "**Expose CurrentSessionID to Blueprint (Read-Only)**" },
+		{ "ToolTip", "Expose CurrentSessionID to Blueprint (Read-Only)" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsRecording_MetaData[] = {
@@ -335,7 +328,7 @@ struct Z_Construct_UClass_ADataRecorder_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MIDIBroadcaster;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_AnimationSource;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_AnimationSourceActor;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_CurrentSessionID;
 	static void NewProp_bIsRecording_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsRecording;
@@ -344,7 +337,7 @@ struct Z_Construct_UClass_ADataRecorder_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADataRecorder_CreateNewSession, "CreateNewSession" }, // 4256779794
-		{ &Z_Construct_UFunction_ADataRecorder_InitializeDatabase, "InitializeDatabase" }, // 2651503087
+		{ &Z_Construct_UFunction_ADataRecorder_InitializeDatabase, "InitializeDatabase" }, // 1382998674
 		{ &Z_Construct_UFunction_ADataRecorder_OnBonePositionUpdated, "OnBonePositionUpdated" }, // 1141616144
 		{ &Z_Construct_UFunction_ADataRecorder_OnMIDIEventReceived, "OnMIDIEventReceived" }, // 3679149867
 		{ &Z_Construct_UFunction_ADataRecorder_StartRecording, "StartRecording" }, // 2538425291
@@ -357,7 +350,7 @@ struct Z_Construct_UClass_ADataRecorder_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADataRecorder_Statics::NewProp_MIDIBroadcaster = { "MIDIBroadcaster", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADataRecorder, MIDIBroadcaster), Z_Construct_UClass_AMIDIEventBroadcaster_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MIDIBroadcaster_MetaData), NewProp_MIDIBroadcaster_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADataRecorder_Statics::NewProp_AnimationSource = { "AnimationSource", nullptr, (EPropertyFlags)0x004000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADataRecorder, AnimationSource), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AnimationSource_MetaData), NewProp_AnimationSource_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADataRecorder_Statics::NewProp_AnimationSourceActor = { "AnimationSourceActor", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADataRecorder, AnimationSourceActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AnimationSourceActor_MetaData), NewProp_AnimationSourceActor_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_ADataRecorder_Statics::NewProp_CurrentSessionID = { "CurrentSessionID", nullptr, (EPropertyFlags)0x0040000000000014, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADataRecorder, CurrentSessionID), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentSessionID_MetaData), NewProp_CurrentSessionID_MetaData) };
 void Z_Construct_UClass_ADataRecorder_Statics::NewProp_bIsRecording_SetBit(void* Obj)
 {
@@ -367,7 +360,7 @@ const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADataRecorder_St
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADataRecorder_Statics::NewProp_StartRecordingTime = { "StartRecordingTime", nullptr, (EPropertyFlags)0x0040000000000014, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADataRecorder, StartRecordingTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StartRecordingTime_MetaData), NewProp_StartRecordingTime_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADataRecorder_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADataRecorder_Statics::NewProp_MIDIBroadcaster,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADataRecorder_Statics::NewProp_AnimationSource,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADataRecorder_Statics::NewProp_AnimationSourceActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADataRecorder_Statics::NewProp_CurrentSessionID,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADataRecorder_Statics::NewProp_bIsRecording,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADataRecorder_Statics::NewProp_StartRecordingTime,
@@ -413,10 +406,10 @@ ADataRecorder::~ADataRecorder() {}
 struct Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Database_DataRecorder_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ADataRecorder, ADataRecorder::StaticClass, TEXT("ADataRecorder"), &Z_Registration_Info_UClass_ADataRecorder, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADataRecorder), 1936348610U) },
+		{ Z_Construct_UClass_ADataRecorder, ADataRecorder::StaticClass, TEXT("ADataRecorder"), &Z_Registration_Info_UClass_ADataRecorder, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADataRecorder), 1483760888U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Database_DataRecorder_h_796672922(TEXT("/Script/Drummer"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Database_DataRecorder_h_910300913(TEXT("/Script/Drummer"),
 	Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Database_DataRecorder_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_olavu_Documents_Unreal_Projects_AIDrummer_Source_Drummer_Public_Database_DataRecorder_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -2639,8 +2639,8 @@ namespace smf
 			}
 
 			int intval = (int)(((1 << 13) - 0.5) * (value + 1.0) + 0.5);
-			uchar LSB = intval & 0x7f;
-			uchar MSB = (intval >> 7) & 0x7f;
+			LSB = intval & 0x7f;
+			MSB = (intval >> 7) & 0x7f;
 			data.push_back(MSB);
 			data.push_back(LSB);
 		}

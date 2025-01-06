@@ -3670,6 +3670,46 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/CameraCalibrationCore/Binaries/Mac/UnrealEditor-CameraCalibrationCore.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/CameraCalibrationCore/Binaries/Mac/UnrealEditor-CameraCalibrationCoreEditor.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/CameraCalibrationCore/Binaries/Mac/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/LensComponent/Binaries/Mac/UnrealEditor-LensComponent.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/LensComponent/Binaries/Mac/UnrealEditor-LensComponentEditor.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/LensComponent/Binaries/Mac/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/LiveLinkCamera/Binaries/Mac/UnrealEditor-LiveLinkCamera.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/LiveLinkCamera/Binaries/Mac/UnrealEditor-LiveLinkCameraEditor.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/LiveLinkCamera/Binaries/Mac/UnrealEditor-LiveLinkCameraRecording.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/LiveLinkCamera/Binaries/Mac/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/VirtualProduction/Takes/Binaries/Mac/UnrealEditor-CacheTrackRecorder.dylib",
 			"Type": "DynamicLibrary"
 		},
@@ -3723,6 +3763,18 @@
 		},
 		{
 			"Path": "$(ProjectDir)/Binaries/Mac/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/Smartsuit/Binaries/Mac/UnrealEditor-Smartsuit.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/Smartsuit/Binaries/Mac/UnrealEditor-SmartsuitEditor.dylib",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/Smartsuit/Binaries/Mac/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		}
 	],
@@ -22896,6 +22948,18 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/CameraCalibrationCore/CameraCalibrationCore.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/LensComponent/LensComponent.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/VirtualProduction/LiveLinkCamera/LiveLinkCamera.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/VirtualProduction/Takes/Takes.uplugin",
 			"Type": "UFS"
 		},
@@ -22905,6 +22969,10 @@
 		},
 		{
 			"Path": "$(ProjectDir)/Drummer.uproject",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/Smartsuit/Smartsuit.uplugin",
 			"Type": "UFS"
 		}
 	],
@@ -22942,6 +23010,7 @@
 		"Bridge",
 		"CLionSourceCodeAccess",
 		"CableComponent",
+		"CameraCalibrationCore",
 		"CameraShakePreviewer",
 		"ChangelistReview",
 		"ChaosCaching",
@@ -23007,10 +23076,12 @@
 		"InterchangeTests",
 		"KDevelopSourceCodeAccess",
 		"LauncherChunkInstaller",
+		"LensComponent",
 		"LevelSequenceEditor",
 		"LightMixer",
 		"LinuxDeviceProfileSelector",
 		"LiveLink",
+		"LiveLinkCamera",
 		"LiveLinkControlRig",
 		"LocalizableMessage",
 		"LocationServicesBPLibrary",
@@ -23071,6 +23142,7 @@
 		"SignificanceManager",
 		"SkeletalMeshModelingTools",
 		"SkeletalReduction",
+		"Smartsuit",
 		"SoundFields",
 		"SpeedTreeImporter",
 		"StructUtils",

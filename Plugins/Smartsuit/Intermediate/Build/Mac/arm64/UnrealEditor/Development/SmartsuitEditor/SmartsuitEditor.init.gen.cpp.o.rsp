@@ -1,7 +1,7 @@
 -c
 -pipe
 -I"."
--I"/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Source/SmartsuitEditor/Private"
+-I"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Private"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/UnrealEd/UHT"
 -I"Programs/UnrealLightmass/Public"
 -I"Editor/UnrealEd/Classes"
@@ -286,18 +286,18 @@
 -I"Editor/KismetCompiler/Public"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/LiveLinkInterface/UHT"
 -I"Runtime/LiveLinkInterface/Public"
--I"/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/SmartsuitEditor/UHT"
--I"/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Source/SmartsuitEditor/Public"
--I"/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Source"
+-I"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/SmartsuitEditor/UHT"
+-I"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/SmartsuitEditor/Public"
+-I"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/AnimGraph/UHT"
 -I"Editor/AnimGraph/Public"
 -I"Editor/AnimGraph/Internal"
 -I"../Intermediate/Build/Mac/UnrealEditor/Inc/AnimGraphRuntime/UHT"
 -I"Runtime/AnimGraphRuntime/Public"
--I"/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/Smartsuit/UHT"
--I"/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Source/Smartsuit/Public"
--I"/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Source/Smartsuit/Private"
--I"/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Lib/lz4/include"
+-I"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/Smartsuit/UHT"
+-I"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Public"
+-I"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Source/Smartsuit/Private"
+-I"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Lib/lz4/include"
 -I"../Plugins/Animation/LiveLink/Intermediate/Build/Mac/UnrealEditor/Inc/LiveLink/UHT"
 -I"../Plugins/Animation/LiveLink/Source"
 -I"../Plugins/Animation/LiveLink/Source/LiveLink/Public"
@@ -367,13 +367,13 @@
 -arch arm64
 -isysroot "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
 -mmacosx-version-min=13.00
--include-pch "/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Intermediate/Build/Mac/arm64/RokokoUEPluginEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.gch"
--include "/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/arm64/UnrealEditor/Development/SmartsuitEditor/Definitions.SmartsuitEditor.h"
+-include-pch "/Users/olavu/Documents/Unreal Projects/AIDrummer/Intermediate/Build/Mac/arm64/DrummerEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.NoValFmtStr.ValApi.Cpp20.InclOrderUnreal5_3.h.gch"
+-include "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/arm64/UnrealEditor/Development/SmartsuitEditor/Definitions.SmartsuitEditor.h"
 -x objective-c++
 -std=c++20
 -fpch-validate-input-files-content
 -stdlib=libc++
-"/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/SmartsuitEditor/UHT/SmartsuitEditor.init.gen.cpp"
--MD -MF"/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/arm64/UnrealEditor/Development/SmartsuitEditor/SmartsuitEditor.init.gen.cpp.d"
--o "/Users/olavu/Documents/Unreal Projects/rokoko-studio-live-unreal-engine/Plugins/Smartsuit/Intermediate/Build/Mac/arm64/UnrealEditor/Development/SmartsuitEditor/SmartsuitEditor.init.gen.cpp.o"
+"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/UnrealEditor/Inc/SmartsuitEditor/UHT/SmartsuitEditor.init.gen.cpp"
+-MD -MF"/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/arm64/UnrealEditor/Development/SmartsuitEditor/SmartsuitEditor.init.gen.cpp.d"
+-o "/Users/olavu/Documents/Unreal Projects/AIDrummer/Plugins/Smartsuit/Intermediate/Build/Mac/arm64/UnrealEditor/Development/SmartsuitEditor/SmartsuitEditor.init.gen.cpp.o"
 -DUE_USE_SWIFT_UI_MAIN=0

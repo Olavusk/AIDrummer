@@ -4,7 +4,7 @@
 #include "GameFramework/Actor.h"
 #include "SQLiteDatabase.h"
 #include "Midi/MIDIEventBroadcaster.h"
-#include "Characters/Drummers/MIDIDrummerAnimInstance.h"
+#include "Characters/Drummers/LiveDrummerAnimInstance.h"
 #include "DataRecorder.generated.h"
 
 UCLASS()
@@ -13,18 +13,13 @@ class DRUMMER_API ADataRecorder : public AActor
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this actor's properties
 	ADataRecorder();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-	// Called when the game is ending or the actor is being destroyed
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 public:
-	// **Expose to Blueprint for calling in Blueprints**
 	UFUNCTION(BlueprintCallable, Category = "Database")
 	void InitializeDatabase();
 
@@ -47,15 +42,15 @@ private:
 	// SQLite Database
 	FSQLiteDatabase Database;
 
-	// **Reference to MIDI Event Broadcaster (Editable in Blueprint)**
+	// Reference to MIDI Event Broadcaster (Editable in Blueprint)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MIDI", meta = (AllowPrivateAccess = "true"))
 	AMIDIEventBroadcaster *MIDIBroadcaster;
 
-	// **Reference to the Skeletal Mesh or Animation Source (Editable in Blueprint)**
+	// Reference to the Actor that holds the Skeletal Mesh
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation", meta = (AllowPrivateAccess = "true"))
-	USkeletalMeshComponent *AnimationSource;
+	AActor *AnimationSourceActor;
 
-	// **Expose CurrentSessionID to Blueprint (Read-Only)**
+	// Expose CurrentSessionID to Blueprint (Read-Only)
 	UPROPERTY(BlueprintReadOnly, Category = "Session", meta = (AllowPrivateAccess = "true"))
 	FString CurrentSessionID;
 
