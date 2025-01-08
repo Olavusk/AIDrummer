@@ -1,0 +1,10 @@
+/Intermetidate
+/Binaries
+/Saved
+.sln 
+/.vscode
+/.vs
+.DS_Store
+/DerivedDataCache
+/Plugins/Smartsuit/Intermediate
+/.git
