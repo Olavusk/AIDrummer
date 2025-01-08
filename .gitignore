@@ -8,6 +8,7 @@
 *.sln 
 /.vscode
 /.vs
+.vsconfig
 # macOS system files
 *.DS_Store
 /DerivedDataCache
