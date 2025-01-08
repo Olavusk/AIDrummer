@@ -1,10 +1,21 @@
-/Intermetidate
+# Unreal Engine build and cache files
+/Drummer/Intermediate
+/Intermediate
 /Binaries
 /Saved
-.sln 
+
+# IDE-specific files
+*.sln 
 /.vscode
 /.vs
-.DS_Store
+# macOS system files
+*.DS_Store
 /DerivedDataCache
+
+
+# Plugin-specific files
+/Plugins/Smartsuit/Intermediate/Mac
+/Plugins/Smartsuit/Binaries/Mac
 /Plugins/Smartsuit/Intermediate
+/Plugins/Smartsuit/Binaries
 /.git
