@@ -5,6 +5,7 @@
 #include "Components/BoxComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Interfaces/HitInterface.h"
+#include "Components/SphereComponent.h"
 
 ADrumstick::ADrumstick()
 {
@@ -29,6 +30,10 @@ void ADrumstick::Equip(USceneComponent *InParent, FName InSocketName)
 {
     AttachMeshToSocket(InParent, InSocketName);
     ItemState = EItemState::EIS_Equipped;
+    if (Sphere)
+    {
+        Sphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    }
 }
 void ADrumstick::AttachMeshToSocket(USceneComponent *InParent, const FName &InSocketName)
 {

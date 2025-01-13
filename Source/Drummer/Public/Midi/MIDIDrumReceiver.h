@@ -8,6 +8,7 @@
 #include "Interfaces/MIDIEventReceiver.h"
 #include "MIDIDrumReceiver.generated.h"
 
+class USoundBase;
 UCLASS()
 class DRUMMER_API AMIDIDrumReceiver : public AActor, public IMIDIEventReceiver
 {
@@ -25,8 +26,38 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MIDI")
 	AMIDIEventBroadcaster *MIDIBroadcaster;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Drum Sounds")
+	USoundBase *KickSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Drum Sounds")
+	USoundBase *SnareSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Drum Sounds")
+	USoundBase *HiHatClosedSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Drum Sounds")
+	USoundBase *HiHatOpenSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Drum Sounds")
+	USoundBase *TomLowSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Drum Sounds")
+	USoundBase *TomMidSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Drum Sounds")
+	USoundBase *TomHighSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Drum Sounds")
+	USoundBase *CrashCymbalSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Drum Sounds")
+	USoundBase *RideCymbalSound;
+
+	// Helper function to play sound with velocity modulation
+	void PlayDrumSound(USoundBase *DrumSound, int32 Velocity);
+
 public:
-	// MIDIDrumReceiver.h
+	// Handle MIDI events
 	UFUNCTION(BlueprintCallable, Category = "MIDI Events")
 	virtual void OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, FString EventType) override;
 };

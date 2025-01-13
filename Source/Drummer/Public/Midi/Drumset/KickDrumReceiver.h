@@ -6,6 +6,7 @@
 #include "Midi/MIDIDrumReceiver.h"
 #include "KickDrumReceiver.generated.h"
 
+class USoundBase;
 /**
  *
  */
