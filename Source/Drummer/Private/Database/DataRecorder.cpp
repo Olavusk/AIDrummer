@@ -57,6 +57,7 @@ void ADataRecorder::MetronomeTick()
 	{
 		StopRecording();												// Stop recording after 12 beats (4 countdown + 8 recording)
 		GetWorld()->GetTimerManager().ClearTimer(MetronomeTimerHandle); // Stop the metronome
+		MetronomeCount = 0;
 		UE_LOG(LogTemp, Log, TEXT("Recording stopped."));
 	}
 }
