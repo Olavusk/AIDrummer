@@ -7,11 +7,58 @@ ADataRecorder::ADataRecorder()
 	PrimaryActorTick.bCanEverTick = true;
 	bIsRecording = false;	   // Default to not recording
 	StartRecordingTime = 0.0f; // Initialize start time
+	BPM = 120.0f;
 }
 
 void ADataRecorder::BeginPlay()
 {
 	Super::BeginPlay();
+}
+
+void ADataRecorder::StartMetronome()
+{
+	if (BPM <= 0.0f)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Invalid BPM value. Cannot start metronome."));
+		return;
+	}
+
+	float Interval = 60.0f / BPM; // Calculate tick interval based on BPM
+	GetWorld()->GetTimerManager().SetTimer(MetronomeTimerHandle, this, &ADataRecorder::MetronomeTick, Interval, true);
+
+	UE_LOG(LogTemp, Log, TEXT("Metronome started with BPM: %f"), BPM);
+}
+
+void ADataRecorder::StopMetronome()
+{
+	GetWorld()->GetTimerManager().ClearTimer(MetronomeTimerHandle);
+	UE_LOG(LogTemp, Log, TEXT("Metronome stopped."));
+}
+
+void ADataRecorder::MetronomeTick()
+{
+	static int32 MetronomeCount = 0; // Track the current beat count
+	MetronomeCount++;				 // Increment beat count
+
+	// Play the metronome tick sound
+	if (MetronomeSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, MetronomeSound, GetActorLocation());
+	}
+	UE_LOG(LogTemp, Log, TEXT("Metronome tick: Beat %d"), MetronomeCount);
+
+	// Handle countdown and recording transitions
+	if (!bIsRecording && MetronomeCount == 4)
+	{
+		StartRecording(); // Start recording after 4 beats
+		UE_LOG(LogTemp, Log, TEXT("Recording started."));
+	}
+	else if (bIsRecording && MetronomeCount == 12)
+	{
+		StopRecording();												// Stop recording after 12 beats (4 countdown + 8 recording)
+		GetWorld()->GetTimerManager().ClearTimer(MetronomeTimerHandle); // Stop the metronome
+		UE_LOG(LogTemp, Log, TEXT("Recording stopped."));
+	}
 }
 
 void ADataRecorder::EndPlay(const EEndPlayReason::Type EndPlayReason)

@@ -7,6 +7,7 @@
 #include "Characters/Drummers/LiveDrummerAnimInstance.h"
 #include "DataRecorder.generated.h"
 
+class USoundBase;
 UCLASS()
 class DRUMMER_API ADataRecorder : public AActor
 {
@@ -15,9 +16,18 @@ class DRUMMER_API ADataRecorder : public AActor
 public:
 	ADataRecorder();
 
+	UFUNCTION(BlueprintCallable, Category = "Metronome")
+	void StartMetronome();
+
+	UFUNCTION(BlueprintCallable, Category = "Metronome")
+	void StopMetronome();
+
 protected:
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metronome Sounds")
+	USoundBase *MetronomeSound;
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "Database")
@@ -45,6 +55,11 @@ private:
 	// SQLite Database
 	FSQLiteDatabase Database;
 
+	FTimerHandle MetronomeTimerHandle;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metronome", meta = (AllowPrivateAccess = "true"))
+	float BPM;
+
 	// Reference to MIDI Event Broadcaster (Editable in Blueprint)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MIDI", meta = (AllowPrivateAccess = "true"))
 	AMIDIEventBroadcaster *MIDIBroadcaster;
@@ -64,4 +79,7 @@ private:
 	// The start time of the recording
 	UPROPERTY(BlueprintReadOnly, Category = "Recording", meta = (AllowPrivateAccess = "true"))
 	float StartRecordingTime;
+
+	// Tick function
+	void MetronomeTick();
 };
