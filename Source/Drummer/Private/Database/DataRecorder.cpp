@@ -141,23 +141,54 @@ void ADataRecorder::OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Veloc
 		return;
 }
 
+// Add a buffer to hold batched animation data
+TArray<FString> AnimationDataBuffer;
+const int32 MaxBatchSize = 100; // Adjust based on performance needs
+
 void ADataRecorder::OnBonePositionUpdated(FName BoneName, FVector Position)
 {
 	if (!bIsRecording)
 		return;
 
 	int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
-	FSQLitePreparedStatement Statement = Database.PrepareStatement(
-		TEXT("INSERT INTO AnimationData (SessionID, FrameIndex, BoneName, BonePosition_X, BonePosition_Y, BonePosition_Z) VALUES (?1, ?2, ?3, ?4, ?5, ?6);"));
 
-	if (Statement.IsValid())
+	// Prepare the data as a single SQL string
+	FString BoneNameString = BoneName.ToString();
+
+	FString Row = FString::Printf(
+		TEXT("(%s, %d, '%s', %f, %f, %f)"),
+		*CurrentSessionID, // Must dereference FString
+		FrameIndex,
+		*BoneNameString, // Must dereference FString
+		Position.X,
+		Position.Y,
+		Position.Z);
+
+	AnimationDataBuffer.Add(Row);
+
+	// Flush the buffer if it reaches the max batch size
+	if (AnimationDataBuffer.Num() >= MaxBatchSize)
 	{
-		Statement.SetBindingValueByIndex(1, CurrentSessionID);
-		Statement.SetBindingValueByIndex(2, FrameIndex);
-		Statement.SetBindingValueByIndex(3, BoneName.ToString());
-		Statement.SetBindingValueByIndex(4, Position.X);
-		Statement.SetBindingValueByIndex(5, Position.Y);
-		Statement.SetBindingValueByIndex(6, Position.Z);
-		Statement.Execute();
+		FlushAnimationDataBuffer();
 	}
+}
+
+void ADataRecorder::FlushAnimationDataBuffer()
+{
+	if (AnimationDataBuffer.Num() == 0)
+		return;
+
+	FString SQLQuery = TEXT("INSERT INTO AnimationData (SessionID, FrameIndex, BoneName, BonePosition_X, BonePosition_Y, BonePosition_Z) VALUES ");
+	SQLQuery += FString::Join(AnimationDataBuffer, TEXT(", ")) + TEXT(";");
+
+	// Run the insert on a background thread
+	AsyncTask(ENamedThreads::AnyBackgroundThreadNormalTask, [SQLQuery, this]()
+			  {
+        FSQLitePreparedStatement Statement = Database.PrepareStatement(*SQLQuery);
+        if (!Statement.IsValid() || !Statement.Execute())
+        {
+            UE_LOG(LogTemp, Error, TEXT("Failed to execute batched animation data insert."));
+        } });
+
+	AnimationDataBuffer.Empty(); // Clear the buffer after scheduling the task
 }

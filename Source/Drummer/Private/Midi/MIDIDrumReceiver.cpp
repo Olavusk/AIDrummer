@@ -10,7 +10,6 @@ AMIDIDrumReceiver::AMIDIDrumReceiver()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-// Called when the game starts or when spawned
 void AMIDIDrumReceiver::BeginPlay()
 {
 	Super::BeginPlay();

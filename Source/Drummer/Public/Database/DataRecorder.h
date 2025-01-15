@@ -38,6 +38,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Events")
 	void OnBonePositionUpdated(FName BoneName, FVector Position);
 
+	UFUNCTION(BlueprintCallable, Category = "Database")
+	void FlushAnimationDataBuffer();
+
 private:
 	// SQLite Database
 	FSQLiteDatabase Database;
