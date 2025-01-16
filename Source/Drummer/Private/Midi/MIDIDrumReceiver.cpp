@@ -57,19 +57,20 @@ void AMIDIDrumReceiver::OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 V
 			break;
 
 		case 41: // Low Floor Tom
-		case 45: // Low Tom
+		case 43: // Low Tom
 			PlayDrumSound(TomLowSound, Velocity);
 			break;
 
-		case 47: // Mid Tom
+		case 45: // Mid Tom
 			PlayDrumSound(TomMidSound, Velocity);
 			break;
 
-		case 50: // High Tom
+		case 48: // High Tom
 			PlayDrumSound(TomHighSound, Velocity);
 			break;
 
-		case 49: // Crash Cymbal 1
+		case 55: // Crash Cymbal 1
+		case 52:
 		case 57: // Crash Cymbal 2
 			PlayDrumSound(CrashCymbalSound, Velocity);
 			break;
