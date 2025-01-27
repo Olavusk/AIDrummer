@@ -11,7 +11,7 @@ void AKickDrumReceiver::OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 V
         if (KickSound)
         {
             // Spawn the sound and apply velocity as a parameter
-            FAudioComponentParam VelocityParam;
+            FAudioParameter VelocityParam;
             VelocityParam.ParamName = "Velocity";                             // This must match the parameter name in the Metasound
             VelocityParam.FloatParam = static_cast<float>(Velocity) / 127.0f; // Normalize velocity (0-127) to a 0-1 range
 

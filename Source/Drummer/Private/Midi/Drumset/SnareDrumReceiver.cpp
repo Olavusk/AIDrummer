@@ -17,7 +17,7 @@ void ASnareDrumReceiver::OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 
         if (SnareSound)
         {
             // Spawn the sound and pass the velocity as a parameter
-            FAudioComponentParam VelocityParam;
+            FAudioParameter VelocityParam;
             VelocityParam.ParamName = "Velocity";                             // Must match the parameter name in the Metasound
             VelocityParam.FloatParam = static_cast<float>(Velocity) / 127.0f; // Normalize MIDI velocity (0-127) to 0-1 range
 

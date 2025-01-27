@@ -8,11 +8,12 @@ public class Drummer : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "AnimGraphRuntime", "AnimationCore", "AnimGraph", "BlueprintGraph" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] { 
 			"SQLiteCore",
-			"SQLiteSupport"
+			"SQLiteSupport",
+			"UnrealEd",
 		});
 
 		// Uncomment if you are using Slate UI
