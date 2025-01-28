@@ -79,7 +79,9 @@ void ADataRecorder::EndPlay(const EEndPlayReason::Type EndPlayReason)
 		{
 			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
 			{
-				LiveAnimInstance->OnLiveBonePositionUpdated.RemoveDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+				LiveAnimInstance->OnLiveBoneTransformUpdated.AddDynamic(
+					this,
+					&ADataRecorder::OnBoneTransformUpdated);
 			}
 		}
 	}
@@ -151,7 +153,9 @@ void ADataRecorder::StartRecording()
 		{
 			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
 			{
-				LiveAnimInstance->OnLiveBonePositionUpdated.AddDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+				LiveAnimInstance->OnLiveBoneTransformUpdated.AddDynamic(
+					this,
+					&ADataRecorder::OnBoneTransformUpdated);
 			}
 		}
 	}
@@ -196,7 +200,7 @@ void ADataRecorder::StopRecording()
 		{
 			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
 			{
-				LiveAnimInstance->OnLiveBonePositionUpdated.RemoveDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+				LiveAnimInstance->OnLiveBoneTransformUpdated.RemoveDynamic(this, &ADataRecorder::OnBoneTransformUpdated);
 			}
 		}
 	}
@@ -287,28 +291,31 @@ TFuture<void> ADataRecorder::FlushMIDIEventsBufferAsync()
         } });
 }
 
-void ADataRecorder::OnBonePositionUpdated(FName BoneName, FVector Position)
+void ADataRecorder::OnBoneTransformUpdated(FName BoneName, FVector LocalPosition, FQuat LocalRotation, FVector LocalScale)
 {
 	if (!bIsRecording)
 		return;
 
 	int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
 
-	// Prepare the data as a single SQL string
-	FString BoneNameString = BoneName.ToString();
-
 	FString Row = FString::Printf(
-		TEXT("(%s, %d, '%s', %f, %f, %f)"),
-		*CurrentSessionID, // Must dereference FString
+		TEXT("(%s, %d, '%s', %f, %f, %f, %f, %f, %f, %f, %f, %f, %f)"),
+		*CurrentSessionID,
 		FrameIndex,
-		*BoneNameString, // Must dereference FString
-		Position.X,
-		Position.Y,
-		Position.Z);
+		*BoneName.ToString(),
+		LocalPosition.X,
+		LocalPosition.Y,
+		LocalPosition.Z,
+		LocalRotation.X,
+		LocalRotation.Y,
+		LocalRotation.Z,
+		LocalRotation.W,
+		LocalScale.X,
+		LocalScale.Y,
+		LocalScale.Z);
 
 	AnimationDataBuffer.Add(Row);
 
-	// Flush the buffer if it reaches the max batch size
 	if (AnimationDataBuffer.Num() >= MaxBatchSize)
 	{
 		FlushAnimationDataBuffer();
@@ -320,10 +327,12 @@ void ADataRecorder::FlushAnimationDataBuffer()
 	if (AnimationDataBuffer.Num() == 0)
 		return;
 
-	FString SQLQuery = TEXT("INSERT INTO AnimationData (SessionID, FrameIndex, BoneName, BonePosition_X, BonePosition_Y, BonePosition_Z) VALUES ");
-	SQLQuery += FString::Join(AnimationDataBuffer, TEXT(", ")) + TEXT(";");
+	FString SQLQuery = TEXT("INSERT INTO AnimationData ")
+						   TEXT("(SessionID, FrameIndex, BoneName, LocalPos_X, LocalPos_Y, LocalPos_Z, ")
+							   TEXT(" LocalRot_X, LocalRot_Y, LocalRot_Z, LocalRot_W, ")
+								   TEXT(" LocalScale_X, LocalScale_Y, LocalScale_Z) VALUES ") +
+					   FString::Join(AnimationDataBuffer, TEXT(", ")) + TEXT(";");
 
-	// Run the insert on a background thread
 	AsyncTask(ENamedThreads::AnyBackgroundThreadNormalTask, [SQLQuery, this]()
 			  {
         FSQLitePreparedStatement Statement = Database.PrepareStatement(*SQLQuery);
@@ -332,7 +341,7 @@ void ADataRecorder::FlushAnimationDataBuffer()
             UE_LOG(LogTemp, Error, TEXT("Failed to execute batched animation data insert."));
         } });
 
-	AnimationDataBuffer.Empty(); // Clear the buffer after scheduling the task
+	AnimationDataBuffer.Empty();
 }
 
 TFuture<void> ADataRecorder::FlushAnimationDataBufferAsync()

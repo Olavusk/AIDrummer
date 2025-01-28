@@ -9,7 +9,12 @@
 /**
  * Animation instance for LiveLink-controlled mesh
  */
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnLiveBonePositionUpdated, FName, BoneName, FVector, BonePosition);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(
+	FOnLiveBoneTransformUpdated,
+	FName, BoneName,
+	FVector, LocalPosition,
+	FQuat, LocalRotation,
+	FVector, LocalScale);
 
 UCLASS()
 class DRUMMER_API ULiveDrummerAnimInstance : public UAnimInstance
@@ -21,14 +26,14 @@ public:
 	virtual void NativeInitializeAnimation() override;
 	virtual void NativeUpdateAnimation(float DeltaTime) override;
 
-	// **Event to broadcast bone position updates**
+	// Broadcast full local transform
 	UPROPERTY(BlueprintAssignable, Category = "Animation")
-	FOnLiveBonePositionUpdated OnLiveBonePositionUpdated;
+	FOnLiveBoneTransformUpdated OnLiveBoneTransformUpdated;
 
 private:
 	// Store the transforms of all bones
 	TArray<FTransform> BoneTransforms;
 
 	// **Function to broadcast the position of a bone**
-	void BroadcastBonePosition(FName BoneName, FVector Position);
+	void BroadcastBoneTransform(FName BoneName, const FTransform &LocalTransform);
 };
