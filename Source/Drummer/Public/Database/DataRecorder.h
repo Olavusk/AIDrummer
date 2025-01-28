@@ -4,10 +4,10 @@
 #include "GameFramework/Actor.h"
 #include "SQLiteDatabase.h"
 #include "Midi/MIDIEventBroadcaster.h"
-#include "Characters/Drummers/LiveDrummerAnimInstance.h"
 #include "DataRecorder.generated.h"
 
 class USoundBase;
+class ULiveDrummerAnimInstance;
 UCLASS()
 class DRUMMER_API ADataRecorder : public AActor
 {
@@ -48,9 +48,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Events")
 	void OnBonePositionUpdated(FName BoneName, FVector Position);
 
-	UFUNCTION(BlueprintCallable, Category = "Database")
-	void FlushAnimationDataBuffer();
-
 private:
 	// SQLite Database
 	FSQLiteDatabase Database;
@@ -80,6 +77,17 @@ private:
 	UPROPERTY(BlueprintReadOnly, Category = "Recording", meta = (AllowPrivateAccess = "true"))
 	float StartRecordingTime;
 
+	TArray<FString> MIDIEventsBuffer;
+	const int32 MaxMIDIBatchSize = 100; // Adjust for performance needs
+
+	TArray<FString> AnimationDataBuffer;
+	const int32 MaxBatchSize = 100;
+
+	void FlushAnimationDataBuffer();
+	TFuture<void> FlushAnimationDataBufferAsync();
+
+	void FlushMIDIEventsBuffer();
+	TFuture<void> FlushMIDIEventsBufferAsync();
 	// Tick function
 	void MetronomeTick();
 };
