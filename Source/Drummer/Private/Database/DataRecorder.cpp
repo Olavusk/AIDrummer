@@ -351,8 +351,11 @@ TFuture<void> ADataRecorder::FlushAnimationDataBufferAsync()
 		// Return an already-finished future
 		return Async(EAsyncExecution::Thread, []() {});
 	}
-
-	FString SQLQuery = TEXT("INSERT INTO AnimationData (SessionID, FrameIndex, BoneName, BonePosition_X, BonePosition_Y, BonePosition_Z) VALUES ") + FString::Join(AnimationDataBuffer, TEXT(", ")) + TEXT(";");
+	FString SQLQuery = TEXT("INSERT INTO AnimationData ")
+						   TEXT("(SessionID, FrameIndex, BoneName, LocalPos_X, LocalPos_Y, LocalPos_Z, ")
+							   TEXT(" LocalRot_X, LocalRot_Y, LocalRot_Z, LocalRot_W, ")
+								   TEXT(" LocalScale_X, LocalScale_Y, LocalScale_Z) VALUES ") +
+					   FString::Join(AnimationDataBuffer, TEXT(", ")) + TEXT(";");
 
 	AnimationDataBuffer.Empty();
 
