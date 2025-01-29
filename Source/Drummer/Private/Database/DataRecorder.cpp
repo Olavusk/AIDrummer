@@ -9,6 +9,7 @@ ADataRecorder::ADataRecorder()
 	bIsRecording = false;	   // Default to not recording
 	StartRecordingTime = 0.0f; // Initialize start time
 	BPM = 120.0f;
+	BeatsToRecord = 32.0f;
 }
 
 void ADataRecorder::BeginPlay()
@@ -38,8 +39,8 @@ void ADataRecorder::StopMetronome()
 
 void ADataRecorder::MetronomeTick()
 {
-	static int32 MetronomeCount = 0; // Track the current beat count
-	MetronomeCount++;				 // Increment beat count
+	static int32 MetronomeCount = 0;
+	MetronomeCount++;
 
 	// Play the metronome tick sound
 	if (MetronomeSound)
@@ -48,18 +49,24 @@ void ADataRecorder::MetronomeTick()
 	}
 	UE_LOG(LogTemp, Log, TEXT("Metronome tick: Beat %d"), MetronomeCount);
 
-	// Handle countdown and recording transitions
 	if (!bIsRecording && MetronomeCount == 4)
 	{
-		StartRecording(); // Start recording after 4 beats
+		// Start recording after 4 "count-in" beats
+		StartRecording();
 		UE_LOG(LogTemp, Log, TEXT("Recording started."));
 	}
-	else if (bIsRecording && MetronomeCount == 12)
+	else if (bIsRecording)
 	{
-		StopRecording();												// Stop recording after 12 beats (4 countdown + 8 recording)
-		GetWorld()->GetTimerManager().ClearTimer(MetronomeTimerHandle); // Stop the metronome
-		MetronomeCount = 0;
-		UE_LOG(LogTemp, Log, TEXT("Recording stopped."));
+		// (4 + BeatsToRecord) total beats means we've done our count-in + recorded beats
+		int32 TotalBeatsNeeded = 4 + BeatsToRecord;
+
+		if (MetronomeCount >= TotalBeatsNeeded)
+		{
+			StopRecording();
+			GetWorld()->GetTimerManager().ClearTimer(MetronomeTimerHandle);
+			MetronomeCount = 0;
+			UE_LOG(LogTemp, Log, TEXT("Recording stopped."));
+		}
 	}
 }
 
@@ -105,19 +112,16 @@ void ADataRecorder::InitializeDatabase()
 
 void ADataRecorder::CreateNewSession()
 {
-	// Prepare an INSERT that includes the BPM column
+	// Prepare an INSERT that includes BPM and NumBeats
 	FSQLitePreparedStatement Statement = Database.PrepareStatement(
-		TEXT("INSERT INTO Sessions (StartTime, BPM) VALUES (datetime('now'), ?1);"));
-
-	// Bind the BPM value.  If your BPM is a float, you can insert as numeric.
-	// The column type in your table is INTEGER, which is fine for typical BPM values,
-	// but if you want to allow decimal BPM, you can store it as REAL instead.
+		TEXT("INSERT INTO Sessions (StartTime, BPM, NumBeats) VALUES (datetime('now'), ?1, ?2);"));
 	Statement.SetBindingValueByIndex(1, BPM);
+	Statement.SetBindingValueByIndex(2, BeatsToRecord);
 
 	// Execute the statement
 	if (!Statement.Execute())
 	{
-		UE_LOG(LogTemp, Error, TEXT("Failed to create new session with BPM."));
+		UE_LOG(LogTemp, Error, TEXT("Failed to create new session with BPM and BeatsToRecord."));
 		return;
 	}
 
@@ -126,7 +130,8 @@ void ADataRecorder::CreateNewSession()
 	if (Query.Execute() && Query.Step() == ESQLitePreparedStatementStepResult::Row)
 	{
 		Query.GetColumnValueByIndex(0, CurrentSessionID);
-		UE_LOG(LogTemp, Log, TEXT("New session created. SessionID = %s, BPM = %f"), *CurrentSessionID, BPM);
+		UE_LOG(LogTemp, Log, TEXT("New session created. SessionID = %s, BPM = %f, BeatsToRecord = %d"),
+			   *CurrentSessionID, BPM, BeatsToRecord);
 	}
 }
 

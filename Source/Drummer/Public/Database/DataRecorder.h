@@ -29,6 +29,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metronome Sounds")
 	USoundBase *MetronomeSound;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recording")
+	int32 BeatsToRecord;
+
 public:
 	UFUNCTION(BlueprintCallable, Category = "Database")
 	void InitializeDatabase();
