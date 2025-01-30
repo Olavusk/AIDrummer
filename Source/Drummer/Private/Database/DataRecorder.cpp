@@ -9,7 +9,7 @@ ADataRecorder::ADataRecorder()
 	bIsRecording = false;	   // Default to not recording
 	StartRecordingTime = 0.0f; // Initialize start time
 	BPM = 120.0f;
-	BeatsToRecord = 32.0f;
+	BeatsToRecord = 32;
 }
 
 void ADataRecorder::BeginPlay()
