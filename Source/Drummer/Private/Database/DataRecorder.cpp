@@ -1,5 +1,6 @@
 #include "Database/DataRecorder.h"
 #include "Kismet/GameplayStatics.h"
+#include "Characters/Drummers/LiveDrummerAnimInstance.h"
 #include "Misc/Paths.h"
 
 ADataRecorder::ADataRecorder()
@@ -8,6 +9,7 @@ ADataRecorder::ADataRecorder()
 	bIsRecording = false;	   // Default to not recording
 	StartRecordingTime = 0.0f; // Initialize start time
 	BPM = 120.0f;
+	BeatsToRecord = 32;
 }
 
 void ADataRecorder::BeginPlay()
@@ -37,8 +39,8 @@ void ADataRecorder::StopMetronome()
 
 void ADataRecorder::MetronomeTick()
 {
-	static int32 MetronomeCount = 0; // Track the current beat count
-	MetronomeCount++;				 // Increment beat count
+	static int32 MetronomeCount = 0;
+	MetronomeCount++;
 
 	// Play the metronome tick sound
 	if (MetronomeSound)
@@ -47,18 +49,24 @@ void ADataRecorder::MetronomeTick()
 	}
 	UE_LOG(LogTemp, Log, TEXT("Metronome tick: Beat %d"), MetronomeCount);
 
-	// Handle countdown and recording transitions
 	if (!bIsRecording && MetronomeCount == 4)
 	{
-		StartRecording(); // Start recording after 4 beats
+		// Start recording after 4 "count-in" beats
+		StartRecording();
 		UE_LOG(LogTemp, Log, TEXT("Recording started."));
 	}
-	else if (bIsRecording && MetronomeCount == 12)
+	else if (bIsRecording)
 	{
-		StopRecording();												// Stop recording after 12 beats (4 countdown + 8 recording)
-		GetWorld()->GetTimerManager().ClearTimer(MetronomeTimerHandle); // Stop the metronome
-		MetronomeCount = 0;
-		UE_LOG(LogTemp, Log, TEXT("Recording stopped."));
+		// (4 + BeatsToRecord) total beats means we've done our count-in + recorded beats
+		int32 TotalBeatsNeeded = 4 + BeatsToRecord;
+
+		if (MetronomeCount >= TotalBeatsNeeded)
+		{
+			StopRecording();
+			GetWorld()->GetTimerManager().ClearTimer(MetronomeTimerHandle);
+			MetronomeCount = 0;
+			UE_LOG(LogTemp, Log, TEXT("Recording stopped."));
+		}
 	}
 }
 
@@ -78,7 +86,9 @@ void ADataRecorder::EndPlay(const EEndPlayReason::Type EndPlayReason)
 		{
 			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
 			{
-				LiveAnimInstance->OnLiveBonePositionUpdated.RemoveDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+				LiveAnimInstance->OnLiveBoneTransformUpdated.AddDynamic(
+					this,
+					&ADataRecorder::OnBoneTransformUpdated);
 			}
 		}
 	}
@@ -102,13 +112,26 @@ void ADataRecorder::InitializeDatabase()
 
 void ADataRecorder::CreateNewSession()
 {
-	FSQLitePreparedStatement Statement = Database.PrepareStatement(TEXT("INSERT INTO Sessions (StartTime) VALUES (datetime('now'));"));
-	Statement.Execute();
+	// Prepare an INSERT that includes BPM and NumBeats
+	FSQLitePreparedStatement Statement = Database.PrepareStatement(
+		TEXT("INSERT INTO Sessions (StartTime, BPM, NumBeats) VALUES (datetime('now'), ?1, ?2);"));
+	Statement.SetBindingValueByIndex(1, BPM);
+	Statement.SetBindingValueByIndex(2, BeatsToRecord);
 
+	// Execute the statement
+	if (!Statement.Execute())
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to create new session with BPM and BeatsToRecord."));
+		return;
+	}
+
+	// Retrieve the newly created SessionID
 	FSQLitePreparedStatement Query = Database.PrepareStatement(TEXT("SELECT last_insert_rowid();"));
 	if (Query.Execute() && Query.Step() == ESQLitePreparedStatementStepResult::Row)
 	{
 		Query.GetColumnValueByIndex(0, CurrentSessionID);
+		UE_LOG(LogTemp, Log, TEXT("New session created. SessionID = %s, BPM = %f, BeatsToRecord = %d"),
+			   *CurrentSessionID, BPM, BeatsToRecord);
 	}
 }
 
@@ -135,7 +158,9 @@ void ADataRecorder::StartRecording()
 		{
 			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
 			{
-				LiveAnimInstance->OnLiveBonePositionUpdated.AddDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+				LiveAnimInstance->OnLiveBoneTransformUpdated.AddDynamic(
+					this,
+					&ADataRecorder::OnBoneTransformUpdated);
 			}
 		}
 	}
@@ -148,8 +173,16 @@ void ADataRecorder::StopRecording()
 
 	bIsRecording = false;
 
-	FSQLitePreparedStatement Statement = Database.PrepareStatement(TEXT("UPDATE Sessions SET EndTime = datetime('now') WHERE SessionID = ?1;"));
+	// --- Flush leftover MIDI events
+	TFuture<void> AnimFlush = FlushAnimationDataBufferAsync();
+	TFuture<void> MIDIFlush = FlushMIDIEventsBufferAsync();
 
+	// Wait for them to finish
+	AnimFlush.Wait();
+	MIDIFlush.Wait();
+
+	// Update end time
+	FSQLitePreparedStatement Statement = Database.PrepareStatement(TEXT("UPDATE Sessions SET EndTime = datetime('now') WHERE SessionID = ?1;"));
 	if (Statement.IsValid())
 	{
 		Statement.SetBindingValueByIndex(1, CurrentSessionID);
@@ -159,6 +192,7 @@ void ADataRecorder::StopRecording()
 		}
 	}
 
+	// Remove delegates, etc.
 	if (MIDIBroadcaster)
 	{
 		MIDIBroadcaster->OnMIDINoteEvent.RemoveDynamic(this, &ADataRecorder::OnMIDIEventReceived);
@@ -171,7 +205,7 @@ void ADataRecorder::StopRecording()
 		{
 			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
 			{
-				LiveAnimInstance->OnLiveBonePositionUpdated.RemoveDynamic(this, &ADataRecorder::OnBonePositionUpdated);
+				LiveAnimInstance->OnLiveBoneTransformUpdated.RemoveDynamic(this, &ADataRecorder::OnBoneTransformUpdated);
 			}
 		}
 	}
@@ -186,35 +220,107 @@ void ADataRecorder::StopRecording()
 void ADataRecorder::OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, FString EventType)
 {
 	if (!bIsRecording)
+	{
 		return;
+	}
+
+	// Calculate FrameIndex similarly to animation data
+	int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
+
+	// Prepare the values for a single row (SessionID, FrameIndex, Channel, NoteID, Velocity, EventType)
+	FString Row = FString::Printf(
+		TEXT("(%s, %d, %d, %d, %d, '%s')"),
+		*CurrentSessionID,
+		FrameIndex,
+		Channel,
+		NoteID,
+		Velocity,
+		*EventType);
+
+	// Add to the MIDIEvents buffer
+	MIDIEventsBuffer.Add(Row);
+
+	// If our buffer exceeds a threshold, flush to the DB
+	if (MIDIEventsBuffer.Num() >= MaxMIDIBatchSize)
+	{
+		FlushMIDIEventsBuffer();
+	}
 }
 
-// Add a buffer to hold batched animation data
-TArray<FString> AnimationDataBuffer;
-const int32 MaxBatchSize = 100; // Adjust based on performance needs
+void ADataRecorder::FlushMIDIEventsBuffer()
+{
+	if (MIDIEventsBuffer.Num() == 0)
+	{
+		return; // Nothing to flush
+	}
 
-void ADataRecorder::OnBonePositionUpdated(FName BoneName, FVector Position)
+	// Build one big INSERT statement
+	FString SQLQuery = TEXT("INSERT INTO MIDIEvents (SessionID, FrameIndex, Channel, NoteID, Velocity, EventType) VALUES ");
+	SQLQuery += FString::Join(MIDIEventsBuffer, TEXT(", ")) + TEXT(";");
+
+	// Execute on a background thread
+	AsyncTask(ENamedThreads::AnyBackgroundThreadNormalTask, [SQLQuery, this]()
+			  {
+        FSQLitePreparedStatement Statement = Database.PrepareStatement(*SQLQuery);
+        if (!Statement.IsValid() || !Statement.Execute())
+        {
+            UE_LOG(LogTemp, Error, TEXT("Failed to execute batched MIDI events insert."));
+        } });
+
+	// Clear the buffer after scheduling the insert
+	MIDIEventsBuffer.Empty();
+}
+
+TFuture<void> ADataRecorder::FlushMIDIEventsBufferAsync()
+{
+	if (MIDIEventsBuffer.Num() == 0)
+	{
+		// Return an already-finished future
+		return Async(EAsyncExecution::Thread, []() {});
+	}
+
+	// Build one big INSERT statement
+	FString SQLQuery = TEXT("INSERT INTO MIDIEvents (SessionID, FrameIndex, Channel, NoteID, Velocity, EventType) VALUES ");
+	SQLQuery += FString::Join(MIDIEventsBuffer, TEXT(", ")) + TEXT(";");
+
+	// Clear the buffer *before* spawning the async task
+	MIDIEventsBuffer.Empty();
+
+	// Launch the insert asynchronously and return a TFuture
+	return Async(EAsyncExecution::Thread, [SQLQuery, this]()
+				 {
+        FSQLitePreparedStatement Statement = Database.PrepareStatement(*SQLQuery);
+        if (!Statement.IsValid() || !Statement.Execute())
+        {
+            UE_LOG(LogTemp, Error, TEXT("Failed to execute batched MIDI events insert (Async)."));
+        } });
+}
+
+void ADataRecorder::OnBoneTransformUpdated(FName BoneName, FVector LocalPosition, FQuat LocalRotation, FVector LocalScale)
 {
 	if (!bIsRecording)
 		return;
 
 	int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
 
-	// Prepare the data as a single SQL string
-	FString BoneNameString = BoneName.ToString();
-
 	FString Row = FString::Printf(
-		TEXT("(%s, %d, '%s', %f, %f, %f)"),
-		*CurrentSessionID, // Must dereference FString
+		TEXT("(%s, %d, '%s', %f, %f, %f, %f, %f, %f, %f, %f, %f, %f)"),
+		*CurrentSessionID,
 		FrameIndex,
-		*BoneNameString, // Must dereference FString
-		Position.X,
-		Position.Y,
-		Position.Z);
+		*BoneName.ToString(),
+		LocalPosition.X,
+		LocalPosition.Y,
+		LocalPosition.Z,
+		LocalRotation.X,
+		LocalRotation.Y,
+		LocalRotation.Z,
+		LocalRotation.W,
+		LocalScale.X,
+		LocalScale.Y,
+		LocalScale.Z);
 
 	AnimationDataBuffer.Add(Row);
 
-	// Flush the buffer if it reaches the max batch size
 	if (AnimationDataBuffer.Num() >= MaxBatchSize)
 	{
 		FlushAnimationDataBuffer();
@@ -226,10 +332,12 @@ void ADataRecorder::FlushAnimationDataBuffer()
 	if (AnimationDataBuffer.Num() == 0)
 		return;
 
-	FString SQLQuery = TEXT("INSERT INTO AnimationData (SessionID, FrameIndex, BoneName, BonePosition_X, BonePosition_Y, BonePosition_Z) VALUES ");
-	SQLQuery += FString::Join(AnimationDataBuffer, TEXT(", ")) + TEXT(";");
+	FString SQLQuery = TEXT("INSERT INTO AnimationData ")
+						   TEXT("(SessionID, FrameIndex, BoneName, LocalPos_X, LocalPos_Y, LocalPos_Z, ")
+							   TEXT(" LocalRot_X, LocalRot_Y, LocalRot_Z, LocalRot_W, ")
+								   TEXT(" LocalScale_X, LocalScale_Y, LocalScale_Z) VALUES ") +
+					   FString::Join(AnimationDataBuffer, TEXT(", ")) + TEXT(";");
 
-	// Run the insert on a background thread
 	AsyncTask(ENamedThreads::AnyBackgroundThreadNormalTask, [SQLQuery, this]()
 			  {
         FSQLitePreparedStatement Statement = Database.PrepareStatement(*SQLQuery);
@@ -238,5 +346,30 @@ void ADataRecorder::FlushAnimationDataBuffer()
             UE_LOG(LogTemp, Error, TEXT("Failed to execute batched animation data insert."));
         } });
 
-	AnimationDataBuffer.Empty(); // Clear the buffer after scheduling the task
+	AnimationDataBuffer.Empty();
+}
+
+TFuture<void> ADataRecorder::FlushAnimationDataBufferAsync()
+{
+	if (AnimationDataBuffer.Num() == 0)
+	{
+		// Return an already-finished future
+		return Async(EAsyncExecution::Thread, []() {});
+	}
+	FString SQLQuery = TEXT("INSERT INTO AnimationData ")
+						   TEXT("(SessionID, FrameIndex, BoneName, LocalPos_X, LocalPos_Y, LocalPos_Z, ")
+							   TEXT(" LocalRot_X, LocalRot_Y, LocalRot_Z, LocalRot_W, ")
+								   TEXT(" LocalScale_X, LocalScale_Y, LocalScale_Z) VALUES ") +
+					   FString::Join(AnimationDataBuffer, TEXT(", ")) + TEXT(";");
+
+	AnimationDataBuffer.Empty();
+
+	// Launch the insert asynchronously and return a TFuture
+	return Async(EAsyncExecution::Thread, [SQLQuery, this]()
+				 {
+        FSQLitePreparedStatement Statement = Database.PrepareStatement(*SQLQuery);
+        if (!Statement.IsValid() || !Statement.Execute())
+        {
+            UE_LOG(LogTemp, Error, TEXT("Failed to execute batched animation data insert (Async)."));
+        } });
 }

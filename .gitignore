@@ -3,6 +3,8 @@
 /Intermediate
 /Binaries
 /Saved
+/Drummer/Content/Database
+/Content/Database
 
 # IDE-specific files
 *.sln 

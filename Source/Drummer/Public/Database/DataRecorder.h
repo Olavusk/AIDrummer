@@ -4,10 +4,10 @@
 #include "GameFramework/Actor.h"
 #include "SQLiteDatabase.h"
 #include "Midi/MIDIEventBroadcaster.h"
-#include "Characters/Drummers/LiveDrummerAnimInstance.h"
 #include "DataRecorder.generated.h"
 
 class USoundBase;
+class ULiveDrummerAnimInstance;
 UCLASS()
 class DRUMMER_API ADataRecorder : public AActor
 {
@@ -29,6 +29,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metronome Sounds")
 	USoundBase *MetronomeSound;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recording")
+	int32 BeatsToRecord;
+
 public:
 	UFUNCTION(BlueprintCallable, Category = "Database")
 	void InitializeDatabase();
@@ -46,10 +49,7 @@ public:
 	void OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, FString EventType);
 
 	UFUNCTION(BlueprintCallable, Category = "Events")
-	void OnBonePositionUpdated(FName BoneName, FVector Position);
-
-	UFUNCTION(BlueprintCallable, Category = "Database")
-	void FlushAnimationDataBuffer();
+	void OnBoneTransformUpdated(FName BoneName, FVector LocalPosition, FQuat LocalRotation, FVector LocalScale);
 
 private:
 	// SQLite Database
@@ -80,6 +80,17 @@ private:
 	UPROPERTY(BlueprintReadOnly, Category = "Recording", meta = (AllowPrivateAccess = "true"))
 	float StartRecordingTime;
 
+	TArray<FString> MIDIEventsBuffer;
+	const int32 MaxMIDIBatchSize = 100; // Adjust for performance needs
+
+	TArray<FString> AnimationDataBuffer;
+	const int32 MaxBatchSize = 100;
+
+	void FlushAnimationDataBuffer();
+	TFuture<void> FlushAnimationDataBufferAsync();
+
+	void FlushMIDIEventsBuffer();
+	TFuture<void> FlushMIDIEventsBufferAsync();
 	// Tick function
 	void MetronomeTick();
 };

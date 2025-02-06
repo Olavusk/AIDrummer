@@ -17,13 +17,19 @@ void AMIDIEventBroadcaster::BeginPlay()
 
 void AMIDIEventBroadcaster::ProcessMIDIEvent(int32 Channel, int32 NoteID, int32 Velocity, const FString EventType)
 {
-	// Broadcast the event to any bound classes
+	// Only handle "Note On" events:
+	if (!EventType.Equals(TEXT("Note On"), ESearchCase::IgnoreCase))
+	{
+		return;
+	}
+
+	// At this point, it's guaranteed to be "Note On"
 	OnMIDINoteEvent.Broadcast(Channel, NoteID, Velocity, EventType);
 
 	// Get the timestamp (in seconds since game start)
 	float Timestamp = GetWorld() ? GetWorld()->GetTimeSeconds() : 0.0f;
 
-	// Display the MIDI event with timestamp on screen
+	// Display on-screen
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red,
@@ -31,7 +37,7 @@ void AMIDIEventBroadcaster::ProcessMIDIEvent(int32 Channel, int32 NoteID, int32 
 														 Timestamp, Channel, NoteID, Velocity, *EventType));
 	}
 
-	// Log the MIDI event with timestamp to the output log
+	// Also log it
 	UE_LOG(LogTemp, Warning, TEXT("Time: %.2f, Channel: %d, NoteID: %d, Velocity: %d, EventType: %s"),
 		   Timestamp, Channel, NoteID, Velocity, *EventType);
 }

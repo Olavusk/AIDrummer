@@ -16,31 +16,62 @@ void ULiveDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
 {
     Super::NativeUpdateAnimation(DeltaTime);
 
-    // **Get the Skeletal Mesh that this animation is controlling**
     if (USkeletalMeshComponent *SkelMesh = GetSkelMeshComponent())
     {
-        // Clear previous frame's bone transform data
-        BoneTransforms.Empty();
+        // 1. Get the Skeletal Mesh asset (USkeletalMesh)
+        USkeletalMesh *ActualMesh = SkelMesh->GetSkeletalMeshAsset();
+        if (!ActualMesh)
+        {
+            UE_LOG(LogTemp, Warning, TEXT("No SkeletalMesh Asset found in LiveDrummerAnimInstance."));
+            return;
+        }
 
-        int32 BoneCount = SkelMesh->GetNumBones();
+        // 2. Grab the reference skeleton from the mesh
+        const FReferenceSkeleton &RefSkel = ActualMesh->GetRefSkeleton();
+
+        // 3. Number of bones
+        const int32 BoneCount = SkelMesh->GetNumBones();
+
+        // 4. Clear the stored transforms array
+        BoneTransforms.Empty();
+        BoneTransforms.Reserve(BoneCount);
+
+        // 5. For each bone, compute local-space transform
         for (int32 i = 0; i < BoneCount; ++i)
         {
             FName BoneName = SkelMesh->GetBoneName(i);
-            FTransform BoneTransform = SkelMesh->GetBoneTransform(i);
-            BoneTransforms.Add(BoneTransform);
 
-            FVector BonePosition = BoneTransform.GetLocation();
-            // **Broadcast the bone position to listeners**
-            BroadcastBonePosition(BoneName, BonePosition);
+            // (A) Child bone's transform in component space
+            FTransform ChildCSTransform = SkelMesh->GetBoneTransform(i);
 
-            // Optional debug log (comment this out for performance)
-            // UE_LOG(LogTemp, Log, TEXT("LiveBone %s Position: %s"), *BoneName.ToString(), *BonePosition.ToString());
+            // (B) Find parent index in the reference skeleton
+            const int32 ParentIndex = RefSkel.GetParentIndex(i);
+
+            // (C) Default local to the child’s component-space transform
+            //     (useful if this bone is the root and has no parent)
+            FTransform LocalBoneTransform = ChildCSTransform;
+
+            // (D) If there's a valid parent, compute child's local-space transform
+            if (ParentIndex != INDEX_NONE)
+            {
+                FTransform ParentCSTransform = SkelMesh->GetBoneTransform(ParentIndex);
+                LocalBoneTransform = ChildCSTransform.GetRelativeTransform(ParentCSTransform);
+            }
+
+            // (E) Store or broadcast the local transform
+            BoneTransforms.Add(LocalBoneTransform);
+
+            BroadcastBoneTransform(BoneName, LocalBoneTransform);
         }
     }
 }
 
-void ULiveDrummerAnimInstance::BroadcastBonePosition(FName BoneName, FVector Position)
+void ULiveDrummerAnimInstance::BroadcastBoneTransform(FName BoneName, const FTransform &LocalTransform)
 {
-    // **Broadcast position change to listeners**
-    OnLiveBonePositionUpdated.Broadcast(BoneName, Position);
+    // Extract local position, rotation, scale
+    FVector LocalPos = LocalTransform.GetLocation();
+    FQuat LocalRot = LocalTransform.GetRotation();
+    FVector LocalScale = LocalTransform.GetScale3D();
+
+    OnLiveBoneTransformUpdated.Broadcast(BoneName, LocalPos, LocalRot, LocalScale);
 }
