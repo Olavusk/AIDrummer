@@ -13,8 +13,10 @@ class DRUMMER_API ADatabaseDrummer : public ACharacter
 public:
 	ADatabaseDrummer();
 
-	bool GetAnimationFrameData(int32 FrameIndex, TMap<FName, FVector> &OutBoneData) const;
-	const TMap<int32, TMap<FName, FVector>> &GetAnimationFrames() const;
+	bool GetAnimationFrameData(int32 FrameIndex, TMap<FName, FTransform> &OutBoneData) const;
+	const TMap<int32, TMap<FName, FTransform>> &GetAnimationFrames() const;
+
+	TArray<int32> SortedFrameKeys;
 
 protected:
 	virtual void BeginPlay() override;
@@ -32,7 +34,7 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Database")
 	FString DatabasePath;
 
-	TMap<int32, TMap<FName, FVector>> AnimationFrames;
+	TMap<int32, TMap<FName, FTransform>> AnimationFrames;
 
 	void LoadAnimationFromDatabase();
 };

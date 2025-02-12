@@ -31,9 +31,18 @@ void ADatabaseDrummer::BeginPlay()
 			UE_LOG(LogTemp, Log, TEXT("Skeletal mesh is initialized with %d bones."), GetMesh()->GetNumBones());
 			LoadAnimationFromDatabase();
 		}
+		TArray<int32> TempKeys;
+		AnimationFrames.GetKeys(TempKeys);
+		TempKeys.Sort();
+		SortedFrameKeys = TempKeys;
+		UE_LOG(LogTemp, Log, TEXT("DatabaseDrummer: Loaded %d animation frames."), AnimationFrames.Num());
+		if (SortedFrameKeys.Num() > 0)
+		{
+			UE_LOG(LogTemp, Log, TEXT("First key: %d, Last key: %d"), SortedFrameKeys[0], SortedFrameKeys.Last());
+		}
 		else
 		{
-			UE_LOG(LogTemp, Error, TEXT("Failed to assign and get DrummerAnimInstance in ADatabaseDrummer::BeginPlay."));
+			UE_LOG(LogTemp, Warning, TEXT("DatabaseDrummer: SortedFrameKeys is empty."));
 		}
 	}
 	else
@@ -46,12 +55,12 @@ void ADatabaseDrummer::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }
-const TMap<int32, TMap<FName, FVector>> &ADatabaseDrummer::GetAnimationFrames() const
+const TMap<int32, TMap<FName, FTransform>> &ADatabaseDrummer::GetAnimationFrames() const
 {
 	return AnimationFrames;
 }
 
-bool ADatabaseDrummer::GetAnimationFrameData(int32 FrameIndex, TMap<FName, FVector> &OutBoneData) const
+bool ADatabaseDrummer::GetAnimationFrameData(int32 FrameIndex, TMap<FName, FTransform> &OutBoneData) const
 {
 	if (AnimationFrames.Contains(FrameIndex))
 	{
@@ -61,7 +70,7 @@ bool ADatabaseDrummer::GetAnimationFrameData(int32 FrameIndex, TMap<FName, FVect
 	return false;
 }
 
-// Load animation data from SQLite database
+// DatabaseDrummer.cpp - Update LoadAnimationFromDatabase
 void ADatabaseDrummer::LoadAnimationFromDatabase()
 {
 	if (!FPaths::FileExists(DatabasePath))
@@ -83,8 +92,11 @@ void ADatabaseDrummer::LoadAnimationFromDatabase()
 		}
 	}
 
-	FString Query = TEXT("SELECT FrameIndex, BoneName, BonePosition_X, BonePosition_Y, BonePosition_Z "
-						 "FROM AnimationData WHERE SessionID = 5 ORDER BY FrameIndex;");
+	FString Query = TEXT(
+		"SELECT FrameIndex, BoneName, LocalPos_X, LocalPos_Y, LocalPos_Z, "
+		"LocalRot_X, LocalRot_Y, LocalRot_Z, LocalRot_W, "
+		"LocalScale_X, LocalScale_Y, LocalScale_Z "
+		"FROM AnimationData WHERE SessionID = 5 ORDER BY FrameIndex;");
 
 	FSQLitePreparedStatement Statement;
 	if (Statement.Create(Database, *Query))
@@ -98,17 +110,34 @@ void ADatabaseDrummer::LoadAnimationFromDatabase()
 				Statement.GetColumnValueByIndex(1, BoneNameStr);
 				FName BoneName(*BoneNameStr);
 
-				double PositionX, PositionY, PositionZ;
-				Statement.GetColumnValueByIndex(2, PositionX);
-				Statement.GetColumnValueByIndex(3, PositionY);
-				Statement.GetColumnValueByIndex(4, PositionZ);
-				FVector BonePosition(PositionX, PositionY, PositionZ);
+				// Extract position, rotation, and scale
+				FVector Position;
+				FQuat Rotation;
+				FVector Scale;
 
+				Statement.GetColumnValueByIndex(2, Position.X);
+				Statement.GetColumnValueByIndex(3, Position.Y);
+				Statement.GetColumnValueByIndex(4, Position.Z);
+
+				Statement.GetColumnValueByIndex(5, Rotation.X);
+				Statement.GetColumnValueByIndex(6, Rotation.Y);
+				Statement.GetColumnValueByIndex(7, Rotation.Z);
+				Statement.GetColumnValueByIndex(8, Rotation.W);
+
+				Statement.GetColumnValueByIndex(9, Scale.X);
+				Statement.GetColumnValueByIndex(10, Scale.Y);
+				Statement.GetColumnValueByIndex(11, Scale.Z);
+
+				// Create the FTransform
+				FTransform BoneTransform(Rotation, Position, Scale);
+
+				// Add the frame data
 				if (!AnimationFrames.Contains(FrameIndex))
 				{
-					AnimationFrames.Add(FrameIndex, TMap<FName, FVector>());
+					AnimationFrames.Add(FrameIndex, TMap<FName, FTransform>());
 				}
-				AnimationFrames[FrameIndex].Add(BoneName, BonePosition);
+
+				AnimationFrames[FrameIndex].Add(BoneName, BoneTransform);
 			}
 		}
 
