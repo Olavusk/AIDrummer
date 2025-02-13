@@ -1,7 +1,6 @@
 #include "Characters/Drummers/DatabaseDrummerAnimInstance.h"
 #include "Characters/Drummers/DatabaseDrummer.h"
 #include "GameFramework/Actor.h"
-#include "Kismet/KismetMathLibrary.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Animation/AnimSequenceHelpers.h"
 #include "Characters/Drummers/FDatabaseDrummerAnimInstanceProxy.h"
@@ -11,13 +10,12 @@ void UDatabaseDrummerAnimInstance::NativeInitializeAnimation()
     Super::NativeInitializeAnimation();
 
     AnimationDataModel = MakeUnique<FDrummerAnimationDataModel>();
-
     CurrentFrameIndex = 0;
     FrameTimeAccumulator = 0.0f;
 
     DatabaseDrummer = Cast<ADatabaseDrummer>(TryGetPawnOwner());
 
-    // Initialize RetargetTransforms to identity. TODO: Add RetargetTransform for Manny?
+    // Initialize RetargetTransforms to identity.
     {
         const FBoneContainer &BoneContainer = GetRequiredBones();
         const int32 NumBones = BoneContainer.GetNumBones();
@@ -42,15 +40,13 @@ void UDatabaseDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
         }
     }
 
-    // Accumulate delta time and update at a steady 30 FPS.
+    // Update at 30 FPS.
     FrameTimeAccumulator += DeltaTime;
     const float FrameDuration = 1.0f / 30.0f;
 
     if (FrameTimeAccumulator >= FrameDuration)
     {
         FrameTimeAccumulator = 0.0f;
-
-        // Advance frame index cyclically.
         int32 TotalKeys = DatabaseDrummer->SortedFrameKeys.Num();
         CurrentFrameIndex = (CurrentFrameIndex + 1) % TotalKeys;
         int32 FrameKey = DatabaseDrummer->SortedFrameKeys[CurrentFrameIndex];
@@ -60,16 +56,18 @@ void UDatabaseDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
             // Retrieve the raw frame data.
             TMap<FName, FTransform> FrameData = DatabaseDrummer->GetAnimationFrames().FindChecked(FrameKey);
 
-            // Update the data model with the current frame data.
+            // Update our data model with the current frame data.
             AnimationDataModel->UpdateFromFrameData(FrameData);
+
+            // Compute sample time. (Here, simply using CurrentFrameIndex / 30.0f)
             float SampleTime = CurrentFrameIndex / 30.0f;
 
-            // Get the bone container from the required bones.
+            // Get the bone container.
             const FBoneContainer &BoneContainer = GetRequiredBones();
             int32 NumBones = BoneContainer.GetNumBones();
 
             // For each bone, evaluate the transform from the data model.
-            DrummerPoseData.BoneTransforms.SetNum(NumBones);
+            BoneTransforms.SetNum(NumBones);
             for (int32 BoneIndex = 0; BoneIndex < NumBones; BoneIndex++)
             {
                 FName BoneName = BoneContainer.GetReferenceSkeleton().GetBoneName(BoneIndex);
@@ -77,7 +75,7 @@ void UDatabaseDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
                     BoneName,
                     FFrameTime(CurrentFrameIndex),
                     EAnimInterpolationType::Linear);
-                DrummerPoseData.BoneTransforms[BoneIndex] = EvalTransform;
+                BoneTransforms[BoneIndex] = EvalTransform;
             }
         }
     }
@@ -85,6 +83,5 @@ void UDatabaseDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
 
 FAnimInstanceProxy *UDatabaseDrummerAnimInstance::CreateAnimInstanceProxy()
 {
-    // Return an instance of custom AnimInstanceProxy.
     return new FDatabaseDrummerAnimInstanceProxy(this);
 }

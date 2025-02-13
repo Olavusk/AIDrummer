@@ -12,7 +12,7 @@ public:
     void UpdateFromFrameData(const TMap<FName, FTransform> &InFrameData)
     {
         RawData = InFrameData;
-        // Ensure BoneOrder is populated (you could call this once at initialization)
+        // Ensure BoneOrder is populated
         if (BoneOrder.Num() == 0)
         {
             RawData.GetKeys(BoneOrder);
@@ -27,7 +27,7 @@ public:
     virtual FFrameRate GetFrameRate() const override { return FFrameRate(30, 1); }
 
     // Return the bone transform for a given bone name at the given frame time.
-    // (For a real implementation, you might support interpolation between frames.)
+    // (For a real implementation, we might support interpolation between frames.)
     virtual FTransform EvaluateBoneTrackTransform(FName TrackName, const FFrameTime &FrameTime, const EAnimInterpolationType &Interpolation) const override
     {
         const FTransform *Found = RawData.Find(TrackName);

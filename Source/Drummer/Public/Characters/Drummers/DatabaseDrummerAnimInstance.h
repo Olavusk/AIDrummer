@@ -1,7 +1,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AnimPoses/DrummerPoseData.h"
 #include "Animation/AnimInstance.h"
 #include "Characters/FDrummerAnimationDataModel.h"
 #include "DatabaseDrummerAnimInstance.generated.h"
@@ -14,7 +13,7 @@ class DRUMMER_API UDatabaseDrummerAnimInstance : public UAnimInstance
 public:
 	class ADatabaseDrummer *DatabaseDrummer;
 
-	FDrummerPoseData DrummerPoseData;
+	TArray<FTransform> BoneTransforms;
 
 protected:
 	virtual void NativeInitializeAnimation() override;

@@ -3,11 +3,6 @@
 #include "Animation/AnimInstanceProxy.h"
 #include "Characters/Drummers/DatabaseDrummerAnimInstance.h"
 
-/**
- * Custom AnimInstanceProxy for DatabaseDrummerAnimInstance.
- * This proxy overrides PreUpdate() to cache custom data from the owning AnimInstance,
- * and then overrides Evaluate() so that the final pose is driven by our cached DrummerPoseData.
- */
 class FDatabaseDrummerAnimInstanceProxy : public FAnimInstanceProxy
 {
 public:
@@ -21,23 +16,24 @@ public:
         FAnimInstanceProxy::PreUpdate(InAnimInstance, DeltaSeconds);
         if (UDatabaseDrummerAnimInstance *MyAnimInstance = Cast<UDatabaseDrummerAnimInstance>(InAnimInstance))
         {
-            CachedDrummerPoseData = MyAnimInstance->DrummerPoseData;
+            // Cache the custom bone transforms.
+            CachedBoneTransforms = MyAnimInstance->BoneTransforms;
         }
     }
 
     virtual bool Evaluate(FPoseContext &Output) override
     {
-        if (CachedDrummerPoseData.BoneTransforms.Num() > 0)
+        if (CachedBoneTransforms.Num() > 0)
         {
             const FBoneContainer &BoneContainer = Output.Pose.GetBoneContainer();
-            const int32 NumBones = BoneContainer.GetNumBones();
+            int32 NumBones = BoneContainer.GetNumBones();
 
             for (int32 BoneIndex = 0; BoneIndex < NumBones; BoneIndex++)
             {
                 FCompactPoseBoneIndex CompactIndex(BoneIndex);
-                if (CachedDrummerPoseData.BoneTransforms.IsValidIndex(BoneIndex))
+                if (CachedBoneTransforms.IsValidIndex(BoneIndex))
                 {
-                    Output.Pose[CompactIndex] = CachedDrummerPoseData.BoneTransforms[BoneIndex];
+                    Output.Pose[CompactIndex] = CachedBoneTransforms[BoneIndex];
                 }
             }
             return true;
@@ -49,5 +45,5 @@ public:
     }
 
 private:
-    FDrummerPoseData CachedDrummerPoseData;
+    TArray<FTransform> CachedBoneTransforms;
 };
