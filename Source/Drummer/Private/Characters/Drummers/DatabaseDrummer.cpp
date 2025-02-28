@@ -70,7 +70,6 @@ bool ADatabaseDrummer::GetAnimationFrameData(int32 FrameIndex, TMap<FName, FTran
 	return false;
 }
 
-// DatabaseDrummer.cpp - Update LoadAnimationFromDatabase
 void ADatabaseDrummer::LoadAnimationFromDatabase()
 {
 	if (!FPaths::FileExists(DatabasePath))
@@ -96,7 +95,7 @@ void ADatabaseDrummer::LoadAnimationFromDatabase()
 		"SELECT FrameIndex, BoneName, LocalPos_X, LocalPos_Y, LocalPos_Z, "
 		"LocalRot_X, LocalRot_Y, LocalRot_Z, LocalRot_W, "
 		"LocalScale_X, LocalScale_Y, LocalScale_Z "
-		"FROM AnimationData WHERE SessionID = 6 ORDER BY FrameIndex;");
+		"FROM AnimationData WHERE SessionID = 3 ORDER BY FrameIndex;");
 
 	FSQLitePreparedStatement Statement;
 	if (Statement.Create(Database, *Query))
