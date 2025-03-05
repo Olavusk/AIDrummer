@@ -36,6 +36,8 @@ public:
 	// Sorted keys (FrameIndices) for the loaded animation data.
 	TArray<int32> SortedFrameKeys;
 
+	TMap<int32, int32> FrameIndexToMidiNote;
+
 	// The current target frame index as determined by the last MIDI note.
 	UPROPERTY(BlueprintReadOnly, Category = "Drummer")
 	int32 CurrentTargetFrameIndex;
@@ -43,7 +45,7 @@ public:
 protected:
 	// Loads animation poses from the SQL database.
 	void LoadAnimationFromDatabase();
-	TArray<int32> GetMatchingFrameIndicesForDrumHit(const FString &DrumHitType);
+	TArray<int32> GetMatchingFrameIndicesForMidiNote(int32 MidiNote);
 
 private:
 	// SQLite database and related members.

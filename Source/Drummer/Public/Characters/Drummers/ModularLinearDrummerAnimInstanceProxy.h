@@ -1,28 +1,27 @@
 #pragma once
 
 #include "Animation/AnimInstanceProxy.h"
-#include "Characters/Drummers/LinearDrummerAnimInstance.h"
+#include "Characters/Drummers/ModularLinearDrummerAnimInstance.h"
 
 /**
- * FLinearDrummerAnimInstanceProxy
- * A custom AnimInstance proxy that works with ULinearDrummerAnimInstance.
- * It copies the BoneTransforms computed by the AnimInstance into the final pose.
+ * FModularLinearDrummerAnimInstanceProxy
+ * A custom AnimInstance proxy for UModularLinearDrummerAnimInstance.
+ * It caches the BoneTransforms computed by the anim instance and writes them
+ * out to the final pose for the skeletal mesh.
  */
-class FLinearDrummerAnimInstanceProxy : public FAnimInstanceProxy
+class FModularLinearDrummerAnimInstanceProxy : public FAnimInstanceProxy
 {
 public:
-    FLinearDrummerAnimInstanceProxy(ULinearDrummerAnimInstance *InAnimInstance)
+    FModularLinearDrummerAnimInstanceProxy(UModularLinearDrummerAnimInstance *InAnimInstance)
         : FAnimInstanceProxy(InAnimInstance)
     {
     }
 
     virtual void PreUpdate(UAnimInstance *InAnimInstance, float DeltaSeconds) override
     {
-        // Let the base class do its work
         FAnimInstanceProxy::PreUpdate(InAnimInstance, DeltaSeconds);
 
-        // Try to cast to the custom anim instance and cache its BoneTransforms
-        if (ULinearDrummerAnimInstance *MyDrummerInstance = Cast<ULinearDrummerAnimInstance>(InAnimInstance))
+        if (UModularLinearDrummerAnimInstance *MyDrummerInstance = Cast<UModularLinearDrummerAnimInstance>(InAnimInstance))
         {
             CachedBoneTransforms = MyDrummerInstance->BoneTransforms;
         }
@@ -35,7 +34,6 @@ public:
             const FBoneContainer &BoneContainer = Output.Pose.GetBoneContainer();
             const int32 NumBones = BoneContainer.GetNumBones();
 
-            // For each bone, assign the cached transform (if available) into the output pose.
             for (int32 BoneIndex = 0; BoneIndex < NumBones; BoneIndex++)
             {
                 FCompactPoseBoneIndex CompactIndex(BoneIndex);
