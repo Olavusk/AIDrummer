@@ -56,6 +56,7 @@ private:
 	FSQLiteDatabase Database;
 
 	FTimerHandle MetronomeTimerHandle;
+	FTimerHandle AnimationTimerHandle;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metronome", meta = (AllowPrivateAccess = "true"))
 	float BPM;
@@ -91,6 +92,10 @@ private:
 
 	void FlushMIDIEventsBuffer();
 	TFuture<void> FlushMIDIEventsBufferAsync();
+
+	UFUNCTION()
+	void RecordAnimationFrame(); // New function declaration
+
 	// Tick function
 	void MetronomeTick();
 };
