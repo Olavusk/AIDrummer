@@ -23,9 +23,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MIDI")
 	AMIDIFileBroadcaster *MIDIBroadcaster;
 
-	UPROPERTY(BlueprintReadOnly, Category = "Drummer")
-	TMap<FString, EModuleStatus> ModuleStates;
-
 	// Called when a MIDI note is received.
 	UFUNCTION(BlueprintCallable, Category = "MIDI")
 	void OnMIDINoteReceived(int32 Channel, int32 NoteID, int32 Velocity, float Timestamp);

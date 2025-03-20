@@ -1,10 +1,9 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #include "Characters/Drummers/ModularLinearDrummerAnimInstance.h"
 #include "Characters/Drummers/ModularLinearDrummer.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Characters/Drummers/ModularLinearDrummerAnimInstanceProxy.h"
 #include "Animation/AnimSequenceHelpers.h"
+#include "DrumRules/DrumModuleRules.h" // For FDrumModuleRule and FDrumModuleRulesManager
 
 void UModularLinearDrummerAnimInstance::NativeInitializeAnimation()
 {
@@ -15,19 +14,19 @@ void UModularLinearDrummerAnimInstance::NativeInitializeAnimation()
 
     if (ModularLinearDrummer)
     {
-        // Initialize ModulePoses using the actor's TargetModulePoses (which now contains idle poses for all modules).
+        // Initialize ModulePoses using the actor's TargetModulePoses (idle/base poses)
         for (const auto &ModulePair : ModularLinearDrummer->TargetModulePoses)
         {
             const FString &ModuleName = ModulePair.Key;
-            const TMap<FName, FTransform> &BasePose = ModulePair.Value;
+            const TMap<FName, FTransform> &IdlePose = ModulePair.Value;
 
             FModulePose NewModulePose;
-            NewModulePose.CurrentPose = BasePose;
-            NewModulePose.TargetPose = BasePose;
-            NewModulePose.InterpAlpha = 0.f;
-            NewModulePose.InterpTime = 0.f;
-            // You may also set NewModulePose.InterpDuration here if needed.
-
+            NewModulePose.CurrentPose = IdlePose;
+            NewModulePose.TargetPose = IdlePose;
+            NewModulePose.BasePose = IdlePose; // Store the base pose for returning later
+            NewModulePose.InterpAlpha = 1.f;
+            NewModulePose.InterpTime = 1.f;
+            // We do not store a state here; the central state is in the ModuleRulesManager.
             ModulePoses.Add(ModuleName, NewModulePose);
         }
     }
@@ -48,11 +47,15 @@ FTransform UModularLinearDrummerAnimInstance::LerpTransform(const FTransform &A,
 
 FString UModularLinearDrummerAnimInstance::GetModuleForBone(const FName &BoneName) const
 {
-    if (ModularLinearDrummer && ModularLinearDrummer->BoneToModuleMap.Contains(BoneName))
+    FString ModuleName = ModularLinearDrummer->BoneToModuleMap.Contains(BoneName)
+                             ? ModularLinearDrummer->BoneToModuleMap[BoneName]
+                             : TEXT("Default");
+
+    if (!ModularLinearDrummer->ModuleRulesManager.ModuleRules.Contains(ModuleName))
     {
-        return ModularLinearDrummer->BoneToModuleMap[BoneName];
+        ModuleName = TEXT("Default");
     }
-    return TEXT("Default");
+    return ModuleName;
 }
 
 void UModularLinearDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
@@ -68,8 +71,7 @@ void UModularLinearDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
         }
     }
 
-    // Update ModulePoses with any new target poses from the actor.
-    // This makes sure that if the actor updates TargetModulePoses via MIDI events, the AnimInstance gets those changes.
+    // --- Sync Target Poses from the Actor ---
     for (const auto &ActorPair : ModularLinearDrummer->TargetModulePoses)
     {
         const FString &ModuleName = ActorPair.Key;
@@ -87,13 +89,65 @@ void UModularLinearDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
         }
     }
 
-    // Then continue with your per-module blending as before:
+    // --- Per-Module Blending ---
     for (auto &ModulePair : ModulePoses)
     {
         FModulePose &ModulePose = ModulePair.Value;
-        ModulePose.InterpTime += DeltaTime;
-        ModulePose.InterpAlpha = FMath::Clamp(ModulePose.InterpTime / ModulePose.InterpDuration, 0.f, 1.f);
+        FString ModuleName = ModulePair.Key;
 
+        // Retrieve the current state from the central ModuleRulesManager
+        EModuleState CurrentState = EModuleState::Idle;
+        if (ModularLinearDrummer->ModuleRulesManager.ModuleRules.Contains(ModuleName))
+        {
+            CurrentState = ModularLinearDrummer->ModuleRulesManager.ModuleRules[ModuleName].Status;
+        }
+
+        if (CurrentState == EModuleState::Hit)
+        {
+            // Accelerate towards the Hit position using an ease-in curve.
+            ModulePose.InterpTime += DeltaTime;
+            float RawAlpha = ModulePose.InterpTime / ModulePose.InterpDuration;
+            RawAlpha = FMath::Clamp(RawAlpha, 0.f, 1.f);
+            // Using an exponent of 2.0 to emphasize acceleration
+            float SmoothedAlpha = FMath::InterpEaseIn(0.f, 1.f, RawAlpha, 2.0f);
+            ModulePose.InterpAlpha = SmoothedAlpha;
+
+            // When Hit interpolation completes, transition to Returning.
+            if (ModulePose.InterpAlpha >= 1.f)
+            {
+                UE_LOG(LogTemp, Log, TEXT("Module %s: Hit pose reached, transitioning to Returning."), *ModuleName);
+                ModulePose.TargetPose = ModulePose.BasePose;
+                ModulePose.InterpTime = 0.f;
+                ModulePose.InterpAlpha = 0.f;
+                ModularLinearDrummer->ModuleRulesManager.SetModuleStatus(ModuleName, EModuleState::Returning);
+            }
+        }
+        else if (CurrentState == EModuleState::Returning)
+        {
+            // Decelerate smoothly towards the Idle (base) position using an ease-out curve.
+            ModulePose.InterpTime += DeltaTime;
+            float ReturnDuration = ModulePose.InterpDuration; // You can adjust this if needed for a different return time.
+            float RawAlpha = ModulePose.InterpTime / ReturnDuration;
+            RawAlpha = FMath::Clamp(RawAlpha, 0.f, 1.f);
+            // Using an exponent of 2.0 to emphasize deceleration
+            float SmoothedAlpha = FMath::InterpEaseOut(0.f, 1.f, RawAlpha, 2.0f);
+            ModulePose.InterpAlpha = SmoothedAlpha;
+
+            if (ModulePose.InterpAlpha >= 1.f)
+            {
+                UE_LOG(LogTemp, Log, TEXT("Module %s: Returned to base, transitioning to Idle."), *ModuleName);
+                ModulePose.InterpAlpha = 1.f;
+                ModularLinearDrummer->ModuleRulesManager.SetModuleStatus(ModuleName, EModuleState::Idle);
+                ModulePose.InterpTime = 0.f;
+            }
+        }
+        else
+        {
+            // For Idle or any other state, ensure alpha is set to 1.
+            ModulePose.InterpAlpha = 1.f;
+        }
+
+        // Blend each bone from the current pose to the target pose based on the computed InterpAlpha.
         for (auto &BonePair : ModulePose.TargetPose)
         {
             FName BoneName = BonePair.Key;
@@ -107,17 +161,9 @@ void UModularLinearDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
 
             ModulePose.CurrentPose.Add(BoneName, BlendedTransform);
         }
-
-        if (ModulePose.InterpAlpha >= 1.f)
-        {
-            ModulePose.InterpTime = 0.f;
-            ModulePose.InterpAlpha = 0.f;
-            ModularLinearDrummer->ModuleStates.Add(ModulePair.Key, EModuleStatus::Idle);
-            ModularLinearDrummer->ModuleRulesManager.SetModuleStatus(ModulePair.Key, EModuleStatus::Idle);
-        }
     }
 
-    // Combine all module poses into one overall pose.
+    // --- Combine All Module Poses into One Overall Pose ---
     TMap<FName, FTransform> CombinedPose;
     for (const auto &ModulePair : ModulePoses)
     {

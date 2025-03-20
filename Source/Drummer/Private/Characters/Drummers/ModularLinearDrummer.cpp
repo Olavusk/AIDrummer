@@ -85,12 +85,8 @@ AModularLinearDrummer::AModularLinearDrummer()
 	BoneToModuleMap.Add(TEXT("Neck"), TEXT("Body"));
 	BoneToModuleMap.Add(TEXT("Head"), TEXT("Body"));
 
-	// Initial module states.
-	ModuleStates.Add(TEXT("RightLeg"), EModuleStatus::Idle);
-	ModuleStates.Add(TEXT("LeftLeg"), EModuleStatus::Idle);
-	ModuleStates.Add(TEXT("RightArm"), EModuleStatus::Idle);
-	ModuleStates.Add(TEXT("LeftArm"), EModuleStatus::Idle);
-	ModuleStates.Add(TEXT("Body"), EModuleStatus::Idle);
+	// Removed local ModuleStates.
+	// The ModuleRulesManager already initializes module statuses.
 }
 
 void AModularLinearDrummer::BeginPlay()
@@ -179,7 +175,7 @@ void AModularLinearDrummer::LoadAnimationFromDatabase()
 		"FROM AnimationData "
 		"INNER JOIN MIDIEvents ON MIDIEvents.SessionID = AnimationData.SessionID "
 		"AND MIDIEvents.FrameIndex = AnimationData.FrameIndex "
-		"WHERE AnimationData.SessionID = 5 "
+		"WHERE AnimationData.SessionID = 9 "
 		"ORDER BY AnimationData.FrameIndex;");
 
 	FSQLitePreparedStatement Statement;
@@ -193,7 +189,7 @@ void AModularLinearDrummer::LoadAnimationFromDatabase()
 			int32 FrameIndex;
 			if (Statement.GetColumnValueByIndex(1, FrameIndex))
 			{
-				// Instead of storing a single MIDI note, add the note to an array for this frame.
+				// Add the MIDI note to an array for this frame.
 				if (!FrameIndexToMidiNote.Contains(FrameIndex))
 				{
 					FrameIndexToMidiNote.Add(FrameIndex, TArray<int32>());
@@ -248,15 +244,13 @@ void AModularLinearDrummer::SetupDefaultIdlePoses()
 		TMap<FName, FTransform> IdlePose;
 		if (GetAnimationFrameData(IdleFrameIndex, IdlePose))
 		{
-			// For every bone in IdlePose, assign it to the module based on BoneToModuleMap.
-			// This builds up a module-specific idle pose.
+			// Build a module-specific idle pose.
 			for (const auto &Pair : IdlePose)
 			{
 				FName BoneName = Pair.Key;
 				if (BoneToModuleMap.Contains(BoneName))
 				{
 					FString ModuleName = BoneToModuleMap[BoneName];
-					// If the module's idle pose hasn't been created yet, add an empty map.
 					if (!TargetModulePoses.Contains(ModuleName))
 					{
 						TargetModulePoses.Add(ModuleName, TMap<FName, FTransform>());
@@ -287,7 +281,7 @@ TArray<int32> AModularLinearDrummer::GetMatchingFrameIndicesForMidiNote(int32 Mi
 			}
 			else
 			{
-				// Debug: log what notes are present for this frame.
+				// Debug logging for frames that do not match.
 				FString NotesStr;
 				for (int32 Note : NotesForFrame)
 				{
@@ -322,9 +316,6 @@ bool AModularLinearDrummer::GetModuleTargetPose(const FString &ModuleName, TMap<
 
 void AModularLinearDrummer::OnMIDINoteReceived(int32 Channel, int32 NoteID, int32 Velocity, float Timestamp)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Received MIDI note - Channel: %d, NoteID: %d, Velocity: %d, Timestamp: %.2f"),
-		   Channel, NoteID, Velocity, Timestamp);
-
 	// Determine which module should respond to this note.
 	FString SelectedModule = ModuleRulesManager.GetModuleForNote(NoteID);
 	UE_LOG(LogTemp, Warning, TEXT("Selected module for note %d is: %s"), NoteID, *SelectedModule);
@@ -347,34 +338,46 @@ void AModularLinearDrummer::OnMIDINoteReceived(int32 Channel, int32 NoteID, int3
 		if (GetAnimationFrameData(SelectedFrameIndex, RetrievedPose))
 		{
 			// Filter the retrieved pose by module.
-			TMap<FName, FTransform> ModulePose;
+			TMap<FName, FTransform> ModuleHitPose;
 			for (const auto &Pair : RetrievedPose)
 			{
 				if (BoneToModuleMap.Contains(Pair.Key) && BoneToModuleMap[Pair.Key] == SelectedModule)
 				{
-					ModulePose.Add(Pair.Key, Pair.Value);
+					ModuleHitPose.Add(Pair.Key, Pair.Value);
 				}
 			}
 
 			// Update the target pose for the selected module.
-			TargetModulePoses.Add(SelectedModule, ModulePose);
-
-			// Get rule parameters for this module to adjust interpolation speed.
-			FDrumModuleRule ModuleRule;
-			if (ModuleRulesManager.GetModuleRule(SelectedModule, ModuleRule))
-			{
-				// Set interpolation duration based on velocity
-				float NewInterpDuration = ModuleRule.GetInterpDuration(Velocity);
-				UE_LOG(LogTemp, Log, TEXT("Module %s interpolation duration set to %.2f based on velocity %d"),
-					   *SelectedModule, NewInterpDuration, Velocity);
-			}
-
-			// Mark module as "Moving"
-			ModuleRulesManager.SetModuleStatus(SelectedModule, EModuleStatus::Moving);
+			TargetModulePoses.Add(SelectedModule, ModuleHitPose);
+			ModuleRulesManager.SetModuleStatus(SelectedModule, EModuleState::Hit);
 		}
 		else
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Failed to get animation frame data for frame %d"), SelectedFrameIndex);
+		}
+
+		// Log the current status of each module using the ModuleRulesManager.
+		for (const auto &RulePair : ModuleRulesManager.ModuleRules)
+		{
+			const FString &ModuleName = RulePair.Key;
+			EModuleState Status = RulePair.Value.Status;
+			FString StatusString;
+			switch (Status)
+			{
+			case EModuleState::Idle:
+				StatusString = TEXT("Idle");
+				break;
+			case EModuleState::Hit:
+				StatusString = TEXT("Hit");
+				break;
+			case EModuleState::Returning:
+				StatusString = TEXT("Returning");
+				break;
+			default:
+				StatusString = TEXT("Unknown");
+				break;
+			}
+			UE_LOG(LogTemp, Warning, TEXT("Module %s status after MIDI event: %s"), *ModuleName, *StatusString);
 		}
 	}
 	else

@@ -4,10 +4,16 @@
 #include "Animation/AnimInstance.h"
 #include "ModularLinearDrummerAnimInstance.generated.h"
 
+// This struct now holds only animation and interpolation parameters.
+// The module state is maintained solely in the DrumModuleRulesManager.
 USTRUCT(BlueprintType)
 struct FModulePose
 {
 	GENERATED_BODY()
+
+	// Base (idle) pose for the module (mapping of bone name to transform)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TMap<FName, FTransform> BasePose;
 
 	// Current pose for the module (mapping of bone name to transform)
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
@@ -27,8 +33,11 @@ struct FModulePose
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float InterpDuration;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float ReturnVelocity;
+
 	FModulePose()
-		: InterpAlpha(0.f), InterpTime(0.f), InterpDuration(0.2f) // Default; can be overridden via rules
+		: InterpAlpha(0.f), InterpTime(0.f), InterpDuration(0.2f), ReturnVelocity(0.f)
 	{
 	}
 };
@@ -52,21 +61,12 @@ protected:
 	virtual FAnimInstanceProxy *CreateAnimInstanceProxy() override;
 
 private:
-	// Interpolation parameters.
-	float InterpAlpha;
-	float InterpDuration;
-	float InterpTime;
-
-	// Current and target poses for each module.
-	// For simplicity, use a combined pose for bones that are not updated.
-	TMap<FName, FTransform> CurrentPose;
-	TMap<FName, FTransform> TargetPose;
-
 	// Helper: Interpolate between two transforms.
 	FTransform LerpTransform(const FTransform &A, const FTransform &B, float Alpha);
 
 	// Helper: For a given bone, decide if it belongs to a module that has an updated target.
 	FString GetModuleForBone(const FName &BoneName) const;
 
+	// Stores per-module animation blending state.
 	TMap<FString, FModulePose> ModulePoses;
 };

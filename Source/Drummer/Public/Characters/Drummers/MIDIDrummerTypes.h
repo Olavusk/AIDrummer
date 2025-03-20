@@ -15,8 +15,9 @@ enum class EMIDIDrummerActionState : uint8
 };
 
 UENUM(BlueprintType)
-enum class EModuleStatus : uint8
+enum class EModuleState : uint8
 {
     Idle UMETA(DisplayName = "Idle"),
-    Moving UMETA(DisplayName = "Moving")
+    Hit UMETA(DisplayName = "Moving"),
+    Returning UMETA(DisplayName = "Returning"),
 };
