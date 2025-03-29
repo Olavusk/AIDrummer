@@ -81,20 +81,6 @@ void ADataRecorder::EndPlay(const EEndPlayReason::Type EndPlayReason)
 		MIDIBroadcaster->OnMIDINoteEvent.RemoveDynamic(this, &ADataRecorder::OnMIDIEventReceived);
 	}
 
-	if (AnimationSourceActor)
-	{
-		USkeletalMeshComponent *SkeletalMesh = AnimationSourceActor->FindComponentByClass<USkeletalMeshComponent>();
-		if (SkeletalMesh)
-		{
-			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
-			{
-				LiveAnimInstance->OnLiveBoneTransformUpdated.AddDynamic(
-					this,
-					&ADataRecorder::OnBoneTransformUpdated);
-			}
-		}
-	}
-
 	if (Database.IsValid())
 	{
 		UE_LOG(LogTemp, Log, TEXT("Closing SQLite database connection in EndPlay."));
@@ -193,18 +179,6 @@ void ADataRecorder::StopRecording()
 		MIDIBroadcaster->OnMIDINoteEvent.RemoveDynamic(this, &ADataRecorder::OnMIDIEventReceived);
 	}
 
-	if (AnimationSourceActor)
-	{
-		USkeletalMeshComponent *SkeletalMesh = AnimationSourceActor->FindComponentByClass<USkeletalMeshComponent>();
-		if (SkeletalMesh)
-		{
-			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
-			{
-				LiveAnimInstance->OnLiveBoneTransformUpdated.RemoveDynamic(this, &ADataRecorder::OnBoneTransformUpdated);
-			}
-		}
-	}
-
 	if (Database.IsValid())
 	{
 		UE_LOG(LogTemp, Log, TEXT("Closing SQLite database connection in StopRecording."));
@@ -289,37 +263,6 @@ TFuture<void> ADataRecorder::FlushMIDIEventsBufferAsync()
         {
             UE_LOG(LogTemp, Error, TEXT("Failed to execute batched MIDI events insert (Async)."));
         } });
-}
-
-void ADataRecorder::OnBoneTransformUpdated(FName BoneName, FVector LocalPosition, FQuat LocalRotation, FVector LocalScale)
-{
-	if (!bIsRecording)
-		return;
-
-	int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
-
-	FString Row = FString::Printf(
-		TEXT("(%s, %d, '%s', %f, %f, %f, %f, %f, %f, %f, %f, %f, %f)"),
-		*CurrentSessionID,
-		FrameIndex,
-		*BoneName.ToString(),
-		LocalPosition.X,
-		LocalPosition.Y,
-		LocalPosition.Z,
-		LocalRotation.X,
-		LocalRotation.Y,
-		LocalRotation.Z,
-		LocalRotation.W,
-		LocalScale.X,
-		LocalScale.Y,
-		LocalScale.Z);
-
-	AnimationDataBuffer.Add(Row);
-
-	if (AnimationDataBuffer.Num() >= MaxBatchSize)
-	{
-		FlushAnimationDataBuffer();
-	}
 }
 
 void ADataRecorder::FlushAnimationDataBuffer()

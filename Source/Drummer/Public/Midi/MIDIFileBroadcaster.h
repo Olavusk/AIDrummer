@@ -6,7 +6,6 @@
 #include "GameFramework/Actor.h"
 #include "MIDIFileBroadcaster.generated.h"
 
-// Declare a multicast delegate for MIDI file events
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FMIDIFileNoteEvent, int32, Channel, int32, NoteID, int32, Velocity, float, Timestamp);
 
 UCLASS()

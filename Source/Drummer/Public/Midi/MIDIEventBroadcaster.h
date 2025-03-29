@@ -6,7 +6,6 @@
 #include "GameFramework/Actor.h"
 #include "MIDIEventBroadcaster.generated.h"
 
-// Declare the multicast delegate before the class declaration
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FMIDINoteEvent, int32, Channel, int32, NoteID, int32, Velocity, FString, EventType);
 
 UCLASS()

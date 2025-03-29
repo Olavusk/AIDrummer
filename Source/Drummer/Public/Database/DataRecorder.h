@@ -48,9 +48,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Events")
 	void OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, FString EventType);
 
-	UFUNCTION(BlueprintCallable, Category = "Events")
-	void OnBoneTransformUpdated(FName BoneName, FVector LocalPosition, FQuat LocalRotation, FVector LocalScale);
-
 private:
 	// SQLite Database
 	FSQLiteDatabase Database;
