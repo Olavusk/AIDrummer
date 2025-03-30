@@ -8,7 +8,6 @@ void ULiveDrummerAnimInstance::NativeInitializeAnimation()
 {
     Super::NativeInitializeAnimation();
 
-    // You could add initialization logic here if necessary
     UE_LOG(LogTemp, Log, TEXT("LiveDrummerAnimInstance: Initialized and ready to broadcast bone positions."));
 }
 

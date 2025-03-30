@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "MIDIEventBroadcaster.h"
+#include "MIDIFileBroadcaster.h"
 #include "Interfaces/MIDIEventReceiver.h"
 #include "MIDIDrumReceiver.generated.h"
 
@@ -25,6 +26,10 @@ protected:
 	// Reference to MIDI Event Broadcaster
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MIDI")
 	AMIDIEventBroadcaster *MIDIBroadcaster;
+
+	// or MIDI File Broadcaster
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MIDI")
+	AMIDIFileBroadcaster *MIDIFileBroadcaster;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Drum Sounds")
 	USoundBase *KickSound;
@@ -57,7 +62,10 @@ protected:
 	void PlayDrumSound(USoundBase *DrumSound, int32 Velocity);
 
 public:
-	// Handle MIDI events
 	UFUNCTION(BlueprintCallable, Category = "MIDI Events")
 	virtual void OnMIDIEventReceived(int32 Channel, int32 NoteID, int32 Velocity, FString EventType) override;
+
+	// New wrapper for MIDI file events
+	UFUNCTION()
+	void OnMIDIFileEventReceivedWrapper(int32 Channel, int32 NoteID, int32 Velocity, float Timestamp);
 };

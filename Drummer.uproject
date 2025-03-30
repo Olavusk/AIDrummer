@@ -9,7 +9,8 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
-				"Engine"
+				"Engine",
+				"AnimGraph"
 			]
 		}
 	],
@@ -68,6 +69,6 @@
 		{
 			"Name": "SQLiteCore",
 			"Enabled": true
-		},
+		}
 	]
 }
