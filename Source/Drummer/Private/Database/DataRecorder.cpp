@@ -74,8 +74,6 @@ void ADataRecorder::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
 
-	GetWorld()->GetTimerManager().ClearTimer(AnimationTimerHandle);
-
 	if (MIDIBroadcaster)
 	{
 		MIDIBroadcaster->OnMIDINoteEvent.RemoveDynamic(this, &ADataRecorder::OnMIDIEventReceived);
@@ -138,11 +136,6 @@ void ADataRecorder::StartRecording()
 	{
 		MIDIBroadcaster->OnMIDINoteEvent.AddDynamic(this, &ADataRecorder::OnMIDIEventReceived);
 	}
-
-	if (AnimationSourceActor)
-	{
-		GetWorld()->GetTimerManager().SetTimer(AnimationTimerHandle, this, &ADataRecorder::RecordAnimationFrame, 1.0f / 60.0f, true);
-	}
 }
 
 void ADataRecorder::StopRecording()
@@ -152,14 +145,10 @@ void ADataRecorder::StopRecording()
 
 	bIsRecording = false;
 
-	GetWorld()->GetTimerManager().ClearTimer(AnimationTimerHandle);
-
 	// --- Flush leftover MIDI events
-	TFuture<void> AnimFlush = FlushAnimationDataBufferAsync();
 	TFuture<void> MIDIFlush = FlushMIDIEventsBufferAsync();
 
 	// Wait for them to finish
-	AnimFlush.Wait();
 	MIDIFlush.Wait();
 
 	// Update end time
@@ -312,53 +301,33 @@ TFuture<void> ADataRecorder::FlushAnimationDataBufferAsync()
         } });
 }
 
-void ADataRecorder::RecordAnimationFrame()
+void ADataRecorder::OnBoneTransformUpdated(FName BoneName, FVector LocalPosition, FQuat LocalRotation, FVector LocalScale)
 {
 	if (!bIsRecording)
 		return;
 
-	if (AnimationSourceActor)
+	int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
+
+	FString Row = FString::Printf(
+		TEXT("(%s, %d, '%s', %f, %f, %f, %f, %f, %f, %f, %f, %f, %f)"),
+		*CurrentSessionID,
+		FrameIndex,
+		*BoneName.ToString(),
+		LocalPosition.X,
+		LocalPosition.Y,
+		LocalPosition.Z,
+		LocalRotation.X,
+		LocalRotation.Y,
+		LocalRotation.Z,
+		LocalRotation.W,
+		LocalScale.X,
+		LocalScale.Y,
+		LocalScale.Z);
+
+	AnimationDataBuffer.Add(Row);
+
+	if (AnimationDataBuffer.Num() >= MaxBatchSize)
 	{
-		USkeletalMeshComponent *SkeletalMesh = AnimationSourceActor->FindComponentByClass<USkeletalMeshComponent>();
-		if (SkeletalMesh)
-		{
-			int32 NumBones = SkeletalMesh->GetNumBones();
-			// Calculate a frame index (for example, in milliseconds)
-			int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
-
-			// Loop through all bones
-			for (int32 i = 0; i < NumBones; ++i)
-			{
-				FName BoneName = SkeletalMesh->GetBoneName(i);
-				FTransform BoneTransform = SkeletalMesh->GetBoneTransform(i);
-				FVector LocalPosition = BoneTransform.GetLocation();
-				FQuat LocalRotation = BoneTransform.GetRotation();
-				FVector LocalScale = BoneTransform.GetScale3D();
-
-				FString Row = FString::Printf(
-					TEXT("(%s, %d, '%s', %f, %f, %f, %f, %f, %f, %f, %f, %f, %f)"),
-					*CurrentSessionID,
-					FrameIndex,
-					*BoneName.ToString(),
-					LocalPosition.X,
-					LocalPosition.Y,
-					LocalPosition.Z,
-					LocalRotation.X,
-					LocalRotation.Y,
-					LocalRotation.Z,
-					LocalRotation.W,
-					LocalScale.X,
-					LocalScale.Y,
-					LocalScale.Z);
-
-				AnimationDataBuffer.Add(Row);
-			}
-
-			// Flush the buffer if we've reached the batch size
-			if (AnimationDataBuffer.Num() >= MaxBatchSize)
-			{
-				FlushAnimationDataBuffer();
-			}
-		}
+		FlushAnimationDataBuffer();
 	}
 }
