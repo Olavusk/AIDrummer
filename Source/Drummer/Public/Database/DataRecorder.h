@@ -91,7 +91,6 @@ private:
 
 	void FlushMIDIEventsBuffer();
 	TFuture<void> FlushMIDIEventsBufferAsync();
-
 	// Tick function
 	void MetronomeTick();
 };

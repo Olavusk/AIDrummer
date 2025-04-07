@@ -79,6 +79,18 @@ void ADataRecorder::EndPlay(const EEndPlayReason::Type EndPlayReason)
 		MIDIBroadcaster->OnMIDINoteEvent.RemoveDynamic(this, &ADataRecorder::OnMIDIEventReceived);
 	}
 
+	if (AnimationSourceActor)
+	{
+		USkeletalMeshComponent *SkeletalMesh = AnimationSourceActor->FindComponentByClass<USkeletalMeshComponent>();
+		if (SkeletalMesh)
+		{
+			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
+			{
+				LiveAnimInstance->OnLiveBoneTransformUpdated.RemoveDynamic(this, &ADataRecorder::OnBoneTransformUpdated);
+			}
+		}
+	}
+
 	if (Database.IsValid())
 	{
 		UE_LOG(LogTemp, Log, TEXT("Closing SQLite database connection in EndPlay."));
@@ -136,6 +148,20 @@ void ADataRecorder::StartRecording()
 	{
 		MIDIBroadcaster->OnMIDINoteEvent.AddDynamic(this, &ADataRecorder::OnMIDIEventReceived);
 	}
+
+	if (AnimationSourceActor)
+	{
+		USkeletalMeshComponent *SkeletalMesh = AnimationSourceActor->FindComponentByClass<USkeletalMeshComponent>();
+		if (SkeletalMesh)
+		{
+			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
+			{
+				LiveAnimInstance->OnLiveBoneTransformUpdated.AddDynamic(
+					this,
+					&ADataRecorder::OnBoneTransformUpdated);
+			}
+		}
+	}
 }
 
 void ADataRecorder::StopRecording()
@@ -146,9 +172,11 @@ void ADataRecorder::StopRecording()
 	bIsRecording = false;
 
 	// --- Flush leftover MIDI events
+	TFuture<void> AnimFlush = FlushAnimationDataBufferAsync();
 	TFuture<void> MIDIFlush = FlushMIDIEventsBufferAsync();
 
 	// Wait for them to finish
+	AnimFlush.Wait();
 	MIDIFlush.Wait();
 
 	// Update end time
@@ -166,6 +194,18 @@ void ADataRecorder::StopRecording()
 	if (MIDIBroadcaster)
 	{
 		MIDIBroadcaster->OnMIDINoteEvent.RemoveDynamic(this, &ADataRecorder::OnMIDIEventReceived);
+	}
+
+	if (AnimationSourceActor)
+	{
+		USkeletalMeshComponent *SkeletalMesh = AnimationSourceActor->FindComponentByClass<USkeletalMeshComponent>();
+		if (SkeletalMesh)
+		{
+			if (ULiveDrummerAnimInstance *LiveAnimInstance = Cast<ULiveDrummerAnimInstance>(SkeletalMesh->GetAnimInstance()))
+			{
+				LiveAnimInstance->OnLiveBoneTransformUpdated.RemoveDynamic(this, &ADataRecorder::OnBoneTransformUpdated);
+			}
+		}
 	}
 
 	if (Database.IsValid())
@@ -254,6 +294,37 @@ TFuture<void> ADataRecorder::FlushMIDIEventsBufferAsync()
         } });
 }
 
+void ADataRecorder::OnBoneTransformUpdated(FName BoneName, FVector LocalPosition, FQuat LocalRotation, FVector LocalScale)
+{
+	if (!bIsRecording)
+		return;
+
+	int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
+
+	FString Row = FString::Printf(
+		TEXT("(%s, %d, '%s', %f, %f, %f, %f, %f, %f, %f, %f, %f, %f)"),
+		*CurrentSessionID,
+		FrameIndex,
+		*BoneName.ToString(),
+		LocalPosition.X,
+		LocalPosition.Y,
+		LocalPosition.Z,
+		LocalRotation.X,
+		LocalRotation.Y,
+		LocalRotation.Z,
+		LocalRotation.W,
+		LocalScale.X,
+		LocalScale.Y,
+		LocalScale.Z);
+
+	AnimationDataBuffer.Add(Row);
+
+	if (AnimationDataBuffer.Num() >= MaxBatchSize)
+	{
+		FlushAnimationDataBuffer();
+	}
+}
+
 void ADataRecorder::FlushAnimationDataBuffer()
 {
 	if (AnimationDataBuffer.Num() == 0)
@@ -299,35 +370,4 @@ TFuture<void> ADataRecorder::FlushAnimationDataBufferAsync()
         {
             UE_LOG(LogTemp, Error, TEXT("Failed to execute batched animation data insert (Async)."));
         } });
-}
-
-void ADataRecorder::OnBoneTransformUpdated(FName BoneName, FVector LocalPosition, FQuat LocalRotation, FVector LocalScale)
-{
-	if (!bIsRecording)
-		return;
-
-	int32 FrameIndex = FMath::RoundToInt((GetWorld()->GetTimeSeconds() - StartRecordingTime) * 1000);
-
-	FString Row = FString::Printf(
-		TEXT("(%s, %d, '%s', %f, %f, %f, %f, %f, %f, %f, %f, %f, %f)"),
-		*CurrentSessionID,
-		FrameIndex,
-		*BoneName.ToString(),
-		LocalPosition.X,
-		LocalPosition.Y,
-		LocalPosition.Z,
-		LocalRotation.X,
-		LocalRotation.Y,
-		LocalRotation.Z,
-		LocalRotation.W,
-		LocalScale.X,
-		LocalScale.Y,
-		LocalScale.Z);
-
-	AnimationDataBuffer.Add(Row);
-
-	if (AnimationDataBuffer.Num() >= MaxBatchSize)
-	{
-		FlushAnimationDataBuffer();
-	}
 }
