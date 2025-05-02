@@ -8,6 +8,7 @@
 #include "Characters/Drummers/MIDIDrummerTypes.h"
 #include "ModularLinearDrummer.generated.h"
 
+class BoneToModuleMap;
 UCLASS()
 class DRUMMER_API AModularLinearDrummer : public ACharacter
 {
@@ -56,7 +57,12 @@ public:
 
 	// Optional: a mapping from bone name to module.
 	// This could be defined in code or loaded from a config.
+	UPROPERTY(BlueprintReadOnly, Category = "Drummer|Config")
 	TMap<FName, FString> BoneToModuleMap;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Drummer|Config")
+	TMap<FName, FName> BoneRetargetMap;
+
 	TMap<int32, TArray<int32>> FrameIndexToMidiNote;
 
 	// Loads animation frames from the SQL database.
