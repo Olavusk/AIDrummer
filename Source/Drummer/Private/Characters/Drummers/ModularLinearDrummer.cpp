@@ -1,4 +1,5 @@
 #include "Characters/Drummers/ModularLinearDrummer.h"
+#include "Math/UnrealMathUtility.h"
 #include "Characters/Drummers/ModularLinearDrummerAnimInstance.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "HAL/PlatformFilemanager.h"
@@ -9,7 +10,7 @@
 AModularLinearDrummer::AModularLinearDrummer()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	DatabasePath = FPaths::ProjectContentDir() + TEXT("Database/drummer_data.db");
+	DatabasePath = FPaths::ProjectContentDir() + TEXT("Database/drummer_data2.db");
 	bDatabaseOpen = false;
 	CurrentTargetFrameIndex = 0;
 
@@ -50,6 +51,24 @@ void AModularLinearDrummer::BeginPlay()
 
 		// Set up default idle poses for all modules.
 		SetupDefaultIdlePoses();
+		// Collect all body module poses for random sampling
+		BodyPoses.Empty();
+		for (auto &FramePair : AnimationFrames)
+		{
+			TMap<FName, FTransform> Pose;
+			for (auto &BonePair : FramePair.Value)
+			{
+				if (BoneToModuleMap.Contains(BonePair.Key) && BoneToModuleMap[BonePair.Key] == TEXT("Body"))
+				{
+					Pose.Add(BonePair.Key, BonePair.Value);
+				}
+			}
+			if (Pose.Num() > 0)
+			{
+				BodyPoses.Add(Pose);
+			}
+		}
+		UE_LOG(LogTemp, Log, TEXT("Collected %d body poses for random sampling."), BodyPoses.Num());
 	}
 	else
 	{
@@ -117,7 +136,7 @@ void AModularLinearDrummer::LoadAnimationFromDatabase()
 		"FROM AnimationData "
 		"INNER JOIN MIDIEvents ON MIDIEvents.SessionID = AnimationData.SessionID "
 		"AND MIDIEvents.FrameIndex = AnimationData.FrameIndex "
-		"WHERE AnimationData.SessionID = 9 "
+		"WHERE AnimationData.SessionID = 6 "
 		"ORDER BY AnimationData.FrameIndex;");
 
 	FSQLitePreparedStatement Statement;
@@ -296,6 +315,14 @@ void AModularLinearDrummer::OnMIDINoteReceived(int32 Channel, int32 NoteID, int3
 		else
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Failed to get animation frame data for frame %d"), SelectedFrameIndex);
+		}
+
+		// Pick a random body pose and trigger a body "hit"
+		if (BodyPoses.Num() > 0)
+		{
+			int32 RandIndex = FMath::RandRange(0, BodyPoses.Num() - 1);
+			TargetModulePoses.Add(TEXT("Body"), BodyPoses[RandIndex]);
+			ModuleRulesManager.SetModuleStatus(TEXT("Body"), EModuleState::Hit);
 		}
 
 		// Log the current status of each module using the ModuleRulesManager.

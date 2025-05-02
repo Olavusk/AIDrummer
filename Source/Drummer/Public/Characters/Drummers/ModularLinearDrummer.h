@@ -74,4 +74,7 @@ private:
 
 	// Database handle, etc.
 	FSQLiteDatabase Database;
+
+	// Preloaded body poses for random selection
+	TArray<TMap<FName, FTransform>> BodyPoses;
 };

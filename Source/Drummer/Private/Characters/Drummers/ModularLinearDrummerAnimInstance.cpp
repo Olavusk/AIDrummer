@@ -4,6 +4,7 @@
 #include "Characters/Drummers/ModularLinearDrummerAnimInstanceProxy.h"
 #include "Animation/AnimSequenceHelpers.h"
 #include "DrumRules/DrumModuleRules.h" // For FDrumModuleRule and FDrumModuleRulesManager
+#include "Math/UnrealMathUtility.h"
 
 void UModularLinearDrummerAnimInstance::NativeInitializeAnimation()
 {
@@ -189,6 +190,22 @@ void UModularLinearDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
             BlendedTransform.SetLocation(FMath::Lerp(CurrentTransform.GetLocation(), TargetTransform.GetLocation(), ModulePose.InterpAlpha));
             BlendedTransform.SetRotation(FQuat::Slerp(CurrentTransform.GetRotation(), TargetTransform.GetRotation(), ModulePose.InterpAlpha));
             BlendedTransform.SetScale3D(FMath::Lerp(CurrentTransform.GetScale3D(), TargetTransform.GetScale3D(), ModulePose.InterpAlpha));
+
+            // Clamp Hips translation to within MaxHipsOffset of base pose
+            if (BoneName == TEXT("Hips"))
+            {
+                const FModulePose &Pose = ModulePose;
+                if (const FTransform *BaseHips = Pose.BasePose.Find(BoneName))
+                {
+                    FVector BaseLoc = BaseHips->GetLocation();
+                    FVector CurrLoc = BlendedTransform.GetLocation();
+                    FVector Delta = CurrLoc - BaseLoc;
+                    Delta.X = FMath::Clamp(Delta.X, -MaxHipsOffset.X, MaxHipsOffset.X);
+                    Delta.Y = FMath::Clamp(Delta.Y, -MaxHipsOffset.Y, MaxHipsOffset.Y);
+                    Delta.Z = FMath::Clamp(Delta.Z, -MaxHipsOffset.Z, MaxHipsOffset.Z);
+                    BlendedTransform.SetLocation(BaseLoc + Delta);
+                }
+            }
 
             ModulePose.CurrentPose.Add(BoneName, BlendedTransform);
         }
