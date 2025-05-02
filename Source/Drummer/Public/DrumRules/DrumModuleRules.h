@@ -151,10 +151,10 @@ public:
             {
                 return "LeftArm";
             }
-            if (ModuleRules.Contains("RightArm") && ModuleRules["RightArm"].Status != EModuleState::Hit)
-            {
-                return "RightArm";
-            }
+            // if (ModuleRules.Contains("RightArm") && ModuleRules["RightArm"].Status != EModuleState::Hit)
+            // {
+            //     return "RightArm";
+            // }
             break;
 
         case 41: // Low Floor Tom (Check RightArm first, then LeftArm)
@@ -194,10 +194,10 @@ public:
             {
                 return "RightArm";
             }
-            if (ModuleRules.Contains("LeftArm") && ModuleRules["LeftArm"].Status != EModuleState::Hit)
-            {
-                return "LeftArm";
-            }
+            // if (ModuleRules.Contains("LeftArm") && ModuleRules["LeftArm"].Status != EModuleState::Hit)
+            // {
+            //     return "LeftArm";
+            // }
             break;
 
         case 46: // Open Hi-hat

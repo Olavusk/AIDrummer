@@ -71,21 +71,52 @@ void UModularLinearDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
         }
     }
 
-    // --- Sync Target Poses from the Actor ---
+    // Sync new Hit Target Poses from the Actor ---
     for (const auto &ActorPair : ModularLinearDrummer->TargetModulePoses)
     {
         const FString &ModuleName = ActorPair.Key;
-        const TMap<FName, FTransform> &NewTargetPose = ActorPair.Value;
-        if (ModulePoses.Contains(ModuleName))
+        // Initialize module if missing
+        if (!ModulePoses.Contains(ModuleName))
         {
-            ModulePoses[ModuleName].TargetPose = NewTargetPose;
-        }
-        else
-        {
+            const auto &InitialPose = ActorPair.Value;
             FModulePose NewModulePose;
-            NewModulePose.CurrentPose = NewTargetPose;
-            NewModulePose.TargetPose = NewTargetPose;
+            NewModulePose.CurrentPose = InitialPose;
+            NewModulePose.TargetPose = InitialPose;
+            NewModulePose.BasePose = InitialPose;
             ModulePoses.Add(ModuleName, NewModulePose);
+            continue;
+        }
+
+        const auto *Rule = ModularLinearDrummer->ModuleRulesManager.ModuleRules.Find(ModuleName);
+        if (Rule && Rule->Status == EModuleState::Hit)
+        {
+            FModulePose &Pose = ModulePoses[ModuleName];
+            // Manually compare poses (I could maybe create a function for this)
+            {
+                const TMap<FName, FTransform> &NewPose = ActorPair.Value;
+                const TMap<FName, FTransform> &OldPose = Pose.TargetPose;
+                bool bSame = (OldPose.Num() == NewPose.Num());
+                if (bSame)
+                {
+                    for (const auto &OldPair : OldPose)
+                    {
+                        const FTransform *Found = NewPose.Find(OldPair.Key);
+                        if (!Found || !OldPair.Value.Equals(*Found))
+                        {
+                            bSame = false;
+                            break;
+                        }
+                    }
+                }
+                if (!bSame)
+                {
+                    Pose.BasePose = Pose.CurrentPose;
+                    Pose.InterpDuration = Rule->DefaultInterpDuration;
+                    Pose.TargetPose = ActorPair.Value;
+                    Pose.InterpTime = 0.f;
+                    Pose.InterpAlpha = 0.f;
+                }
+            }
         }
     }
 
@@ -104,12 +135,12 @@ void UModularLinearDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
 
         if (CurrentState == EModuleState::Hit)
         {
-            // Accelerate towards the Hit position using an ease-in curve.
+            // Accelerate towards the Hit position using an ease-out curve.
             ModulePose.InterpTime += DeltaTime;
             float RawAlpha = ModulePose.InterpTime / ModulePose.InterpDuration;
             RawAlpha = FMath::Clamp(RawAlpha, 0.f, 1.f);
-            // Using an exponent of 2.0 to emphasize acceleration
-            float SmoothedAlpha = FMath::InterpEaseIn(0.f, 1.f, RawAlpha, 2.0f);
+            // Using an exponent of 2.0 to emphasize acceleration (ease-out)
+            float SmoothedAlpha = FMath::InterpEaseOut(0.f, 1.f, RawAlpha, 2.0f);
             ModulePose.InterpAlpha = SmoothedAlpha;
 
             // When Hit interpolation completes, transition to Returning.
@@ -126,7 +157,7 @@ void UModularLinearDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
         {
             // Decelerate smoothly towards the Idle (base) position using an ease-out curve.
             ModulePose.InterpTime += DeltaTime;
-            float ReturnDuration = ModulePose.InterpDuration; // You can adjust this if needed for a different return time.
+            float ReturnDuration = ModulePose.InterpDuration;
             float RawAlpha = ModulePose.InterpTime / ReturnDuration;
             RawAlpha = FMath::Clamp(RawAlpha, 0.f, 1.f);
             // Using an exponent of 2.0 to emphasize deceleration
@@ -163,7 +194,7 @@ void UModularLinearDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
         }
     }
 
-    // --- Combine All Module Poses into One Overall Pose ---
+    // Combine All Module Poses into One Overall Pose
     TMap<FName, FTransform> CombinedPose;
     for (const auto &ModulePair : ModulePoses)
     {
