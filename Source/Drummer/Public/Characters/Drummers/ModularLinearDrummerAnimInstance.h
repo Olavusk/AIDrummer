@@ -60,6 +60,10 @@ protected:
 	virtual void NativeUpdateAnimation(float DeltaTime) override;
 	virtual FAnimInstanceProxy *CreateAnimInstanceProxy() override;
 
+	// Maximum allowed translation offset from base for the Hips bone
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Clamping")
+	FVector MaxHipsOffset = FVector(0.5f, 5.f, 0.5f);
+
 private:
 	// Helper: Interpolate between two transforms.
 	FTransform LerpTransform(const FTransform &A, const FTransform &B, float Alpha);

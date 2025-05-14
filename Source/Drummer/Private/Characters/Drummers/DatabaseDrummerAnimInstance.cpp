@@ -42,7 +42,7 @@ void UDatabaseDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
 
     // Update at 30 FPS.
     FrameTimeAccumulator += DeltaTime;
-    const float FrameDuration = 1.0f / 30.0f;
+    const float FrameDuration = 1.0f / 100.0f;
 
     if (FrameTimeAccumulator >= FrameDuration)
     {
@@ -60,7 +60,7 @@ void UDatabaseDrummerAnimInstance::NativeUpdateAnimation(float DeltaTime)
             AnimationDataModel->UpdateFromFrameData(FrameData);
 
             // Compute sample time. (Here, simply using CurrentFrameIndex / 30.0f)
-            float SampleTime = CurrentFrameIndex / 30.0f;
+            float SampleTime = CurrentFrameIndex / 100.0f;
 
             // Get the bone container.
             const FBoneContainer &BoneContainer = GetRequiredBones();

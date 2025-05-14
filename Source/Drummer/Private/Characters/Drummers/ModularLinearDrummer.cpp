@@ -1,90 +1,33 @@
 #include "Characters/Drummers/ModularLinearDrummer.h"
+#include "Math/UnrealMathUtility.h"
 #include "Characters/Drummers/ModularLinearDrummerAnimInstance.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "HAL/PlatformFilemanager.h"
+#include "Characters/Mappings/BoneToModuleRow.h"
 #include "Misc/Paths.h"
 #include "Engine/Engine.h"
 
 AModularLinearDrummer::AModularLinearDrummer()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	DatabasePath = FPaths::ProjectContentDir() + TEXT("Database/drummer_data.db");
+	DatabasePath = FPaths::ProjectContentDir() + TEXT("Database/drummer_data2.db");
 	bDatabaseOpen = false;
 	CurrentTargetFrameIndex = 0;
 
 	// Set up bone-to-module mapping.
-	// Right Leg
-	BoneToModuleMap.Add(TEXT("RightThigh"), TEXT("RightLeg"));
-	BoneToModuleMap.Add(TEXT("RightShin"), TEXT("RightLeg"));
-	BoneToModuleMap.Add(TEXT("RightFoot"), TEXT("RightLeg"));
-	BoneToModuleMap.Add(TEXT("RightToe"), TEXT("RightLeg"));
-
-	// Left Leg
-	BoneToModuleMap.Add(TEXT("LeftThigh"), TEXT("LeftLeg"));
-	BoneToModuleMap.Add(TEXT("LeftShin"), TEXT("LeftLeg"));
-	BoneToModuleMap.Add(TEXT("LeftFoot"), TEXT("LeftLeg"));
-	BoneToModuleMap.Add(TEXT("LeftToe"), TEXT("LeftLeg"));
-
-	// Right Arm (and fingers)
-	BoneToModuleMap.Add(TEXT("RightShoulder"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightArm"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightForeArm"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightHand"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger1Metacarpal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger1Proximal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger1Distal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger2Metacarpal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger2Proximal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger2Medial"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger2Distal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger3Metacarpal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger3Proximal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger3Medial"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger3Distal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger4Metacarpal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger4Proximal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger4Medial"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger4Distal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger5Metacarpal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger5Proximal"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger5Medial"), TEXT("RightArm"));
-	BoneToModuleMap.Add(TEXT("RightFinger5Distal"), TEXT("RightArm"));
-
-	// Left Arm (and fingers)
-	BoneToModuleMap.Add(TEXT("LeftShoulder"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftArm"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftForeArm"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftHand"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger1Metacarpal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger1Proximal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger1Distal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger2Metacarpal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger2Proximal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger2Medial"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger2Distal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger3Metacarpal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger3Proximal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger3Medial"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger3Distal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger4Metacarpal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger4Proximal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger4Medial"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger4Distal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger5Metacarpal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger5Proximal"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger5Medial"), TEXT("LeftArm"));
-	BoneToModuleMap.Add(TEXT("LeftFinger5Distal"), TEXT("LeftArm"));
-
-	// Body
-	BoneToModuleMap.Add(TEXT("Base"), TEXT("Body"));
-	BoneToModuleMap.Add(TEXT("Hips"), TEXT("Body"));
-	BoneToModuleMap.Add(TEXT("Spine1"), TEXT("Body"));
-	BoneToModuleMap.Add(TEXT("Spine2"), TEXT("Body"));
-	BoneToModuleMap.Add(TEXT("Spine3"), TEXT("Body"));
-	BoneToModuleMap.Add(TEXT("Spine4"), TEXT("Body"));
-	BoneToModuleMap.Add(TEXT("Neck"), TEXT("Body"));
-	BoneToModuleMap.Add(TEXT("Head"), TEXT("Body"));
-
+	UDataTable *BoneModuleDataTable = LoadObject<UDataTable>(nullptr, TEXT("/Game/Blueprints/Characters/DT_BoneToModuleMap.DT_BoneToModuleMap"));
+	if (BoneModuleDataTable)
+	{
+		TArray<FBoneToModuleRow *> AllRows;
+		BoneModuleDataTable->GetAllRows(TEXT("BoneToModuleMap"), AllRows);
+		for (FBoneToModuleRow *Row : AllRows)
+		{
+			if (Row)
+			{
+				BoneToModuleMap.Add(Row->BoneName, Row->ModuleName);
+			}
+		}
+	}
 	// Removed local ModuleStates.
 	// The ModuleRulesManager already initializes module statuses.
 }
@@ -108,6 +51,24 @@ void AModularLinearDrummer::BeginPlay()
 
 		// Set up default idle poses for all modules.
 		SetupDefaultIdlePoses();
+		// Collect all body module poses for random sampling
+		BodyPoses.Empty();
+		for (auto &FramePair : AnimationFrames)
+		{
+			TMap<FName, FTransform> Pose;
+			for (auto &BonePair : FramePair.Value)
+			{
+				if (BoneToModuleMap.Contains(BonePair.Key) && BoneToModuleMap[BonePair.Key] == TEXT("Body"))
+				{
+					Pose.Add(BonePair.Key, BonePair.Value);
+				}
+			}
+			if (Pose.Num() > 0)
+			{
+				BodyPoses.Add(Pose);
+			}
+		}
+		UE_LOG(LogTemp, Log, TEXT("Collected %d body poses for random sampling."), BodyPoses.Num());
 	}
 	else
 	{
@@ -175,7 +136,7 @@ void AModularLinearDrummer::LoadAnimationFromDatabase()
 		"FROM AnimationData "
 		"INNER JOIN MIDIEvents ON MIDIEvents.SessionID = AnimationData.SessionID "
 		"AND MIDIEvents.FrameIndex = AnimationData.FrameIndex "
-		"WHERE AnimationData.SessionID = 9 "
+		"WHERE AnimationData.SessionID = 6 "
 		"ORDER BY AnimationData.FrameIndex;");
 
 	FSQLitePreparedStatement Statement;
@@ -354,6 +315,14 @@ void AModularLinearDrummer::OnMIDINoteReceived(int32 Channel, int32 NoteID, int3
 		else
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Failed to get animation frame data for frame %d"), SelectedFrameIndex);
+		}
+
+		// Pick a random body pose and trigger a body "hit"
+		if (BodyPoses.Num() > 0)
+		{
+			int32 RandIndex = FMath::RandRange(0, BodyPoses.Num() - 1);
+			TargetModulePoses.Add(TEXT("Body"), BodyPoses[RandIndex]);
+			ModuleRulesManager.SetModuleStatus(TEXT("Body"), EModuleState::Hit);
 		}
 
 		// Log the current status of each module using the ModuleRulesManager.
