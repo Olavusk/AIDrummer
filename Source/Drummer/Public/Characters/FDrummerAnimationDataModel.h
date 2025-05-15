@@ -27,7 +27,6 @@ public:
     virtual FFrameRate GetFrameRate() const override { return FFrameRate(30, 1); }
 
     // Return the bone transform for a given bone name at the given frame time.
-    // (For a real implementation, we might support interpolation between frames.)
     virtual FTransform EvaluateBoneTrackTransform(FName TrackName, const FFrameTime &FrameTime, const EAnimInterpolationType &Interpolation) const override
     {
         const FTransform *Found = RawData.Find(TrackName);
